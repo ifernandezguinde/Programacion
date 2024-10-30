@@ -30,6 +30,10 @@ public class Game {
      * Constante que define o valor máximo da coordenada x no panel de cadrados
      */
     public final static int MAX_X = 160;
+    /**
+     * Constante que define o valor máximo da coordenada y no panel de cadrados
+     */
+    public final static int MAX_Y = 200;
 
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
@@ -152,9 +156,10 @@ public class Game {
      * @return true se esa posición é válida, se non false
      */
     public boolean isValidPosition(int x, int y) {
-        //cambiar "y" e poñelo nunha constante
-        if ((x == MAX_X) || (x < 0) || (y == 200)){
+        if ((x == MAX_X) || (x < 0) || (y ==200)){
             return false;
+        } else if ((y == MAX_Y) || (y < 0) || (x == 160)) {
+        return false;
         }
         return true;
     }
@@ -163,6 +168,12 @@ public class Game {
      * Crea unha nova peza e a establece como peza actual do xogo
      */
     private void createNewPiece() {
+        Piece square = new Piece(this);
+        
+    }
+
+    public Game(Piece currentPiece) {
+        this.currentPiece = currentPiece;
     }
 
     /**
