@@ -5,7 +5,8 @@
 package matriz;
 
 /**
- *
+ * mostra por pantala unha matriz de 5x5 que empeza en 10 e vai decrementando 1
+ * en fila e columna
  * @author ivan
  */
 public class Matriz {
@@ -14,10 +15,14 @@ public class Matriz {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
- 
-        for (int i=10; i>5; i--) {
-            System.out.println(+i);
+        //creamos un bucle for dentro de outro, un define as filas "f" e 
+        //o outro as columnas "c"
+        for (int f = 0; f < 5; f++) {
+            for (int c = 0; c < 5; c++) {
+                System.out.print((10 - (f + c)) + " ");
+            }
+            // facemos un salto de liña despois de cada fila
+            System.out.println();
         }
-    }
-    
+    }   
 }
