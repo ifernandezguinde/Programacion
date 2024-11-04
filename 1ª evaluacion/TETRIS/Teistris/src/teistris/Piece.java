@@ -119,6 +119,7 @@ public class Piece {
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
+     * @param game 
      */
     public Piece(Game game) {
         this.game = game;
@@ -157,8 +158,9 @@ public class Piece {
      */
     public boolean moveDown() { //to do
         if (game.isValidPosition(0, 0)) {
-        return true;
+            boolean move = true;
         }
+        return move;
     }
 
     /**
