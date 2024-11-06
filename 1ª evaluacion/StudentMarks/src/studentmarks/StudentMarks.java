@@ -22,7 +22,7 @@ public class StudentMarks {
      * dalle un valor a Marks e a Names
      */
     public StudentMarks() {
-        get_NamesAndMarks();
+        getNamesAndMarks();
     }
 
     /**
@@ -61,7 +61,7 @@ public class StudentMarks {
         this.names = names;
     }
 
-    private void get_NamesAndMarks() {
+    private void getNamesAndMarks() {
         Scanner scan = new Scanner(System.in);
 
         for (int i = 0; i < TAMANO ; i++) {
@@ -70,7 +70,6 @@ public class StudentMarks {
             System.out.println("nota do alumno: ");
             marks[i] = scan.nextInt();
             scan.nextLine();
-            System.out.println(i);
         }
     }
 
@@ -104,9 +103,8 @@ public class StudentMarks {
     public static void main(String[] args) {
         StudentMarks notas = new StudentMarks();
         
-        notas.get_NamesAndMarks();
         System.out.println("nota mínima: " + notas.min());
-        System.out.println("nota mínima: " + notas.max());
+        System.out.println("nota máxima: " + notas.max());
 
     }
 
