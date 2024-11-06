@@ -64,6 +64,8 @@ public class StudentMarks {
     private void getNamesAndMarks() {
         Scanner scan = new Scanner(System.in);
 
+        // pide por panalla o nome do alumo coa sua nota e gardaos no
+        // array correspondente
         for (int i = 0; i < TAMANO ; i++) {
             System.out.println("nome do alumno: ");
             names[i] = scan.nextLine();
@@ -73,9 +75,18 @@ public class StudentMarks {
         }
     }
 
+    /**
+     * calcula a nota mais baixa de todo o array
+     * @return o nome do almno coa nota máis baixa
+     */
     public String min() {
+        // declaramos e inicializamos as variables para a nota máis baixa
+        // e para a posición que ocupa no array
         int min = 10;
         int posicion = 0;
+        
+        // compara as notas, garda a mais baixa en min e a posición que ocupa no
+        // array gardaa en posicion
         for (int i = 0; i < marks.length; i++) {
             if (min > marks[i]) {
                 min = marks[i];
@@ -85,9 +96,18 @@ public class StudentMarks {
         return names[posicion];
     }
 
+    /**
+     * calcula a nota mais alta de todo o array
+     * @return o nome do alumno coa nota máis alta
+     */
     public String max() {
+        // declaramos e inicializamos as variables para a nota máis alta
+        // e para a posición que ocupa no array
         int max = 1;
         int posicion = 0;
+        
+        // compara as notas, garda a mais alta en max e a posición que ocupa no
+        // array gardaa en posicion
         for (int i = 0; i < marks.length; i++) {
             if (max < marks[i]) {
                 max = marks[i];
@@ -103,8 +123,10 @@ public class StudentMarks {
     public static void main(String[] args) {
         StudentMarks notas = new StudentMarks();
         
-        System.out.println("nota mínima: " + notas.min());
-        System.out.println("nota máxima: " + notas.max());
+        // mandamos que nos mostre por pantalla o nome do alumno ca nota máis
+        // baixa e máis alta invocando os métodos creados
+        System.out.println("nota máis baixa é a de: " + notas.min());
+        System.out.println("nota máis alta é a de: " + notas.max());
 
     }
 
