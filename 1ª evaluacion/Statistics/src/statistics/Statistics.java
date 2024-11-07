@@ -11,38 +11,33 @@ import java.util.Scanner;
  */
 public class Statistics {
     Scanner scan = new Scanner(System.in);
-
-    
     
     // declaramos a variable que nos indicará as posicións do array
-    private int n;
-
-    System.out.println("indica cantos números vas a introducir: ");
-    n = scan.nextInt();
+    private int N;
     // creamos o array
-    private int numbers[] = new int[n];
+    private int numbers[] = new int[N];
 
     /**
-     * da un valor a numeros
+     * da un valor a N
      */
     public Statistics() {
         getCuantity();
     }
 
     /**
-     * devolde o valor de n
+     * devolde o valor de N
      * @return 
      */
     public int getN() {
-        return n;
+        return N;
     }
 
     /**
-     * modifica o valor de n
-     * @param n 
+     * modifica o valor de N
+     * @param N 
      */
-    public void setN(int n) {
-        this.n = n;
+    public void setN(int N) {
+        this.N = N;
     }
 
     /**
@@ -63,27 +58,31 @@ public class Statistics {
     
     
     private void getCuantity() {
-        
-        
+        System.out.println("indica cantos números vas a introducir: ");
+        N = scan.nextInt();
+        while (N % 2 == 0) {
+            System.out.println("o número ten que ser impar");
+            System.out.println("introduce outro número: ");
+            N = scan.nextInt();
+        }
     }
     
     
     private int median() {
-        Scanner scan = new Scanner(System.in);
-        
-        System.out.println("indica cantos números vas a introducir: ");
-        n = scan.nextInt();
-        
-        do {
-            System.out.println("");
-        }
+        //declaramos e inicializamos a variable na que gardaremos o número meidan
+        int numberMedian = 0;
         
         for (int i = 0; i < numbers.length; i++) {
             System.out.println("introduce o " + (i + 1) + "º número: ");
             numbers[i] = scan.nextInt();
         }
-        //declaramos e inicializamos a variable na que gardaremos o número meidan
-        int numberMedian = 0;
+        
+        for (int i = 0; i < numbers.length; i++) {
+            if (i == (numbers.length / 2)) {
+                numberMedian = numbers[i];
+            }
+        }
+        return numberMedian;       
     }
 
 
@@ -91,13 +90,10 @@ public class Statistics {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
         Statistics case1 = new Statistics();
         
-        do{
-            System.out.println("indica cantos números vas a introducir: ");
-            n = scan.nextInt();
-        }
+        case1.getCuantity();
+        case1.median();
+        System.out.println("a mediana é: " +case1.median());
     }
-    
 }
