@@ -10,35 +10,16 @@ import java.util.Scanner;
  * @author ivan.fernandezguinde
  */
 public class Statistics {
-    Scanner scan = new Scanner(System.in);
-    
-    // declaramos a variable que nos indicará as posicións do array
-    private int N;
     // creamos o array
-    private int numbers[] = new int[N];
+    private int numbers[];
 
     /**
      * da un valor a N
      */
     public Statistics() {
-        getCuantity();
+        
     }
 
-    /**
-     * devolde o valor de N
-     * @return 
-     */
-    public int getN() {
-        return N;
-    }
-
-    /**
-     * modifica o valor de N
-     * @param N 
-     */
-    public void setN(int N) {
-        this.N = N;
-    }
 
     /**
      * devolve o valor de numbers
@@ -58,28 +39,37 @@ public class Statistics {
     
     
     private void getCuantity() {
-        System.out.println("indica cantos números vas a introducir: ");
-        N = scan.nextInt();
-        while (N % 2 == 0) {
+        int N;
+        Scanner scan = new Scanner(System.in);
+        //pide a lonxitude do array
+        do {
             System.out.println("o número ten que ser impar");
-            System.out.println("introduce outro número: ");
+            System.out.println("indica cantos números vas a introducir: ");
             N = scan.nextInt();
-        }
+        } while (N % 2 == 0);
+        
+        numbers = new int[N];
     }
     
-    
-    private int median() {
-        //declaramos e inicializamos a variable na que gardaremos o número meidan
-        int numberMedian = 0;
-        
+    private void fill() {
+        Scanner scan = new Scanner(System.in);
+        // pide por teclado os números que van en cada posición do array
         for (int i = 0; i < numbers.length; i++) {
             System.out.println("introduce o " + (i + 1) + "º número: ");
             numbers[i] = scan.nextInt();
         }
+    }
+    
+    private int median() {
+        //declaramos e inicializamos a variable na que gardaremos o número meidan
+        int numberMedian = 0;
+        int numbersUp, numbersDown;
         
         for (int i = 0; i < numbers.length; i++) {
-            if (i == (numbers.length / 2)) {
-                numberMedian = numbers[i];
+            if (numbers[N] < numbers[i]) {
+                numbersUp += numbers[i];
+            } else {
+                numbersDown += numbers[i];
             }
         }
         return numberMedian;       
@@ -92,8 +82,12 @@ public class Statistics {
     public static void main(String[] args) {
         Statistics case1 = new Statistics();
         
+        // invocamos o método getCuantity para darlle un tamaño o array
         case1.getCuantity();
-        case1.median();
+        // invocamos o método fill para rellenar o array        
+        case1.fill();
+        //mandámoslle que nos mostre por teclado o resultado do método median
+        // que nos devolve a media do array
         System.out.println("a mediana é: " +case1.median());
     }
 }
