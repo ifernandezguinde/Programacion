@@ -51,7 +51,7 @@ public class Statistics {
         numbers = new int[N];
     }
     
-    private void fill() {
+    private void fill() { //poñer para que os guarde en posicions aleatorias
         Scanner scan = new Scanner(System.in);
         // pide por teclado os números que van en cada posición do array
         for (int i = 0; i < numbers.length; i++) {
