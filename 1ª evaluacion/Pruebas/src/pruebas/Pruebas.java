@@ -37,3 +37,30 @@ public class Pruebas {
     }
 
 }
+
+
+    private int median() {
+        // declaramos unha variable na que gardaremos o número que sea a mediana
+        int numberMedian = 0;
+
+        for (int i = 0; i < numbers.length; i++) {
+            int numbersUp = 0;
+            int numbersDown = 0;
+
+            // comparamos si os números dentro do array son maiores ou menores
+            // e gardámolos
+            for (int j = 0; j < numbers.length; j++) {
+                if (numbers[i] < numbers[j]) {
+                    numbersUp++;
+                } else if (numbers[i] > numbers[j]) {
+                    numbersDown++;
+                }
+            }
+
+            // se hay tantos números maiores como menores entón é a mediana
+            if (numbersUp == numbersDown) {
+                numberMedian = numbers[i];
+            }
+        }
+        return numberMedian;
+     
