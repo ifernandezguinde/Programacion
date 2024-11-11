@@ -51,7 +51,7 @@ public class Statistics {
         numbers = new int[N];
     }
     
-    private void fill() { //poñer para que os guarde en posicions aleatorias
+    private void fill() {
         Scanner scan = new Scanner(System.in);
         // pide por teclado os números que van en cada posición do array
         for (int i = 0; i < numbers.length; i++) {
@@ -63,13 +63,12 @@ public class Statistics {
     private int median() {
         //declaramos e inicializamos a variable na que gardaremos o número meidan
         int numberMedian = 0;
-        int numbersUp, numbersDown;
         
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[N] < numbers[i]) {
-                numbersUp += numbers[i];
+            if ( numbers[i] < numbers.length) {
+                int numbersUp += numbers[i];
             } else {
-                numbersDown += numbers[i];
+                int numbersDown += numbers[i];
             }
         }
         return numberMedian;       
