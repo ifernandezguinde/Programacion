@@ -81,6 +81,11 @@ public class Matrix {
         return result;
     }
         
+    /**
+     * resta as matrices e devolve unha nova co resultado
+     * @param other
+     * @return 
+     */
     public Matrix substract(Matrix other) {
         Matrix result = new Matrix();
         
