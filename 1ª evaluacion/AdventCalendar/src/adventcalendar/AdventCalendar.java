@@ -42,8 +42,9 @@ public class AdventCalendar {
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 6; j++) {
                 int value = new java.util.Random().nextInt(MAX);
+                // to do
                 if () {
-                    days[i][j] = value; 
+                    j = value; 
                 }
             }
         }
@@ -67,7 +68,7 @@ public class AdventCalendar {
         // que teña o menor número
         for (int i = 0; i < days.length; i++) {
             for (int j = 0; j < days.length; j++) {
-                if (days[j] < days[][]) {
+                if (days[j] < days) {
                     int min = j;
                 }
             }
