@@ -36,8 +36,18 @@ public class AdventCalendar {
         this.days = days;
     }
     
+    private boolean repeatValue(int value) {
+        for (int i = 0; i < 6; i++){
+            for (int j = 0; j < 4; j++) {
+                if (days[i][j] == value) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+    
     private void fill() {
-        int usedValues = 0;
         int value;
         // enche a matriz con valores aleatorios entre 1 e 24 sin que se repitan
         // nin se introduzan nunha posicion do array que esté ocupada
@@ -45,11 +55,8 @@ public class AdventCalendar {
             for (int j = 0; j < 4; j++) {
                 do {
                     value = new java.util.Random().nextInt(MAX) + 1;
-                } while (value != usedValues);
-                if (value != days[i][j]) {
+                } while (repeatValue(value));
                     days[i][j] = value;
-                    usedValues += value;
-                }
             }
         }
     }
@@ -69,21 +76,33 @@ public class AdventCalendar {
     private void eat() {
         
         // come un elemento convertindo o seu valor a 0 no elemento da matriz
-        // que teña o menor número
-        for (int[] day : days) {
-            for (int j = 0; j < days.length; j++) {
-                if (days[j] < days) {
-                    int min = j;
+        // que teña o menor número e mostra o array por pantalla ata que todas
+        // as posicións do array sexan 0
+        if (christmasIsHere() == false) {
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 4; j++) {
+                   if (days[i][j] < days[i][j]) {
+                       days[i][j] = 0;
+                   }
                 }
-            }
+            }        
+            Show();
+        } else {
+            System.out.println("XA CHEGOU A NAVIDADE!!");
         }
     }
     
     
     private boolean christmasIsHere() {
-        // saca por pantalla unha mensaxe cando a matriz queda baleira (todos os
-        // numeros a 0). devolve true ou false
-        // chamar o método show cada vez que coma un día
+        // comprova se todas as posicións do array son 0 e devolve true ou false 
+        for (int i = 0; i < 6; i++) {
+            for (int j= 0; j < 4; j++) {
+                if (days[i][j] == 0) {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 
     /**
@@ -94,6 +113,7 @@ public class AdventCalendar {
         
         advent.fill();
         advent.Show();
+        advent.eat();
     }
 
 }
