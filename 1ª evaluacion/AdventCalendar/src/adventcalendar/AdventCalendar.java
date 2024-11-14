@@ -5,7 +5,10 @@
 package adventcalendar;
 
 /**
- *
+ * crea un array de 4x6 que enche de numeros creados aleatoriamente sen que se
+ * repitan e móstraa por pantalla, despois vai poñendo o número mais pequeño a 0
+ * ata que todas as posicións do array sexan 0 e entón mostra por pantalla unha
+ * mensaxe
  * @author ivan.fernandezguinde
  */
 public class AdventCalendar {
@@ -37,6 +40,7 @@ public class AdventCalendar {
     }
     
     private boolean repeatValue(int value) {
+        // calcula se o número aleatorio "value" xa está no array
         for (int i = 0; i < 6; i++){
             for (int j = 0; j < 4; j++) {
                 if (days[i][j] == value) {
@@ -50,7 +54,6 @@ public class AdventCalendar {
     private void fill() {
         int value;
         // enche a matriz con valores aleatorios entre 1 e 24 sin que se repitan
-        // nin se introduzan nunha posicion do array que esté ocupada
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 4; j++) {
                 do {
@@ -69,27 +72,49 @@ public class AdventCalendar {
             }
             System.out.println();
         }
+        System.out.println();
     }
 
     
     
     private void eat() {
         
-        // come un elemento convertindo o seu valor a 0 no elemento da matriz
-        // que teña o menor número e mostra o array por pantalla ata que todas
-        // as posicións do array sexan 0
-        if (christmasIsHere() == false) {
+        boolean allZero;
+        // bucle que "come" un elemento convertindo o seu valor a 0 no elemento
+        // da matriz que teña o menor número e mostra o array por pantalla ata
+        // que todas as posicións do array sexan 0
+        do {
+            // Encuentra el valor mínimo en la matriz
+            int minValue = MAX +1;
+
             for (int i = 0; i < 6; i++) {
                 for (int j = 0; j < 4; j++) {
-                   if (days[i][j] < days[i][j]) {
-                       days[i][j] = 0;
-                   }
+                    if (days[i][j] != 0 && days[i][j] < minValue) {
+                        minValue = days[i][j];
+                    }
                 }
-            }        
+            }
+
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 4; j++) {
+                    if (days[i][j] == minValue) {
+                        days[i][j] = 0;
+                    }
+                }
+            }
+            // mostra o array por pantalla cos números que se "comeron"
             Show();
-        } else {
-            System.out.println("XA CHEGOU A NAVIDADE!!");
-        }
+                
+            // comprobamos si todos os valores son 0 para deter o bucle
+            allZero = true;
+            for (int i = 0; i < 6; i++) {
+                for (int j = 0; j < 4; j++) {
+                    if (days[i][j] != 0) {
+                        allZero = false;
+                    }
+                }
+            }
+        } while (allZero == false);
     }
     
     
@@ -98,6 +123,7 @@ public class AdventCalendar {
         for (int i = 0; i < 6; i++) {
             for (int j= 0; j < 4; j++) {
                 if (days[i][j] == 0) {
+                    System.out.println("XA CHEGOU A NAVIDADE!!!");
                     return true;
                 }
             }
@@ -114,6 +140,7 @@ public class AdventCalendar {
         advent.fill();
         advent.Show();
         advent.eat();
+        advent.christmasIsHere();
     }
 
 }
