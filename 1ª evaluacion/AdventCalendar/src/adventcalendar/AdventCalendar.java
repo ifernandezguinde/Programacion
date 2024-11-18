@@ -4,6 +4,8 @@
  */
 package adventcalendar;
 
+import org.xml.sax.SAXException;
+
 /**
  * crea un array de 4x6 que enche de numeros creados aleatoriamente sen que se
  * repitan e móstraa por pantalla, despois vai poñendo o número mais pequeño a 0
@@ -14,8 +16,12 @@ package adventcalendar;
 public class AdventCalendar {
     // valor máximo do número máximo que pediremos despois para encher o array
     static final int MAX = 24;
+    
+    // declaramos duas constantes cos valores para as posicións do array
+    static final int ROWS = 6;
+    static final int COLUMNS = 4;
     // declaramos o array
-    private int [][] days = new int[6][4];
+    private int [][] days = new int[ROWS][COLUMNS];
 
     /**
      * da un valor a days
@@ -41,8 +47,8 @@ public class AdventCalendar {
     
     private boolean repeatValue(int value) {
         // calcula se o número aleatorio "value" xa está no array
-        for (int i = 0; i < 6; i++){
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < ROWS; i++){
+            for (int j = 0; j < COLUMNS; j++) {
                 if (days[i][j] == value) {
                     return true;
                 }
@@ -54,8 +60,8 @@ public class AdventCalendar {
     private void fill() {
         int value;
         // enche a matriz con valores aleatorios entre 1 e 24 sin que se repitan
-        for (int i = 0; i < 6; i++) {
-            for (int j = 0; j < 4; j++) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 do {
                     value = new java.util.Random().nextInt(MAX) + 1;
                 } while (repeatValue(value));
@@ -67,7 +73,7 @@ public class AdventCalendar {
     private void Show() {
         // mostra a matriz por pantalla
         for (int[] day : days) {
-            for (int j = 0; j < 4; j++) {
+            for (int j = 0; j < COLUMNS; j++) {
                 System.out.print(day[j] + " ");
             }
             System.out.println();
@@ -87,16 +93,16 @@ public class AdventCalendar {
             // Encuentra el valor mínimo en la matriz
             int minValue = MAX +1;
 
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < ROWS; i++) {
+                for (int j = 0; j < COLUMNS; j++) {
                     if (days[i][j] != 0 && days[i][j] < minValue) {
                         minValue = days[i][j];
                     }
                 }
             }
 
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < ROWS; i++) {
+                for (int j = 0; j < COLUMNS; j++) {
                     if (days[i][j] == minValue) {
                         days[i][j] = 0;
                     }
@@ -107,8 +113,8 @@ public class AdventCalendar {
                 
             // comprobamos si todos os valores son 0 para deter o bucle
             allZero = true;
-            for (int i = 0; i < 6; i++) {
-                for (int j = 0; j < 4; j++) {
+            for (int i = 0; i < ROWS; i++) {
+                for (int j = 0; j < COLUMNS; j++) {
                     if (days[i][j] != 0) {
                         allZero = false;
                     }
@@ -120,8 +126,8 @@ public class AdventCalendar {
     
     private boolean christmasIsHere() {
         // comprova se todas as posicións do array son 0 e devolve true ou false 
-        for (int i = 0; i < 6; i++) {
-            for (int j= 0; j < 4; j++) {
+        for (int i = 0; i < ROWS; i++) {
+            for (int j= 0; j < COLUMNS; j++) {
                 if (days[i][j] == 0) {
                     System.out.println("XA CHEGOU A NAVIDADE!!!");
                     return true;

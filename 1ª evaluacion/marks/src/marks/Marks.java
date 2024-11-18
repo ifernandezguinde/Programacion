@@ -3,46 +3,52 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package marks;
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * calcula a media da nota de 10 alumnos
+ * calcula a media da nota de 10 alumnos mediante un ArrayList
  * @author ivan
  */
 public class Marks {
-    private int marks[] = new int[10];
+    
+    private ArrayList<Integer> marks = new ArrayList<>();
 
     /**
-     * dalle un valor ao array marks
+     * da un valor ao ArrayList marks
      */
     public Marks() {
-        get_Marks();
     }
 
     /**
-     * devolve o valor do array marks
+     * devolve o valor do Arraylist marks
      * @return 
      */
-    public int[] getMarks() {
+    public ArrayList<Integer> getMarks() {
         return marks;
     }
 
     /**
-     * modifica o valor do array marks
+     * modifica o ArrayList marks
      * @param marks 
      */
-    public void setMarks(int[] marks) {
+    public void setMarks(ArrayList<Integer> marks) {
         this.marks = marks;
     }
+
+
     
-    
+    /**
+     * pide por pantalla as notas dos 10 alumnos e gardaas no ArrayList
+     */
     private void get_Marks() {
         Scanner scan = new Scanner(System.in);
         
         // pide por teclado as notas dos 10 alumnos
         for (int i=0; i<10; i++) {
             System.out.println("Nota do alumno " +(i+1)+ ": ");
-            marks[i] = scan.nextInt();
+            marks.add(scan.nextInt());
         }
     }
     
@@ -50,15 +56,17 @@ public class Marks {
      * devolve a nota media dos 10 alumnos
      * @return 
      */
-    public double getAverage() {
+    private double getAverage(ArrayList<Integer> marks) {
         // declaramos e inicializamos a variable
         double averageMark = 0;
         
-        //suma as notas dos 10 alumnos
-        for (int i=0; i<10; i++) {
-            averageMark += marks[i];
+        // suma as notas dos 10 alumnos mediante un iterador
+        Iterator<Integer> it =marks.iterator();
+        while(it.hasNext()) {
+            averageMark += it.next();           
         }
-        // calcula a media da suma das notas
+  
+        // devolve a media da suma das notas
         return averageMark/10;  
     }
     
@@ -68,6 +76,9 @@ public class Marks {
      */
     public static void main(String[] args) {
         Marks marks = new Marks();
+        
+        // invocamos o método get_Marks para introducir as notas dos 10 alumnos
+        marks.get_Marks();
         
         // facemos que nos mostre a media invocando o método getAverage
         System.out.println("a nota media dos alumnnos é: " +marks.getAverage());
