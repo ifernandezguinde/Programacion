@@ -35,7 +35,7 @@ public class Pen {
     
     
     public void write(int palabras) {
-        if (ink>=palabras) {
+        if (ink >= palabras) {
             ink -= palabras;
             System.out.println("escribironse " +palabras+ " palabras"); 
         } else {
