@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package client;
-import java.util.Scanner;
 
 /**
  *
@@ -14,17 +13,11 @@ public class Client {
     private String nif, name, surname;
 
     public Client(String nif, String name, String surname) {
-        Scanner scan = new Scanner(System.in);
-        
-        System.out.println("introduce o nif: ");
-        this.nif = scan.nextLine();
-        
-        System.out.println("introduce o nome: ");
-        this.name = scan.nextLine();
-        
-        System.out.println("introduce o apelido: ");
-        this.surname = scan.nextLine();
+        this.nif = nif;
+        this.name = name;
+        this.surname = surname;
     }
+
 
     public String getNif() {
         return nif;

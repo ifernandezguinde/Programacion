@@ -4,7 +4,7 @@
  */
 package adventcalendar;
 
-import org.xml.sax.SAXException;
+
 
 /**
  * crea un array de 4x6 que enche de numeros creados aleatoriamente sen que se
