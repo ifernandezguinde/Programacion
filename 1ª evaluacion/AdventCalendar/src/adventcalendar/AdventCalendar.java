@@ -125,7 +125,7 @@ public class AdventCalendar {
     
     
     private boolean christmasIsHere() {
-        // comprova se todas as posicións do array son 0 e devolve true ou false 
+        // comproba se todas as posicións do array son 0 e devolve true ou false 
         for (int i = 0; i < ROWS; i++) {
             for (int j= 0; j < COLUMNS; j++) {
                 if (days[i][j] == 0) {

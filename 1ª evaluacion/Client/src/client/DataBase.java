@@ -60,13 +60,7 @@ public class DataBase {
         }
     }
     
-    private void removeClient(String nif) {
-        Scanner scan = new Scanner(System.in);
-        
-        // pide por teclado o nif do cliente que queres eliminar
-        // gárdao nunha variable e bórrao do array
-        System.out.println("indica o nif do cliente que queres eliminar: ");
-        nif = scan.nextLine();
+    private void removeClient(String nif) { 
         clients.remove(nif);
         
         // salto de liña
@@ -91,8 +85,13 @@ public class DataBase {
         // mostramos o nif dos clientes rexistrados array
         db1.showClients();
         
+        // pide por teclado o nif do cliente que queres eliminar
+        // gárdao nunha variable e bórrao do array
+        System.out.println("indica o nif do cliente que queres eliminar: ");
+        String nif = scan.nextLine();
+        
         // borra do array o cliente co nif indicado
-        db1.removeClient(scan.nextLine());
+        db1.removeClient(nif);
         
         // mostra o nif dos clientes rexistrados no array tras borrar os indicados
         db1.showClients();
