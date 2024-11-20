@@ -5,7 +5,7 @@
 package client;
 
 /**
- *
+ * Clase Client que recibe tres variables de tipo String (nif, name e surname)
  * @author ivan
  */
 public class Client {
@@ -19,36 +19,55 @@ public class Client {
     }
 
 
+    /**
+     * devolve o valor de nif
+     * @return 
+     */
     public String getNif() {
         return nif;
     }
 
+    /**
+     * modifica o valor de nif
+     * @param nif 
+     */
     public void setNif(String nif) {
         this.nif = nif;
     }
 
+    /**
+     * devolve o valor de name
+     * @return 
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * modifica o valor de name
+     * @param name 
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * devolve o valor de surname
+     * @return 
+     */
     public String getSurname() {
         return surname;
     }
 
+    /**
+     * modifica o valor de surname
+     * @param surname 
+     */
     public void setSurname(String surname) {
         this.surname = surname;
     }
     
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+
     
 }
