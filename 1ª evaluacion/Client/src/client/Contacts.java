@@ -8,7 +8,10 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /**
- *
+ * nesta clase temos catro métodos. Un añade un cliente asociado o seu número
+ * de tel ao array phonebook. Outro borra un client do array co seu número de 
+ * tel. 
+ * // to do
  * @author ivan
  */
 public class Contacts {
@@ -32,25 +35,39 @@ public class Contacts {
 
    
     
-    
-    
-    private void insert(int tel, Client cli) {
-        
-        
+    /**
+     * introduce un client no array phonebook asociado o seu número de tel
+     * @param tel
+     * @param cli 
+     */
+    private void insert(int tel, Client cli) {       
         // añade un client ao array coa sua key e o seu obxeto asociado
         phonebook.put(tel, cli);
     }
     
+    /**
+     * elimina un cliente co tel que recibe como parámetro
+     * @param tel 
+     */
     private void remove(int tel) {
         phonebook.remove(tel);        
     }
     
+    /**
+     * encontra a un client a través do tel que recibe como parámetro
+     * @param tel
+     * @return 
+     */
     private Client findByNumber(int tel) {
         return phonebook.get(tel);
     }
     
+    /**
+     * devolve o número de contacts que ten o array
+     * @return 
+     */
     private int numContacts() {
-     return 3;
+     return phonebook.size();
     }
     
     public static void main(String[] args) {
@@ -81,7 +98,7 @@ public class Contacts {
         Client client1 = new Client(nif, name, surname);
         
         // insertamos un cliente no array
-        phonebook.insert(tel, client1);
+        contacts.insert(tel, client1);
         
         // añadimos outro cliente 
         System.out.println("introduce o teléfono: ");
@@ -106,23 +123,47 @@ public class Contacts {
         // insertamos un cliente no array
         contacts.insert(tel, client2);
         
+        // pedimos por teclado os datos para o terceiro cliente
+        System.out.println("introduce o teléfono: ");
+        tel = scan.nextInt();
+        scan.nextLine();
+        
+        System.out.println("introduce o nif: ");
+        nif = scan.nextLine();
+        
+        System.out.println("introduce o nome: ");
+        name = scan.nextLine();
+        
+        System.out.println("introduce o apelido: ");
+        surname = scan.nextLine();
+        
+        // salto de liña
+        System.out.println();
+        
+        // creamos o obxeto client
+        Client client3 = new Client(nif, name, surname);
+        
+        // insertamos un cliente no array
+        contacts.insert(tel, client3);
+        
         
         
         // mostramos cantos contactos ten o array
-        contacts.numContacts();
+        System.out.println("hay " + contacts.numContacts() + " contacto/s rexistrado/s");
         
         // buscamos a un cliente polo seu número de teléfono e mostrámolo
         // por pantalla
         System.out.println("indica o número de teléfono do cliente que queres buscar");
-        tel = scan.nextInt();        
-        System.out.println("o cliente co número de teléfono: "+ tel + " é: " + phonebook.findByNumber(tel));
+        tel = scan.nextInt();
+        Client c = contacts.findByNumber(tel);
+        System.out.println("o cliente co número de teléfono: "+ tel + " é: " + c.getName() + " " + c.getSurname());
         
         System.out.println("introduce o teléfono do cliente que queiras eliminar: ");
         tel = scan.nextInt();
         contacts.remove(tel); 
         
         // mostramos os clientes que quedan no array despois de borrar o anterior
-        contacts.numContacts();
+        System.out.println("hay " + contacts.numContacts() + " contacto/s rexistrado/s");
         
         
         
