@@ -20,8 +20,10 @@ public class DataBase {
     // creamos o HashMap de clients
     HashMap<String, Client> clients = new HashMap<>();
     
-    
-    private void addClient() {
+    /**
+     * añade un cliente co seu nif, name e surname
+     */
+    public void addClient() {
         Scanner scan = new Scanner(System.in);
         
         
@@ -47,11 +49,14 @@ public class DataBase {
         
     }
     
-    private void showClients() {
+    /**
+     * mostra o nif dos clientes do array
+     */
+    public void showClients() {
         
         System.out.println("nif's rexistrados: ");
         
-        // recorre o array e devolve o nif de cada cliente que ten rexistrado
+        // recorre o array e mostra o nif de cada cliente que ten rexistrado
         for (Client client : clients.values()) {
             System.out.println( client.getNif() + " ");
             
@@ -60,14 +65,22 @@ public class DataBase {
         }
     }
     
-    private void removeClient(String nif) { 
+    /**
+     * elimina o cliente co nif introducido
+     * @param nif 
+     */
+    public void removeClient(String nif) { 
         clients.remove(nif);
         
         // salto de liña
         System.out.println();
     }
     
-    private int numClients() {
+    /**
+     * devolve o tamaño do array para ver cantos clientes ten
+     * @return 
+     */
+    public int numClients() {
         return clients.size();
     }
     

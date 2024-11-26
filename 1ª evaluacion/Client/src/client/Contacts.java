@@ -10,8 +10,8 @@ import java.util.Scanner;
 /**
  * nesta clase temos catro métodos. Un añade un cliente asociado o seu número
  * de tel ao array phonebook. Outro borra un client do array co seu número de 
- * tel. 
- * // to do
+ * tel. Outro busca o cliente polo numero de tel e o último devolve a cantidade 
+ * de clientes que hay no array
  * @author ivan
  */
 public class Contacts {
@@ -40,7 +40,7 @@ public class Contacts {
      * @param tel
      * @param cli 
      */
-    private void insert(int tel, Client cli) {       
+    public void insert(int tel, Client cli) {       
         // añade un client ao array coa sua key e o seu obxeto asociado
         phonebook.put(tel, cli);
     }
@@ -49,7 +49,7 @@ public class Contacts {
      * elimina un cliente co tel que recibe como parámetro
      * @param tel 
      */
-    private void remove(int tel) {
+    public void remove(int tel) {
         phonebook.remove(tel);        
     }
     
@@ -58,7 +58,7 @@ public class Contacts {
      * @param tel
      * @return 
      */
-    private Client findByNumber(int tel) {
+    public Client findByNumber(int tel) {
         return phonebook.get(tel);
     }
     
@@ -66,7 +66,7 @@ public class Contacts {
      * devolve o número de contacts que ten o array
      * @return 
      */
-    private int numContacts() {
+    public int numContacts() {
      return phonebook.size();
     }
     
@@ -163,11 +163,7 @@ public class Contacts {
         contacts.remove(tel); 
         
         // mostramos os clientes que quedan no array despois de borrar o anterior
-        System.out.println("hay " + contacts.numContacts() + " contacto/s rexistrado/s");
-        
-        
-        
-        
+        System.out.println("hay " + contacts.numContacts() + " contacto/s rexistrado/s");     
         
     }
     

@@ -42,7 +42,7 @@ public class Marks {
     /**
      * pide por pantalla as notas dos 10 alumnos e gardaas no ArrayList
      */
-    private void get_Marks() {
+    public void get_Marks() {
         Scanner scan = new Scanner(System.in);
         
         // pide por teclado as notas dos 10 alumnos
@@ -56,7 +56,7 @@ public class Marks {
      * devolve a nota media dos 10 alumnos
      * @return 
      */
-    private double getAverage() {
+    public double getAverage() {
         // declaramos e inicializamos a variable
         double averageMark = 0;
         
