@@ -6,7 +6,8 @@ package shortedarray;
 import java.util.Scanner;
 
 /**
- *
+ * crea un array cos números introducidos por teclado e despois ordénaos co 
+ * algoritmo bubble sort
  * @author ivan.fernandezguinde
  */
 public class ShortedArray {
@@ -37,6 +38,9 @@ public class ShortedArray {
     }
 
 
+    /**
+     * pide por teclado os números do array
+     */
     public void fillENTEIROS() {
         Scanner scan = new Scanner(System.in);
         
@@ -75,12 +79,11 @@ public class ShortedArray {
      * @param ENTEIROS 
      */
     public void show(int ENTEIROS[]) {
-         System.out.println("|-----------------------|");
+         System.out.println("ordenando...");
         /* Bucle para mostrar el array desde la posicion 0 hasta la longitud del array */
-        for (int i = 0; i < ENTEIROS.length; i++) {
+        for (int enteiro : ENTEIROS) {
             System.out.print(" Elemento " + (i + 1) + " -----> " + ENTEIROS[i] + "\n");
         }
-        System.out.println("|-----------------------|");
     }
     
 
