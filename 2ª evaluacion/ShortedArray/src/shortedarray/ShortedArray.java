@@ -79,10 +79,12 @@ public class ShortedArray {
      * @param ENTEIROS 
      */
     public void show(int ENTEIROS[]) {
+        int i = 0;
          System.out.println("ordenando...");
         /* Bucle para mostrar el array desde la posicion 0 hasta la longitud del array */
         for (int enteiro : ENTEIROS) {
-            System.out.print(" Elemento " + (i + 1) + " -----> " + ENTEIROS[i] + "\n");
+            System.out.print(" Elemento " + (i + 1) + " -----> " + enteiro + "\n");
+            i = i+1;
         }
     }
     
