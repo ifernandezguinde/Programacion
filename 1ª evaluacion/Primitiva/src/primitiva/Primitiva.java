@@ -15,7 +15,7 @@ public class Primitiva {
     public static final int MAX_REFOUND_NUMBERS = 9;
     
     private int day, month, year, winnerComplement, refoundNumber;
-    private int winnerNumbers[];
+    private int [] winnerNumbers;
 
     
     /**
@@ -23,15 +23,11 @@ public class Primitiva {
      * @param day
      * @param month
      * @param year
-     * @param winnerComplement
-     * @param refoundNumber 
      */
-    public Primitiva(int day, int month, int year, int winnerComplement, int refoundNumber) {
+    public Primitiva(int day, int month, int year) {
         this.day = day;
         this.month = month;
         this.year = year;
-        this.winnerComplement = winnerComplement;
-        this.refoundNumber = refoundNumber;
     }
 
     /**
@@ -155,7 +151,8 @@ public class Primitiva {
     }
 
     /**
-     * segundo os números do ticket que coincidan cos números gañadores saca unha mensaxe por pantalla
+     * segundo os números do ticket que coincidan cos números gañadores saca 
+     * unha mensaxe por pantalla
      * @param ticket 
      */
     public void showPrize(PrimitivaTicket ticket) {
@@ -165,28 +162,46 @@ public class Primitiva {
         if ()
     }
     
+    
+    /**
+     * xenera aleatoriamente os valores para os 6 números premiados, o 
+     * complementario e o reintegro
+     */
+    public void makeDraw() {
+        
+        // generamos números aleatorios para as 6 posicións do array
+        for (int i = 0; i < TOTAL_NUMBERS; i++) {
+            int generatedNumber = new java.util.Random().nextInt(MAX_NUMBERS + 1);
+            winnerNumbers[i] = generatedNumber;
+        }
+        
+        // generamos un número random entre 0 e 49 para o número complementario
+        do {
+            int generatedComplement = new java.util.Random().nextInt(MAX_NUMBERS + 1);
+            winnerComplement = generatedComplement;
+        } while (winnerComplement <= 0);
+        
+        // xeramos un número aleatorio entre 0 e 9 e gardámolo na variable do
+        // reintego
+        int generatedRefoundNumber = new java.util.Random().nextInt(MAX_REFOUND_NUMBERS + 1);
+        refoundNumber = generatedRefoundNumber;
+    }
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // creamos e inicializamos o array
-        int winnerNumbers[] = new int[];
-        winnerNumbers[] {
-            {7,9,2,24,40,37}
-        }  
+ 
                 
         // creamos unha nova clase Primitiva
-        Primitiva primitiva = new Primitiva(1, 2, 1995, 7, 4);
+        Primitiva primitiva = new Primitiva(1, 2, 1995);
+        
+        // invocamos o método makeDraw para xerar aleatoriamente os 6 números
+        // do array, o complementario e o reintegro
+        primitiva.makeDraw();
         
         // invocamos o método showResult que nos mostra o resultado do sorteo
         primitiva.showResult();
-        
-        // creamos un boleto
-        primitiva.generateTicket();
-        
-        // mostramos si está premiado
-        primitiva.showPrize(ticket);
-        
         
     }
     
