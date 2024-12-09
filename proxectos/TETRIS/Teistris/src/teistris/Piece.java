@@ -49,73 +49,21 @@ public class Piece {
     
 
     /**
-     * Referenzas aos catro cadrados que forman a peza
+     * Construtor da clase, que crea os catro cadrados que forman a peza
      */
-    private Square a, b, c, d;
+    private int [] Squares;
 
-    /**
-     * devolve o valor de a
-     * @return 
-     */
-    public Square getA() {
-        return a;
+    public Piece(Game game, int[] Squares) {
+        this.game = game;
+        this.Squares = Squares;
     }
 
-    /**
-     * modifica o valor de a
-     * @param a 
-     */
-    public void setA(Square a) {
-        this.a = a;
+    public int[] getSquares() {
+        return Squares;
     }
 
-    /**
-     * devolve o valor de b
-     * @return 
-     */
-    public Square getB() {
-        return b;
-    }
-
-    /**
-     * modifica o valor de b
-     * @param b 
-     */
-    public void setB(Square b) {
-        this.b = b;
-    }
-
-    /**
-     * devolve o valor de c
-     * @return 
-     */
-    public Square getC() {
-        return c;
-    }
-
-    /**
-     * modifica o valor de c
-     * @param c 
-     */
-    public void setC(Square c) {
-        this.c = c;
-    }
-
-    /**
-     * devolve o valor de d
-     * @return 
-     */
-    public Square getD() {
-        return d;
-    }
-
-    /**
-     * modifica o valor de d
-     * @param d 
-     */
-    public void setD(Square d) {
-        this.d = d;
-    }
+    
+    
 
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
