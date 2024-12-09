@@ -64,7 +64,7 @@ public class Piece {
 
     
     
-
+ //añadir o array no método right, left, down
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      * @param game 
