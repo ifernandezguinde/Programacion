@@ -51,15 +51,15 @@ public class Piece {
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      */
-    private int [] Squares;
+    private int [] Square;
 
     public Piece(Game game, int[] Squares) {
         this.game = game;
-        this.Squares = Squares;
+        this.Square = Squares;
     }
 
     public int[] getSquares() {
-        return Squares;
+        return Square;
     }
 
     
