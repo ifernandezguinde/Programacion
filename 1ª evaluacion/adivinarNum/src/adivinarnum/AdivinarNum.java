@@ -31,7 +31,7 @@ public class AdivinarNum {
          
         // creamos un bucle que nos mande adiviñar o número as veces que nos 
         // lle indicásemos
-        for (int i=0; i<intentos; i++) {
+        for (int i=0; i<intentos && !adivinado; i++) {
             System.out.println("adiviña o número: ");
             int intento = scan.nextInt();
             

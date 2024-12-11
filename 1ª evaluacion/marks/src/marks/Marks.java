@@ -3,85 +3,97 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
 package marks;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Scanner;
 
 /**
- * calcula a media da nota de 10 alumnos mediante un ArrayList
+ * calcula a media da nota de 10 alumnos mediante un Array
  * @author ivan
  */
 public class Marks {
     
-    private ArrayList<Integer> marks = new ArrayList<>();
-
-    /**
-     * da un valor ao ArrayList marks
-     */
-    public Marks() {
-    }
-
-    /**
-     * devolve o valor do Arraylist marks
-     * @return 
-     */
-    public ArrayList<Integer> getMarks() {
-        return marks;
-    }
-
-    /**
-     * modifica o ArrayList marks
-     * @param marks 
-     */
-    public void setMarks(ArrayList<Integer> marks) {
-        this.marks = marks;
-    }
-
-
+    private int values[] = new int[10];
     
     /**
-     * pide por pantalla as notas dos 10 alumnos e gardaas no ArrayList
+     * Enche o array de values con 10 valores obtidos por teclado
      */
-    public void get_Marks() {
+    private void fillValues() {
         Scanner scan = new Scanner(System.in);
         
-        // pide por teclado as notas dos 10 alumnos
-        for (int i=0; i<10; i++) {
-            System.out.println("Nota do alumno " +(i+1)+ ": ");
-            marks.add(scan.nextInt());
+        for (int i=0; i<values.length; i++) {
+            System.out.println("Introduza unha nota:");
+            values[i] = scan.nextInt();
         }
     }
     
     /**
-     * devolve a nota media dos 10 alumnos
-     * @return 
+     * Calcula a media das notas almacenadas no array de values
+     * @return Media das notas
      */
-    public double getAverage() {
-        // declaramos e inicializamos a variable
-        double averageMark = 0;
+    private double getAverage() {
+        int total = 0;
         
-        // suma as notas dos 10 alumnos mediante un iterador
-        Iterator<Integer> it = marks.iterator();
-        while(it.hasNext()) {
-            averageMark += it.next();           
+        for (int i=0; i<values.length; i++) {
+            total += values[i];
         }
-  
-        // devolve a media da suma das notas
-        return averageMark/marks.size();  
+        return total/(double)values.length;
     }
     
-
     /**
-     * @param args the command line arguments
+     * O método principal crea un obxecto "Marks" e invoca os métodos para pedir
+     * os valores e calcular a media
+     * @param args
      */
     public static void main(String[] args) {
         Marks marks = new Marks();
+        marks.fillValues();
+        System.out.println("A nota media é : "+marks.getAverage());
+    }
+}
+
+
+
+
+
+
+
+
+
+        // marks pero con array list
+
+private ArrayList values = new ArrayList();
+    
+    /**
+     * Enche o ArrayList de values con 10 valores obtidos por teclado
+     */
+    private void fillValues() {
+        Scanner scan = new Scanner(System.in);
         
-        // invocamos o método get_Marks para introducir as notas dos 10 alumnos
-        marks.get_Marks();
-        
-        // facemos que nos mostre a media invocando o método getAverage
-        System.out.println("a nota media dos alumnnos é: " +marks.getAverage());
+        for (int i=0; i<10; i++) {
+            System.out.println("Introduza unha nota:");
+            values.add(scan.nextInt());
+        }
     }
     
-}
+    /**
+     * Calcula a media das notas almacenadas no ArrayList de values
+     * @return Media das notas
+     */
+    private double getAverage() {
+        int total = 0;
+        
+        for (int i=0; i<values.size(); i++) {
+            total += (int)values.get(i);
+        }
+        return total/10.0;
+    }
+    
+    /**
+     * O método principal crea un obxecto "Marks" e invoca os métodos para pedir
+     * os valores e calcular a media
+     * @param args
+     */
+     public static void main(String[] args) {
+        Marks marks = new Marks();
+        marks.fillValues();
+        System.out.println("A nota media é : "+marks.getAverage());
+    }
