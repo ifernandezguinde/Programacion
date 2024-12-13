@@ -51,33 +51,26 @@ public class Piece {
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      */
-    private int [] Squares;
+    private int [] squares = new int [4];
 
-    public Piece(Game game, int[] Squares) {
-        this.game = game;
-        this.Squares = Squares;
-    }
-
-    public int[] getSquares() {
-        return Squares;
-    }
-
-    
-    
- //añadir o array no método right, left, down
+    //añadir o array no método right, left, down
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      * @param game 
      */
     public Piece(Game game) {
         this.game = game;
-
-        a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
-        b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE, 
-                Color.BLUE, game);
-        d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
+        //a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
+        //b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
+        //c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+          //  Color.BLUE, game);
+        //d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
     }
+
+    public int[] getSquares() {
+        return squares;
+    }
+ 
 
     /**
      * Move a ficha a dereita se é posible
@@ -87,9 +80,9 @@ public class Piece {
     public boolean moveRight() {
         
         // condicións para que a peza se poida mover a dereita
-        if ( game.isValidPosition(c.getX() + Game.SQUARE_SIDE, c.getY())) {
+        if ( game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY())) {
             
-            if ( game.isValidPosition(d.getX() + Game.SQUARE_SIDE, d.getY())) {
+            if ( game.isValidPosition(squares[3].getX() + Game.SQUARE_SIDE, squares[3].getY())) {
             
                 a.setX(a.getX() + Game.SQUARE_SIDE);
                 b.setX(b.getX() + Game.SQUARE_SIDE);
