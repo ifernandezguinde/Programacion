@@ -29,6 +29,11 @@ public class Piece {
      * Referenza ao obxecto xogo
      */
     private Game game;
+    
+    /**
+     * Referenzas aos catro cadrados que forman a peza
+     */
+    private Square a, b, c, d;
 
     /**
      * devolve o valor de game
@@ -60,11 +65,11 @@ public class Piece {
      */
     public Piece(Game game) {
         this.game = game;
-        //a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
-        //b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        //c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-          //  Color.BLUE, game);
-        //d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
+        a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
+        b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
+        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+            Color.BLUE, game);
+        d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
     }
 
     public int[] getSquares() {
