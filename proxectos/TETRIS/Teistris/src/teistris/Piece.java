@@ -85,9 +85,9 @@ public class Piece {
     public boolean moveRight() {
         
         // condicións para que a peza se poida mover a dereita
-        if ( game.isValidPosition(squares[2].getX() + Game.SQUARE_SIDE, squares[2].getY())) {
+        if ( game.isValidPosition(b.getX() + Game.SQUARE_SIDE, b.getY())) {
             
-            if ( game.isValidPosition(squares[3].getX() + Game.SQUARE_SIDE, squares[3].getY())) {
+            if ( game.isValidPosition(d.getX() + Game.SQUARE_SIDE, d.getY())) {
             
                 a.setX(a.getX() + Game.SQUARE_SIDE);
                 b.setX(b.getX() + Game.SQUARE_SIDE);
