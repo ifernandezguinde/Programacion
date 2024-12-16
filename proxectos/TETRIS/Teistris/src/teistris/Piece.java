@@ -52,10 +52,6 @@ public class Piece {
     }
     
     
-
-    /**
-     * Construtor da clase, que crea os catro cadrados que forman a peza
-     */
     private int [] squares = new int [4];
 
     //añadir o array no método right, left, down
