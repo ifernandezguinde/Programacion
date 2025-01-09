@@ -15,6 +15,22 @@ public abstract class Teacher {
     
 
     /**
+     * dalle un valor as variables
+     * @param name
+     * @param surname
+     * @param address
+     * @param baseSalary
+     * @param salary 
+     */
+    public Teacher(String name, String surname, String address, double baseSalary, double salary) {
+        this.name = name;
+        this.surname = surname;
+        this.address = address;
+        this.baseSalary = baseSalary;
+        this.salary = salary;
+    }
+    
+    /**
      * devolve o valor de name
      * @return 
      */
@@ -94,13 +110,6 @@ public abstract class Teacher {
         this.salary = salary;
     }
 
-    public Teacher(String name, String surname, String address, double baseSalary, double salary) {
-        this.name = name;
-        this.surname = surname;
-        this.address = address;
-        this.baseSalary = baseSalary;
-        this.salary = salary;
-    }
     
     /**
      * mostra unha mensaxe por pantalla
