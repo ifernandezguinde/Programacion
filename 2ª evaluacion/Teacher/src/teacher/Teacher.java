@@ -4,6 +4,8 @@
  */
 package teacher;
 
+import java.util.Date;
+
 /**
  *
  * @author ivan.fernandezguinde
@@ -119,7 +121,7 @@ public abstract class Teacher {
     }
 
     /**
-     * calcula unha nómina
+     * xenera unha nómina
      */
     public abstract void generatePayroll();
 
@@ -127,7 +129,13 @@ public abstract class Teacher {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Teacher of1 = new CareerOfficer(30.23, 3, "WebDevwloper", "pepe", "fernandez", "tui", 1800.00, 2300.45);
+        Teacher int1 = new Interim(20.15, "pontevedra", "marcos", "alvarez", "ponteareas", 1800.00, 3200.21);
+        Teacher subs1 = new Substitute(15.20, new Date(), "pablo", "costas", "pamplona", 1800.00, 2000.14);
+        
+        of1.generatePayroll();
+        int1.generatePayroll();
+        subs1.generatePayroll();
     }
 
 }

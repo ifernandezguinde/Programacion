@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-import teacher.Teacher;
+package teacher;
 
 /**
  *
  * @author ivan.fernandezguinde
  */
-public class CareerOfficer extends Teacher {
+public class CareerOfficer extends Teacher{
     private double officerComplement;
     private int oppositionYear;
     private String oppositionPlace;
@@ -79,6 +78,5 @@ public class CareerOfficer extends Teacher {
     public void generatePayroll() {
         salary = baseSalary + officerComplement;
     }
-    
     
 }

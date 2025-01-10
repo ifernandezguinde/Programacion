@@ -2,15 +2,15 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
+package teacher;
 
-import teacher.Teacher;
 import java.util.Date;
 
 /**
  *
  * @author ivan.fernandezguinde
  */
-public class Substitute extends Teacher {
+public class Substitute extends Teacher{
     private double displacement;
     private Date initDate;
 
@@ -73,9 +73,4 @@ public class Substitute extends Teacher {
     public void teach() {
         System.out.println("Substitúo unha clase de programación en Java");
     }
-    
-    
-    
-    
-    
 }

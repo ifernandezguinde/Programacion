@@ -2,14 +2,13 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-
-import teacher.Teacher;
+package teacher;
 
 /**
  *
  * @author ivan.fernandezguinde
  */
-public class Interim extends Teacher {
+public class Interim extends Teacher{
     private double interimComplement;
     private String destination;
 
@@ -64,8 +63,4 @@ public class Interim extends Teacher {
     public void generatePayroll() {
         salary = baseSalary + interimComplement;
     }
-    
-    
-    
-    
 }
