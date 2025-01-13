@@ -12,8 +12,18 @@ public class Interim extends Teacher{
     private double interimComplement;
     private String destination;
 
-    public Interim(double interimComplement, String destination, String name, String surname, String address, double baseSalary, double salary) {
-        super(name, surname, address, baseSalary, salary);
+    /**
+     * dalle un valor as variables
+     * @param interimComplement
+     * @param destination
+     * @param name
+     * @param surname
+     * @param address
+     * @param baseSalary 
+     */
+    public Interim(double interimComplement, String destination, String name, 
+    String surname, String address, double baseSalary) {
+        super(name, surname, address, baseSalary);
         this.interimComplement = interimComplement;
         this.destination = destination;
     }

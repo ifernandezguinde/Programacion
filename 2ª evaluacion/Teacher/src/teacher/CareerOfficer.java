@@ -13,8 +13,20 @@ public class CareerOfficer extends Teacher{
     private int oppositionYear;
     private String oppositionPlace;
 
-    public CareerOfficer(double officerComplement, int oppositionYear, String oppositionPlace, String name, String surname, String address, double baseSalary, double salary) {
-        super(name, surname, address, baseSalary, salary);
+    /**
+     * dalle un valor as variables
+     * @param officerComplement
+     * @param oppositionYear
+     * @param oppositionPlace
+     * @param name
+     * @param surname
+     * @param address
+     * @param baseSalary 
+     */
+    public CareerOfficer(double officerComplement, int oppositionYear, 
+    String oppositionPlace, String name, String surname, String address, 
+    double baseSalary) {
+        super(name, surname, address, baseSalary);
         this.officerComplement = officerComplement;
         this.oppositionYear = oppositionYear;
         this.oppositionPlace = oppositionPlace;

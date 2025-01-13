@@ -14,8 +14,18 @@ public class Substitute extends Teacher{
     private double displacement;
     private Date initDate;
 
-    public Substitute(double displacement, Date initDate, String name, String surname, String address, double baseSalary, double salary) {
-        super(name, surname, address, baseSalary, salary);
+    /**
+     * dalle un valor as variables
+     * @param displacement
+     * @param initDate
+     * @param name
+     * @param surname
+     * @param address
+     * @param baseSalary 
+     */
+    public Substitute(double displacement, Date initDate, String name, 
+    String surname, String address, double baseSalary) {
+        super(name, surname, address, baseSalary);
         this.displacement = displacement;
         this.initDate = initDate;
     }

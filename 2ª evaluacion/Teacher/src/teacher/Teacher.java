@@ -21,15 +21,14 @@ public abstract class Teacher {
      * @param name
      * @param surname
      * @param address
-     * @param baseSalary
-     * @param salary 
+     * @param baseSalary 
      */
-    public Teacher(String name, String surname, String address, double baseSalary, double salary) {
+    public Teacher(String name, String surname, String address, 
+    double baseSalary) {
         this.name = name;
         this.surname = surname;
         this.address = address;
         this.baseSalary = baseSalary;
-        this.salary = salary;
     }
     
     /**
@@ -129,13 +128,31 @@ public abstract class Teacher {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Teacher of1 = new CareerOfficer(30.23, 3, "WebDevwloper", "pepe", "fernandez", "tui", 1800.00, 2300.45);
-        Teacher int1 = new Interim(20.15, "pontevedra", "marcos", "alvarez", "ponteareas", 1800.00, 3200.21);
-        Teacher subs1 = new Substitute(15.20, new Date(), "pablo", "costas", "pamplona", 1800.00, 2000.14);
+        // creamos un obxecto de cada subclase pasándolle os parámetros
+        Teacher of1 = new CareerOfficer(200.23, 3, "WebDevwloper", "pepe", 
+        "fernandez", "tui", 1800.00);
+        Teacher subs1 = new Substitute(150.22, new Date(), "pablo", "costas", 
+        "pamplona", 1800.00);
+        Teacher int1 = new Interim(80.15, "pontevedra", "marcos", "alvarez", 
+        "ponteareas", 1800.00);
         
+        // invocamos o método generatePayroll, facemos que mostre unha mensaxe 
+        // por pantalla e invocamos tamén o método teach para cada obxecto
         of1.generatePayroll();
-        int1.generatePayroll();
+        System.out.println("chámome " + of1.getName() + " e o meu salario é de "
+        + of1.getSalary());
+        of1.teach();
+        
         subs1.generatePayroll();
+        System.out.println("chámome " + subs1.getName() + " e o meu salario é de "
+        + subs1.getSalary());
+        int1.teach();
+        
+        int1.generatePayroll();
+        System.out.println("chámome " + int1.getName() + " e o meu salario é de "
+        + int1.getSalary());
+        subs1.teach();
+        
     }
 
 }
