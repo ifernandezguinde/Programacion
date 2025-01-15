@@ -80,6 +80,31 @@ public class Matrix {
         }
         return result;
     }
+    
+    /**
+     * Suma a matriz consigo mesma.
+     * @return 
+     */
+    public Matrix sum() {
+        return this.sum(this);
+    }
+
+    /**
+     * Suma tres matrices a actual e as dúas que recibe como parámetros.
+     * @param matrix1
+     * @param matrix2
+     * @return 
+     */
+    public Matrix sum(Matrix matrix1, Matrix matrix2) {
+        Matrix result = new Matrix();
+        
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix.length; j++) {
+                result.matrix[i][j] = this.matrix[i][j] + matrix1.matrix[i][j] + matrix2.matrix[i][j];
+            }
+        }
+        return result;
+    }
         
     /**
      * resta as matrices e devolve unha nova co resultado
