@@ -62,7 +62,7 @@ public class HighSchool {
      * devolver o profesor con máis salario 
      * @return 
      */
-    public Teacher teacherMostPaid() {
+    public Teacher mostPaid() {
         
         Teacher mostPaid = teachers.get(0);
         for (Teacher teacher : teachers) {
@@ -77,7 +77,7 @@ public class HighSchool {
      * devolver o profesor con menos salario 
      * @return 
      */
-    public Teacher TeacherLeastPaid() {
+    public Teacher leastPaid() {
         
         Teacher leastPaid = teachers.get(0);
         for (Teacher teacher : teachers) {
@@ -124,17 +124,21 @@ public class HighSchool {
         Teacher int1 = new Interim(80.15, "pontevedra", "marcos", "alvarez", 
         "ponteareas", 1800.00);
         
+        // creamos un bucle para que xere a nómina a todos os profesores
+        for (Teacher t: highSchool.getTeachers()) {
+            t.generatePayroll();
+        }
+        
         // engadimos os profesores ao ArrayList
         highSchool.getTeachers().add(of1);
         highSchool.getTeachers().add(subs1);
         highSchool.getTeachers().add(int1);
         
-        for (Teacher t: highSchool.getTeachers()) {
-            t.generatePayroll();
-        }
-        
-        System.out.println(highSchool.teacherMostPaid().getName());
-        
+        // invocamos os métodos creados e móstraos por pantalla
+        System.out.println(highSchool.mostPaid().getName());
+        System.out.println(highSchool.leastPaid().getName());
+        System.out.println(highSchool.SalaryCosts());
+        System.out.println(highSchool.SalaryAverage());
         
     } 
 }
