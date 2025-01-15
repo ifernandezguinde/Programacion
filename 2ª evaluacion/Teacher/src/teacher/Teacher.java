@@ -124,12 +124,10 @@ public abstract class Teacher {
      */
     public abstract void generatePayroll();
 
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String[] args) {
         // creamos un obxecto de cada subclase pasándolle os parámetros
-        Teacher of1 = new CareerOfficer(200.23, 3, "WebDevwloper", "pepe", 
+        Teacher of1 = new CareerOfficer(200.23, 2005, "Santiago", "pepe", 
         "fernandez", "tui", 1800.00);
         Teacher subs1 = new Substitute(150.22, new Date(), "pablo", "costas", 
         "pamplona", 1800.00);

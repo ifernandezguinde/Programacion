@@ -5,6 +5,7 @@
 package teacher;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  *
@@ -16,13 +17,11 @@ public class HighSchool {
     private ArrayList<Teacher> teachers;
 
     /**
-     * da un valor as variables
+     * dalle un valor a name
      * @param name
-     * @param teachers 
      */
-    public HighSchool(String name, ArrayList<Teacher> teachers) {
+    public HighSchool(String name) {
         this.name = name;
-        this.teachers = teachers;
     }
 
     /**
@@ -49,21 +48,21 @@ public class HighSchool {
         return teachers;
     }
 
-        /**
-         * modifica o valor do ArrayList
-         * @param teachers 
-         */
+    /**
+     * modifica o valor do ArrayList
+     * @param teachers 
+     */
     public void setTeachers(ArrayList<Teacher> teachers) {
         this.teachers = teachers;
     }
     
     
-    
-    
-    
-    
-    
-    public Teacher TeacherMostPaid() {
+    /**
+     * recorremos o ArrayList comparando os salarios e gardamos o maior para
+     * devolver o profesor con máis salario 
+     * @return 
+     */
+    public Teacher teacherMostPaid() {
         
         Teacher mostPaid = teachers.get(0);
         for (Teacher teacher : teachers) {
@@ -73,7 +72,11 @@ public class HighSchool {
         }
         return mostPaid;
     }
-    
+    /**
+     * recorremos o ArrayList comparando os salarios e gardamos o menor para
+     * devolver o profesor con menos salario 
+     * @return 
+     */
     public Teacher TeacherLeastPaid() {
         
         Teacher leastPaid = teachers.get(0);
@@ -85,8 +88,13 @@ public class HighSchool {
         return leastPaid;
     }
     
+     /**
+     * recorremos o ArrayList sumando os salarios de todos os profesores para
+     * devolver a cantidade total 
+     * @return 
+     */
     public double SalaryCosts() {
-        
+        // recorremos o ArrayList e sumamos os salarios de todos
         double total = 0;
         for (Teacher teacher : teachers) {
             total += teacher.getSalary();
@@ -94,6 +102,10 @@ public class HighSchool {
         return total;
     }
     
+    /**
+     * devolve a media dos salarios de todos os profesores
+     * @return 
+     */
     public double SalaryAverage() {
         
         return this.SalaryCosts() / teachers.size();
@@ -101,8 +113,28 @@ public class HighSchool {
     
     
     public static void main(String[] args) {
-        HighSchool highSchool = new HighSchool("Instituto Montealto");
-    }
-    
-    
+        // creamos un instituto
+        HighSchool highSchool = new HighSchool("As Neves");
+        
+        // creamos un obxecto de cada subclase pasándolle os parámetros
+        Teacher of1 = new CareerOfficer(200.23, 2005, "Santiago", "pepe", 
+        "fernandez", "tui", 1800.00);
+        Teacher subs1 = new Substitute(150.22, new Date(), "pablo", "costas", 
+        "pamplona", 1800.00);
+        Teacher int1 = new Interim(80.15, "pontevedra", "marcos", "alvarez", 
+        "ponteareas", 1800.00);
+        
+        // engadimos os profesores ao ArrayList
+        highSchool.getTeachers().add(of1);
+        highSchool.getTeachers().add(subs1);
+        highSchool.getTeachers().add(int1);
+        
+        for (Teacher t: highSchool.getTeachers()) {
+            t.generatePayroll();
+        }
+        
+        System.out.println(highSchool.teacherMostPaid().getName());
+        
+        
+    } 
 }
