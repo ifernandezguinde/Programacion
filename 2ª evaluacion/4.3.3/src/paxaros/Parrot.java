@@ -5,7 +5,6 @@
 package paxaros;
 
 import speaker.Speaker;
-import paxaros.Bird;
 
 /**
  *

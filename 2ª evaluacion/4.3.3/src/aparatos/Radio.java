@@ -5,7 +5,6 @@
 package aparatos;
 
 import speaker.Speaker;
-import aparatos.Device;
 
 /**
  *

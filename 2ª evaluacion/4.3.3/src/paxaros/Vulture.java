@@ -4,7 +4,6 @@
  */
 package paxaros;
 
-import paxaros.Bird;
 
 /**
  *

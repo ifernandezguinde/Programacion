@@ -4,7 +4,6 @@
  */
 package aparatos;
 
-import aparatos.Device;
 
 /**
  *
