@@ -4,62 +4,75 @@
  */
 package persoas;
 
+import speaker.Speaker;
+
 /**
  *
  * @author ivan
  */
 public class Teacher extends Person implements Speaker {
     
-    private String career, course;
+    private String office, email;
 
     /**
      * dalle un valor as variables
-     * @param career
-     * @param course
+     * @param office
+     * @param email
      * @param name
      * @param age 
      */
-    public Teacher(String career, String course, String name, int age) {
+    public Teacher(String office, String email, String name, int age) {
         super(name, age);
-        this.career = career;
-        this.course = course;
+        this.office = office;
+        this.email = email;
     }
 
     /**
-     * devolve o valor de career
+     * devolve o valor de office
      * @return 
      */
-    public String getCareer() {
-        return career;
+    public String getOffice() {
+        return office;
     }
 
     /**
-     * modifica o valor de career
-     * @param career 
+     * modifica o valor de office
+     * @param office 
      */
-    public void setCareer(String career) {
-        this.career = career;
+    public void setOffice(String office) {
+        this.office = office;
     }
 
     /**
-     * devolve o valor de course
+     * devolve o valor de email
      * @return 
      */
-    public String getCourse() {
-        return course;
+    public String getEmail() {
+        return email;
     }
 
     /**
-     * modifica o valor de course
-     * @param course 
+     * modifica o valor de email
+     * @param email 
      */
-    public void setCourse(String course) {
-        this.course = course;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
+    
+    
     @Override
     public void speak() {
         System.out.println("Ola, son un profesor e sei falar");
+        System.out.println();
+        System.out.println("Nome: " + this.getName());
+        System.out.println("    ");
+        System.out.println("Idade: " + this.getAge());
+        System.out.println();
+        System.out.println("Despacho: " + this.getOffice());
+        System.out.println("    ");
+        System.out.println("E-mail: " + this.getEmail());
+        
     }
     
     

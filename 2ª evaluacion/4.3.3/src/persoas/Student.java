@@ -4,6 +4,8 @@
  */
 package persoas;
 
+import speaker.Speaker;
+
 /**
  *
  * @author ivan
@@ -60,6 +62,15 @@ public class Student extends Person implements Speaker {
     @Override
     public void speak() {
         System.out.println("Ola, son un estudante e sei falar");
+        System.out.println();
+        System.out.println("Nome: " + this.getName());
+        System.out.println("    ");
+        System.out.println("Idade: " + this.getAge());
+        System.out.println();
+        System.out.println("Carreira: " + this.getCareer());
+        System.out.println("    ");
+        System.out.println("Curso: " + this.getCourse());
+        
     }
     
     
