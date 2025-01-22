@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package persoas;
 
-import speaker.Speaker;
+
 
 /**
  *
@@ -35,7 +34,7 @@ public class Student extends Person implements Speaker {
         return career;
     }
 
-    /**
+    /**import speaker.Speaker;
      * modifica o valor de career
      * @param career 
      */

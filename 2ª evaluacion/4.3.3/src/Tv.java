@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package aparatos;
 
-import speaker.Speaker;
+
 
 /**
  *
@@ -63,6 +62,14 @@ public class Tv extends Device implements Speaker {
     @Override
     public void speak() {
         System.out.println("Ola, son unha tv e sei falar");
+        System.out.println();
+        System.out.println("Consumo: " + this.getConsumption());
+        System.out.println("    ");
+        System.out.println("Prezo: " + this.getPrice());
+        System.out.println();
+        System.out.println("Teletexto: " + this.isTeletext());
+        System.out.println("    ");
+        System.out.println("Pulgadas: " + this.getInches());
     }
     
     
