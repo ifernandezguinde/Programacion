@@ -59,18 +59,20 @@ public class Teacher extends Person implements Speaker {
     }
 
     
-    
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son un profesor e sei falar");
         System.out.println();
-        System.out.println("Nome: " + this.getName());
-        System.out.println("    ");
-        System.out.println("Idade: " + this.getAge());
+        System.out.println("Nome: " + this.getName() +
+                "     Idade: " + this.getAge());
         System.out.println();
-        System.out.println("Despacho: " + this.getOffice());
-        System.out.println("    ");
-        System.out.println("E-mail: " + this.getEmail());
+        System.out.println("Despacho: " + this.getOffice() +
+                "     E-mail: " + this.getEmail());
+        System.out.println();
+        System.out.println();
         
     }
     

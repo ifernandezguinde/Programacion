@@ -60,18 +60,21 @@ public class Parrot extends Bird implements Speaker {
     
     
     
-
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son un loro e sei falar");
         System.out.println();
-        System.out.println("Sexo: " + this.getSex());
-        System.out.println("    ");
-        System.out.println("Idade: " + this.getAge());
+        System.out.println("Sexo: " + this.getSex() +
+                "     Idade: " + this.getAge());
         System.out.println();
-        System.out.println("Rexion: " + this.getRegion());
-        System.out.println("    ");
-        System.out.println("Cor: " + this.getColor());
+        System.out.println("Rexion: " + this.getRegion() +
+                "     Cor: " + this.getColor());
+        System.out.println();
+        System.out.println();
+        
     }
     
     

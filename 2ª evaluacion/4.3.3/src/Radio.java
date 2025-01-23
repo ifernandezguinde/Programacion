@@ -47,6 +47,7 @@ public class Radio extends Device implements Speaker {
      * @return 
      */
     public boolean isCasette() {
+        
         return casette;
     }
 
@@ -59,18 +60,21 @@ public class Radio extends Device implements Speaker {
     }
 
     
-    
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son unha radio e sei falar");
         System.out.println();
-        System.out.println("Consumo: " + this.getConsumption());
-        System.out.println("    ");
-        System.out.println("Prezo: " + this.getPrice());
+        System.out.println("Consumo: " + this.getConsumption() + 
+                "     Prezo: " + this.getPrice());
         System.out.println();
-        System.out.println("Casette: " + this.isCasette());
-        System.out.println("    ");
-        System.out.println("Potencia: " + this.getPower());
+        System.out.println("Casette: " + (this.isCasette() ? "Si" : "No") + 
+                "     Potencia: " + this.getPower());
+        System.out.println();
+        System.out.println();
+        
     }
     
     

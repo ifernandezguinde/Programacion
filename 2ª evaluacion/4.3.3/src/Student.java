@@ -11,7 +11,8 @@
  */
 public class Student extends Person implements Speaker {
     
-    private String career, course;
+    private String career;
+    private int course;
 
     /**
      * dalle un valor as variables
@@ -20,7 +21,7 @@ public class Student extends Person implements Speaker {
      * @param name
      * @param age 
      */
-    public Student(String career, String course, String name, int age) {
+    public Student(String career, int course, String name, int age) {
         super(name, age);
         this.career = career;
         this.course = course;
@@ -46,7 +47,7 @@ public class Student extends Person implements Speaker {
      * devolve o valor de course
      * @return 
      */
-    public String getCourse() {
+    public int getCourse() {
         return course;
     }
 
@@ -54,21 +55,25 @@ public class Student extends Person implements Speaker {
      * modifica o valor de course
      * @param course 
      */
-    public void setCourse(String course) {
+    public void setCourse(int course) {
         this.course = course;
     }
 
+    
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son un estudante e sei falar");
         System.out.println();
-        System.out.println("Nome: " + this.getName());
-        System.out.println("    ");
-        System.out.println("Idade: " + this.getAge());
+        System.out.println("Nome: " + this.getName() +
+                "     Idade: " + this.getAge());
         System.out.println();
-        System.out.println("Carreira: " + this.getCareer());
-        System.out.println("    ");
-        System.out.println("Curso: " + this.getCourse());
+        System.out.println("Carreira: " + this.getCareer() +
+                "     Curso: " + this.getCourse());
+        System.out.println();
+        System.out.println();
         
     }
     

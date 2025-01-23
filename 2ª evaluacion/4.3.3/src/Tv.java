@@ -59,17 +59,21 @@ public class Tv extends Device implements Speaker {
         this.teletext = teletext;
     }
 
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son unha tv e sei falar");
         System.out.println();
-        System.out.println("Consumo: " + this.getConsumption());
-        System.out.println("    ");
-        System.out.println("Prezo: " + this.getPrice());
+        System.out.println("Consumo: " + this.getConsumption() +
+                "     Prezo: " + this.getPrice());
         System.out.println();
-        System.out.println("Teletexto: " + this.isTeletext());
-        System.out.println("    ");
-        System.out.println("Pulgadas: " + this.getInches());
+        System.out.println("Teletexto: " + (this.isTeletext() ? "Si" : "No") +
+                "     Pulgadas: " + this.getInches());
+        System.out.println();
+        System.out.println();
+        
     }
     
     

@@ -44,18 +44,20 @@ public class Tweety extends Canary implements Speaker {
 
     
     
-    
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son piolin e sei falar");
         System.out.println();
-        System.out.println("Sexo: " + this.getSex());
-        System.out.println("    ");
-        System.out.println("Idade: " + this.getAge());
+        System.out.println("Sexo: " + this.getSex() +
+                "     Idade: " + this.getAge());
+        System.out.println("Canta: " + this.getSing() +
+                "     Peliculas: " + this.getNumberOfFilms());
         System.out.println();
-        System.out.println("Canta: " + this.getSing());
-        System.out.println("    ");
-        System.out.println("Peliculas: " + this.getNumberOfFilms());
+        System.out.println();
+        
     }
     
     

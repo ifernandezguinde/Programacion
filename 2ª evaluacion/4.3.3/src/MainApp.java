@@ -17,18 +17,39 @@
  */
 public class MainApp {
     // creamos un array
-    private Speaker things [] = new Speaker [7];
+    private Speaker things [];
     
     public static void main(String[] Args) {
+        
+        Speaker[] things = new Speaker[7];
+        
         // creamos os obxectos
-        Speaker p1 = new Parrot(Europa, Azul, Macho, 2);
-        Speaker t1 = new Tweety();
-        Speaker s1 = new Student();
-        Speaker te1 = new Teacher();
-        Speaker c1 = new Concierge();
-        Speaker tv1 = new Tv();
-        Speaker rad1 = new Radio();
+        Speaker p1 = new Parrot("Europa", "Azul", "Macho", 2);
+        Speaker t1 = new Tweety(10, "Na Ducha", "Macho", 6);
+        Speaker s1 = new Student("Informaatica", 3, "Marta", 22);
+        Speaker te1 = new Teacher("555-D", "txus@iesteis.es", "Jesus", 35);
+        Speaker c1 = new Concierge("Tarde", 10, "Dani", 40);
+        Speaker tv1 = new Tv(28, true, 100, 30000);
+        Speaker rad1 = new Radio(2, false, 50, 15000);
 
+        
+        // engadimos os obxectos ao Array
+        things[0] = p1;
+        things[1] = t1;
+        things[2] = s1;
+        things[3] = te1;
+        things[4] = c1;
+        things[5] = tv1;
+        things[6] = rad1;
+        
+        
+
+        // facemos un bucle para que nos mostre todo por pantalla invocando o 
+        // método speak()
+        for (Speaker speaker : things) {
+            speaker.speak();
+            System.out.println();
+        }
 
     }
     

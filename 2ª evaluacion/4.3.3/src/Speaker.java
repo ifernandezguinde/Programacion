@@ -6,7 +6,7 @@
  */
 
 /**
- *
+ * interfaz que contén o método speak()
  * @author ivan
  */
 public interface Speaker {

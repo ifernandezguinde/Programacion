@@ -62,18 +62,20 @@ public class Concierge extends Person implements Speaker {
     
 
     
-    
+    /**
+     * mostra por pantalla todos os atributos
+     */
     @Override
     public void speak() {
         System.out.println("Ola, son un bedel e sei falar");
         System.out.println();
-        System.out.println("Nome: " + this.getName());
-        System.out.println("    ");
-        System.out.println("Idade: " + this.getAge());
+        System.out.println("Nome: " + this.getName() +
+                "     Idade: " + this.getAge());
         System.out.println();
-        System.out.println("Turno: " + this.getTurn());
-        System.out.println("    ");
-        System.out.println("Antiguedad: " + this.getSeniority());
+        System.out.println("Turno: " + this.getTurn() +
+                "     Antiguedad: " + this.getSeniority());
+        System.out.println();
+        System.out.println();
     }
     
     

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package shortedarray;
+package sortedarray;
 import java.util.Scanner;
 
 /**
@@ -10,13 +10,13 @@ import java.util.Scanner;
  * algoritmo bubble sort
  * @author ivan.fernandezguinde
  */
-public class ShortedArray {
+public class SortedArray {
     private static int ENTEIROS[] = new int[6];
 
     /**
      * dalle un valor as posicións do array
      */
-    public ShortedArray() {
+    public SortedArray() {
         fillENTEIROS();
     }
     
@@ -34,7 +34,7 @@ public class ShortedArray {
      * @param ENTEIROS 
      */
     public static void setENTEIROS(int[] ENTEIROS) {
-        ShortedArray.ENTEIROS = ENTEIROS;
+        SortedArray.ENTEIROS = ENTEIROS;
     }
 
 
@@ -78,12 +78,12 @@ public class ShortedArray {
      * mostra o array por pantalla
      * @param ENTEIROS 
      */
-    public void show(int ENTEIROS[]) {
+    public void show(int ENTEIROS[]) throws ArrayIndexOutOfBoundsException {
         int i = 0;
          System.out.println("ordenando...");
-        /* Bucle para mostrar el array desde la posicion 0 hasta la longitud del array */
-        for (int enteiro : ENTEIROS) {
-            System.out.print(" Elemento " + (i + 1) + " -----> " + enteiro + "\n");
+        // Bucle para mostrar el array desde la posicion 0 hasta la longitud del array 
+        for (int a = 0; a < 7; a++) {
+            System.out.print(" Elemento " + (i + 1) + " -----> " + ENTEIROS[i] + "\n");
             i = i+1;
         }
     }
@@ -93,7 +93,7 @@ public class ShortedArray {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        ShortedArray array1 = new ShortedArray();
+        SortedArray array1 = new SortedArray();
         
         array1.sort(ENTEIROS);
         array1.show(ENTEIROS);
