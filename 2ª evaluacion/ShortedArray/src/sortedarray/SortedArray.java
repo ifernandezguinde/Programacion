@@ -93,10 +93,14 @@ public class SortedArray {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
+        try {
         SortedArray array1 = new SortedArray();
         
         array1.sort(ENTEIROS);
         array1.show(ENTEIROS);
+        } catch (ArrayIndexOutOfBoundsException e) {
+            System.out.println("Erro!!" + e.getMessage());
+        }
     }
     
 }

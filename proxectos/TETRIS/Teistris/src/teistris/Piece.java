@@ -52,23 +52,27 @@ public class Piece {
     }
     
     
-    private int [] squares = new int [4];
+    private Square [] squares = new Square [4];
 
-    //añadir o array no método right, left, down
+    --//añadir o array no método right, left, down
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
      * @param game 
      */
     public Piece(Game game) {
         this.game = game;
-        a = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
-        b = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        c = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
+        squares[0] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
+        squares[1] = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
+        squares[2] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
             Color.BLUE, game);
-        d = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
+        squares[3] = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
     }
 
-    public int[] getSquares() {
+    /**
+     * devolve o valor do Array
+     * @return 
+     */
+    public Square[] getSquares() {
         return squares;
     }
  
@@ -81,7 +85,7 @@ public class Piece {
     public boolean moveRight() {
         
         // condicións para que a peza se poida mover a dereita
-        if ( game.isValidPosition(b.getX() + Game.SQUARE_SIDE, b.getY())) {
+        if ( game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].getY())) {
             
             if ( game.isValidPosition(d.getX() + Game.SQUARE_SIDE, d.getY())) {
             
