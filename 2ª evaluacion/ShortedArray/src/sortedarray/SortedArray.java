@@ -94,10 +94,11 @@ public class SortedArray {
      */
     public static void main(String[] args) {
         try {
-        SortedArray array1 = new SortedArray();
+            SortedArray array1 = new SortedArray();
         
-        array1.sort(ENTEIROS);
-        array1.show(ENTEIROS);
+            array1.sort(ENTEIROS);
+            array1.show(ENTEIROS);
+        
         } catch (ArrayIndexOutOfBoundsException e) {
             System.out.println("Erro!!" + e.getMessage());
         }
