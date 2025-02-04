@@ -39,6 +39,7 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
         result1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         result2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -49,6 +50,7 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
 
         aNumber.setBackground(new java.awt.Color(255, 255, 255));
         aNumber.setForeground(new java.awt.Color(102, 255, 102));
+        aNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         a.setForeground(new java.awt.Color(102, 255, 102));
         a.setText("a =");
@@ -58,12 +60,14 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
 
         bNumber.setBackground(new java.awt.Color(255, 255, 255));
         bNumber.setForeground(new java.awt.Color(102, 255, 102));
+        bNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         c.setForeground(new java.awt.Color(102, 255, 102));
         c.setText("c =");
 
         cNumber.setBackground(new java.awt.Color(255, 255, 255));
         cNumber.setForeground(new java.awt.Color(102, 255, 102));
+        cNumber.setHorizontalAlignment(javax.swing.JTextField.CENTER);
 
         calculateButton.setBackground(new java.awt.Color(255, 255, 255));
         calculateButton.setForeground(new java.awt.Color(255, 51, 51));
@@ -79,6 +83,7 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
 
         result1.setBackground(new java.awt.Color(255, 255, 255));
         result1.setForeground(new java.awt.Color(102, 255, 102));
+        result1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         result1.setOpaque(true);
 
         jLabel3.setForeground(new java.awt.Color(102, 255, 102));
@@ -86,7 +91,11 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
 
         result2.setBackground(new java.awt.Color(255, 255, 255));
         result2.setForeground(new java.awt.Color(102, 255, 102));
+        result2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         result2.setOpaque(true);
+
+        jLabel4.setForeground(new java.awt.Color(102, 255, 102));
+        jLabel4.setText("CALCULAR ECUACION DE 2º GRAO");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -96,19 +105,16 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addGap(8, 8, 8)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
+                        .addComponent(a)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(calculateButton)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(a)
+                                .addComponent(aNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(calculateButton)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(aNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(b)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(bNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                .addComponent(b)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(bNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
                         .addComponent(c))
                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -117,20 +123,31 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(result1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(result2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(76, 76, 76)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(result1, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE)
+                            .addComponent(result2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(151, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel1))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addComponent(jLabel1)
+                .addContainerGap()
+                .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(a, javax.swing.GroupLayout.DEFAULT_SIZE, 26, Short.MAX_VALUE)
@@ -150,9 +167,9 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(result1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(result2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(result2, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
                 .addGap(43, 43, 43))
         );
 
@@ -177,9 +194,10 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
         c = Double.parseDouble(cNumber.getText());
         
         double d = (-b + Math.sqrt((Math.pow(b, 2) - 4 * a * c))) / (2 * a);
+        double e = (-b - Math.sqrt((Math.pow(b, 2) - 4 * a * c))) / (2 * a);
         
-        result1 = Double.toString(d);
-        result2 = (-b - Math.sqrt((Math.pow(b, 2) - 4 * a * c))) / (2 * a);
+        result1.setText(String.valueOf(d));
+        result2.setText(String.valueOf(e));
         
         
     }//GEN-LAST:event_calculateButtonActionPerformed
@@ -230,6 +248,7 @@ public class EcuacionSegundoGrao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel result1;
     private javax.swing.JLabel result2;
