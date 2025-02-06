@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package pkg5.pkg2.pkg2;
+package pkg5.pkg2.pkg4;
 
 import javax.swing.JOptionPane;
 
@@ -10,12 +10,12 @@ import javax.swing.JOptionPane;
  *
  * @author ivan.fernandezguinde
  */
-public class checkButtons extends javax.swing.JFrame {
+public class AnimaisJList extends javax.swing.JFrame {
 
     /**
      * Creates new form RadioButton
      */
-    public checkButtons() {
+    public AnimaisJList() {
         initComponents();
     }
 
@@ -30,31 +30,15 @@ public class checkButtons extends javax.swing.JFrame {
 
         animals = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        canButton = new javax.swing.JRadioButton();
-        gatoButton = new javax.swing.JRadioButton();
-        galoButton = new javax.swing.JRadioButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         talkButton = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lista = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
-
-        canButton.setBackground(new java.awt.Color(255, 51, 51));
-        animals.add(canButton);
-        canButton.setForeground(new java.awt.Color(0, 0, 0));
-        canButton.setText("CAN");
-
-        gatoButton.setBackground(new java.awt.Color(255, 51, 51));
-        animals.add(gatoButton);
-        gatoButton.setForeground(new java.awt.Color(0, 0, 0));
-        gatoButton.setText("GATO");
-
-        galoButton.setBackground(new java.awt.Color(255, 51, 51));
-        animals.add(galoButton);
-        galoButton.setForeground(new java.awt.Color(0, 0, 0));
-        galoButton.setText("GALO");
 
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -72,43 +56,40 @@ public class checkButtons extends javax.swing.JFrame {
             }
         });
 
+        lista.setBackground(new java.awt.Color(255, 51, 51));
+        lista.setForeground(new java.awt.Color(0, 0, 0));
+        lista.setModel(new javax.swing.AbstractListModel<String>() {
+            String[] strings = { "CAN", "GATO", "GALO" };
+            public int getSize() { return strings.length; }
+            public String getElementAt(int i) { return strings[i]; }
+        });
+        jScrollPane1.setViewportView(lista);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(34, 34, 34)
-                .addComponent(canButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(39, 39, 39)
-                .addComponent(gatoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(46, 46, 46)
-                .addComponent(galoButton, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(144, 144, 144)
+                .addContainerGap(117, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(talkButton)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(talkButton)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addGap(167, 167, 167))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 181, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(115, 115, 115))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(canButton)
-                    .addComponent(gatoButton)
-                    .addComponent(galoButton))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18)
                 .addComponent(talkButton)
@@ -130,27 +111,31 @@ public class checkButtons extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void talkButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_talkButtonActionPerformed
-        String resposta="";
-        
-        if (canButton.isSelected()){
-            resposta = "GUAU!! ";
+
+       String resposta;
+
+        switch (lista.getSelectedValue()) {
+            case "CAN":
+                resposta = "GUAU!! ";
+                JOptionPane.showMessageDialog(this, resposta);
+                break;
+            case "GATO":
+                resposta = "MIAU!! ";
+                JOptionPane.showMessageDialog(this, resposta);
+                break;
+            case "GALO":
+                resposta = "KIKIRIKI!! ";
+                JOptionPane.showMessageDialog(this, resposta);
+                break;
         }
         
-        else if (gatoButton.isSelected()){
-            resposta = "MIAU!! ";
-        }
-        
-        else if (galoButton.isSelected()){
-            resposta = "KIKIRIKI!!";
-        }
-        
-        JOptionPane.showMessageDialog(this, resposta);
     }//GEN-LAST:event_talkButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -164,33 +149,38 @@ public class checkButtons extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(checkButtons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnimaisJList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(checkButtons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnimaisJList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(checkButtons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnimaisJList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(checkButtons.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AnimaisJList.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new checkButtons().setVisible(true);
+                new AnimaisJList().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup animals;
-    private javax.swing.JRadioButton canButton;
-    private javax.swing.JRadioButton galoButton;
-    private javax.swing.JRadioButton gatoButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> lista;
     private javax.swing.JButton talkButton;
     // End of variables declaration//GEN-END:variables
 }
