@@ -102,29 +102,29 @@ public class ParImpar extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void parButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_parButtonActionPerformed
-        ArrayList<Integer> numerosPares  = new ArrayList();
+        ArrayList<Integer> numeros = new ArrayList();
         numbers.removeAllItems();
         
         for (int i=0; i<=100 ; i+=2) {
-            numerosPares.add(i);
+            numeros.add(i);
         }
         
-        for (int i=0; i<numerosPares.size(); i++) {
-            numbers.addItem(numerosPares.get(i).toString());
+        for (int i=0; i<numeros.size(); i++) {
+            numbers.addItem(numeros.get(i).toString());
         }
         
     }//GEN-LAST:event_parButtonActionPerformed
 
     private void imparButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imparButtonActionPerformed
-        ArrayList<Integer> numerosPares  = new ArrayList();
+        ArrayList<Integer> numeros = new ArrayList();
         numbers.removeAllItems();
         
         for (int i=1; i<=100 ; i+=2) {
-            numerosPares.add(i);
+            numeros.add(i);
         }
         
-        for (int i=0; i<numerosPares.size(); i++) {
-            numbers.addItem(numerosPares.get(i).toString());
+        for (int i=0; i<numeros.size(); i++) {
+            numbers.addItem(numeros.get(i).toString());
         }
         
     }//GEN-LAST:event_imparButtonActionPerformed
