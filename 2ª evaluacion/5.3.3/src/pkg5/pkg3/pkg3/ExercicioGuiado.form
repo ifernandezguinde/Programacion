@@ -9,22 +9,22 @@
             <Property name="text" type="java.lang.String" value="Archivo"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="MenuItemAbrir">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemAbrir">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Abrir"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MenuItemGardar">
+            <MenuItem class="javax.swing.JMenuItem" name="menuItemGardar">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Gardar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuItemGardarActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemGardarActionPerformed"/>
               </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="Separador1">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="MenuSair">
+            <MenuItem class="javax.swing.JMenuItem" name="menuSair">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Sair"/>
               </Properties>
@@ -35,6 +35,39 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Edicion"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="menuCores">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Cores"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="menuItemRojo">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Rojo"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemRojoActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuItemVerde">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Verde"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemVerdeActionPerformed"/>
+                  </Events>
+                </MenuItem>
+                <MenuItem class="javax.swing.JMenuItem" name="menuItemAzul">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Azul"/>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="menuItemAzulActionPerformed"/>
+                  </Events>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="menuInsertar">
           <Properties>

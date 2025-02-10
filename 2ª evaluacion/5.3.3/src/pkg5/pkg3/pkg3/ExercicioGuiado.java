@@ -4,6 +4,8 @@
  */
 package pkg5.pkg3.pkg3;
 
+import java.awt.Color;
+
 /**
  *
  * @author ivan.fernandezguinde
@@ -28,35 +30,68 @@ public class ExercicioGuiado extends javax.swing.JFrame {
 
         barraMenus = new javax.swing.JMenuBar();
         menuArchivo = new javax.swing.JMenu();
-        MenuItemAbrir = new javax.swing.JMenuItem();
-        MenuItemGardar = new javax.swing.JMenuItem();
+        menuItemAbrir = new javax.swing.JMenuItem();
+        menuItemGardar = new javax.swing.JMenuItem();
         Separador1 = new javax.swing.JPopupMenu.Separator();
-        MenuSair = new javax.swing.JMenuItem();
+        menuSair = new javax.swing.JMenuItem();
         menuEdicion = new javax.swing.JMenu();
+        menuCores = new javax.swing.JMenu();
+        menuItemRojo = new javax.swing.JMenuItem();
+        menuItemVerde = new javax.swing.JMenuItem();
+        menuItemAzul = new javax.swing.JMenuItem();
         menuInsertar = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         menuArchivo.setText("Archivo");
 
-        MenuItemAbrir.setText("Abrir");
-        menuArchivo.add(MenuItemAbrir);
+        menuItemAbrir.setText("Abrir");
+        menuArchivo.add(menuItemAbrir);
 
-        MenuItemGardar.setText("Gardar");
-        MenuItemGardar.addActionListener(new java.awt.event.ActionListener() {
+        menuItemGardar.setText("Gardar");
+        menuItemGardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuItemGardarActionPerformed(evt);
+                menuItemGardarActionPerformed(evt);
             }
         });
-        menuArchivo.add(MenuItemGardar);
+        menuArchivo.add(menuItemGardar);
         menuArchivo.add(Separador1);
 
-        MenuSair.setText("Sair");
-        menuArchivo.add(MenuSair);
+        menuSair.setText("Sair");
+        menuArchivo.add(menuSair);
 
         barraMenus.add(menuArchivo);
 
         menuEdicion.setText("Edicion");
+
+        menuCores.setText("Cores");
+
+        menuItemRojo.setText("Rojo");
+        menuItemRojo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemRojoActionPerformed(evt);
+            }
+        });
+        menuCores.add(menuItemRojo);
+
+        menuItemVerde.setText("Verde");
+        menuItemVerde.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemVerdeActionPerformed(evt);
+            }
+        });
+        menuCores.add(menuItemVerde);
+
+        menuItemAzul.setText("Azul");
+        menuItemAzul.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menuItemAzulActionPerformed(evt);
+            }
+        });
+        menuCores.add(menuItemAzul);
+
+        menuEdicion.add(menuCores);
+
         barraMenus.add(menuEdicion);
 
         menuInsertar.setText("Insertar");
@@ -78,9 +113,21 @@ public class ExercicioGuiado extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void MenuItemGardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuItemGardarActionPerformed
+    private void menuItemGardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemGardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_MenuItemGardarActionPerformed
+    }//GEN-LAST:event_menuItemGardarActionPerformed
+
+    private void menuItemRojoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemRojoActionPerformed
+        this.getContentPane().setBackground(Color.RED);
+    }//GEN-LAST:event_menuItemRojoActionPerformed
+
+    private void menuItemVerdeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemVerdeActionPerformed
+        this.getContentPane().setBackground(Color.GREEN);
+    }//GEN-LAST:event_menuItemVerdeActionPerformed
+
+    private void menuItemAzulActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menuItemAzulActionPerformed
+        this.getContentPane().setBackground(Color.BLUE);
+    }//GEN-LAST:event_menuItemAzulActionPerformed
 
     /**
      * @param args the command line arguments
@@ -118,13 +165,17 @@ public class ExercicioGuiado extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenuItem MenuItemAbrir;
-    private javax.swing.JMenuItem MenuItemGardar;
-    private javax.swing.JMenuItem MenuSair;
     private javax.swing.JPopupMenu.Separator Separador1;
     private javax.swing.JMenuBar barraMenus;
     private javax.swing.JMenu menuArchivo;
+    private javax.swing.JMenu menuCores;
     private javax.swing.JMenu menuEdicion;
     private javax.swing.JMenu menuInsertar;
+    private javax.swing.JMenuItem menuItemAbrir;
+    private javax.swing.JMenuItem menuItemAzul;
+    private javax.swing.JMenuItem menuItemGardar;
+    private javax.swing.JMenuItem menuItemRojo;
+    private javax.swing.JMenuItem menuItemVerde;
+    private javax.swing.JMenuItem menuSair;
     // End of variables declaration//GEN-END:variables
 }
