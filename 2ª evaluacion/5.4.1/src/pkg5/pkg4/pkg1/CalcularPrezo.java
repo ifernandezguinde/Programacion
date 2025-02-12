@@ -195,9 +195,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }//GEN-LAST:event_unidadesActionPerformed
 
     private void configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracionActionPerformed
-        Configuracion myDialog = new Configuracion(this, true);
-        
-       myDialog.setVisible(true);
+        Configuracion Configuracion = new Configuracion(this, true);
+        Configuracion.setVisible(true);
     }//GEN-LAST:event_configuracionActionPerformed
 
     /**

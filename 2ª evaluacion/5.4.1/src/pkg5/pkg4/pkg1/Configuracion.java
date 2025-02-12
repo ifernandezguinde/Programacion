@@ -143,8 +143,8 @@ public class Configuracion extends javax.swing.JDialog {
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
         
-        if (myDialog.isAcepted) {
-            iva = myDialog.getIva();
+        if (Configuracion.isAcepted {
+            iva = Configuracion.getIva();
         }
     }//GEN-LAST:event_aceptarActionPerformed
 
