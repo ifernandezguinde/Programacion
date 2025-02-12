@@ -4,11 +4,50 @@
  */
 package pkg5.pkg4.pkg1;
 
+import static java.lang.Integer.parseInt;
+
 /**
  *
  * @author ivan.fernandezguinde
  */
 public class CalcularPrezo extends javax.swing.JFrame {
+    
+    private int iva = 21;
+    private int desconto = 0;
+
+    /**
+     * devolve o valor de iva
+     * @return 
+     */
+    public int getIva() {
+        return iva;
+    }
+
+    /**
+     * modifica o valor de iva
+     * @param iva 
+     */
+    public void setIva(int iva) {
+        this.iva = iva;
+    }
+
+    /**
+     * devolve o valor de desconto
+     * @return 
+     */
+    public int getDesconto() {
+        return desconto;
+    }
+
+    /**
+     * modifica o valor de desconto
+     * @param desconto 
+     */
+    public void setDesconto(int desconto) {
+        this.desconto = desconto;
+    }
+    
+    
 
     /**
      * Creates new form CalcularPrezo
@@ -28,75 +67,108 @@ public class CalcularPrezo extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        total = new javax.swing.JLabel();
+        calcular = new javax.swing.JButton();
+        configuracion = new javax.swing.JButton();
+        prezo = new javax.swing.JTextField();
+        unidades = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("jLabel1");
+        jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jLabel2.setText("jLabel2");
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel1.setText("Unidades: ");
 
-        jLabel3.setText("jLabel3");
+        jLabel3.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel3.setText("Prezo: ");
 
-        jLabel4.setText("jLabel4");
+        jLabel5.setBackground(new java.awt.Color(153, 153, 153));
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("TOTAL: ");
 
-        jLabel5.setText("jLabel5");
+        total.setBackground(new java.awt.Color(153, 153, 153));
+        total.setForeground(new java.awt.Color(0, 0, 0));
+        total.setText(" ");
+        total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel6.setText("jLabel6");
+        calcular.setBackground(new java.awt.Color(204, 204, 204));
+        calcular.setForeground(new java.awt.Color(0, 0, 0));
+        calcular.setText("Calcular");
+        calcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                calcularActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        configuracion.setBackground(new java.awt.Color(204, 204, 204));
+        configuracion.setForeground(new java.awt.Color(0, 0, 0));
+        configuracion.setText("Configuración...");
+        configuracion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                configuracionActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("jButton2");
+        prezo.setBackground(new java.awt.Color(255, 255, 255));
+        prezo.setForeground(new java.awt.Color(0, 0, 0));
+        prezo.setText(" ");
+
+        unidades.setBackground(new java.awt.Color(255, 255, 255));
+        unidades.setForeground(new java.awt.Color(0, 0, 0));
+        unidades.setText(" ");
+        unidades.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                unidadesActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(34, 34, 34)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1)
                             .addComponent(jLabel3)
                             .addComponent(jLabel5))
-                        .addGap(128, 128, 128)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel6)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel2)))
+                        .addGap(26, 26, 26)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(prezo)
+                            .addComponent(unidades, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(17, 17, 17)
-                        .addComponent(jButton1)
-                        .addGap(90, 90, 90)
-                        .addComponent(jButton2)))
-                .addContainerGap(137, Short.MAX_VALUE))
+                        .addComponent(calcular)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                        .addComponent(configuracion)))
+                .addContainerGap(114, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(49, 49, 49)
+                .addGap(45, 45, 45)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(unidades)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(prezo)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4))
-                .addGap(43, 43, 43)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 74, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
+                    .addComponent(configuracion)
+                    .addComponent(calcular))
                 .addGap(27, 27, 27))
         );
 
@@ -113,6 +185,20 @@ public class CalcularPrezo extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
+        
+    }//GEN-LAST:event_calcularActionPerformed
+
+    private void unidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_unidadesActionPerformed
+
+    private void configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracionActionPerformed
+        Configuracion myDialog = new Configuracion(this, true);
+        
+       myDialog.setVisible(true);
+    }//GEN-LAST:event_configuracionActionPerformed
 
     /**
      * @param args the command line arguments
@@ -150,14 +236,14 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton calcular;
+    private javax.swing.JButton configuracion;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JTextField prezo;
+    private javax.swing.JLabel total;
+    private javax.swing.JTextField unidades;
     // End of variables declaration//GEN-END:variables
 }
