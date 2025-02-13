@@ -142,9 +142,9 @@ public class Configuracion extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        
-        if (Configuracion.isAcepted {
-            iva = Configuracion.getIva();
+        acepted = true;
+        if (acepted) {
+            iva = CalcularPrezo.getIva;
         }
     }//GEN-LAST:event_aceptarActionPerformed
 

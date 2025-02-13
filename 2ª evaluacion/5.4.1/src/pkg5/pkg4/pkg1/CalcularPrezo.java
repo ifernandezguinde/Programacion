@@ -4,7 +4,7 @@
  */
 package pkg5.pkg4.pkg1;
 
-import static java.lang.Integer.parseInt;
+
 
 /**
  *
@@ -187,7 +187,7 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-        
+    int resultado = prezo * unidades * (iva/100) - (desconto/100);
     }//GEN-LAST:event_calcularActionPerformed
 
     private void unidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadesActionPerformed
