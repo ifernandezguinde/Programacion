@@ -12,14 +12,14 @@ package pkg5.pkg4.pkg1;
  */
 public class CalcularPrezo extends javax.swing.JFrame {
     
-    private int iva = 21;
-    private int desconto = 0;
+    private double iva = 21;
+    private double desconto = 0;
 
     /**
      * devolve o valor de iva
      * @return 
      */
-    public int getIva() {
+    public double getIva() {
         return iva;
     }
 
@@ -27,7 +27,7 @@ public class CalcularPrezo extends javax.swing.JFrame {
      * modifica o valor de iva
      * @param iva 
      */
-    public void setIva(int iva) {
+    public void setIva(double iva) {
         this.iva = iva;
     }
 
@@ -35,7 +35,7 @@ public class CalcularPrezo extends javax.swing.JFrame {
      * devolve o valor de desconto
      * @return 
      */
-    public int getDesconto() {
+    public double getDesconto() {
         return desconto;
     }
 
@@ -43,7 +43,7 @@ public class CalcularPrezo extends javax.swing.JFrame {
      * modifica o valor de desconto
      * @param desconto 
      */
-    public void setDesconto(int desconto) {
+    public void setDesconto(double desconto) {
         this.desconto = desconto;
     }
     
@@ -72,8 +72,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
         total = new javax.swing.JLabel();
         calcular = new javax.swing.JButton();
         configuracion = new javax.swing.JButton();
-        prezo = new javax.swing.JTextField();
-        unidades = new javax.swing.JTextField();
+        prezoCliente = new javax.swing.JTextField();
+        unidadesCliente = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -114,16 +114,16 @@ public class CalcularPrezo extends javax.swing.JFrame {
             }
         });
 
-        prezo.setBackground(new java.awt.Color(255, 255, 255));
-        prezo.setForeground(new java.awt.Color(0, 0, 0));
-        prezo.setText(" ");
+        prezoCliente.setBackground(new java.awt.Color(255, 255, 255));
+        prezoCliente.setForeground(new java.awt.Color(0, 0, 0));
+        prezoCliente.setText(" ");
 
-        unidades.setBackground(new java.awt.Color(255, 255, 255));
-        unidades.setForeground(new java.awt.Color(0, 0, 0));
-        unidades.setText(" ");
-        unidades.addActionListener(new java.awt.event.ActionListener() {
+        unidadesCliente.setBackground(new java.awt.Color(255, 255, 255));
+        unidadesCliente.setForeground(new java.awt.Color(0, 0, 0));
+        unidadesCliente.setText(" ");
+        unidadesCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                unidadesActionPerformed(evt);
+                unidadesClienteActionPerformed(evt);
             }
         });
 
@@ -142,8 +142,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(total, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(prezo)
-                            .addComponent(unidades, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
+                            .addComponent(prezoCliente)
+                            .addComponent(unidadesCliente, javax.swing.GroupLayout.DEFAULT_SIZE, 164, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(calcular)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
@@ -155,11 +155,11 @@ public class CalcularPrezo extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(45, 45, 45)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(unidades)
+                    .addComponent(unidadesCliente)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(31, 31, 31)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(prezo)
+                    .addComponent(prezoCliente)
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -187,12 +187,24 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-    int resultado = prezo * unidades * (iva/100) - (desconto/100);
+    double unidades, prezo, totalSinIva, cantIva, totalAPagar;
+    
+    unidades = Double.parseDouble(unidadesCliente.getText());
+    prezo = Double.parseDouble(prezoCliente.getText());
+    totalSinIva = prezo * unidades;
+    cantIva = totalSinIva * iva/100;
+    desconto = totalSinIva * desconto/100;
+    totalAPagar = totalSinIva + cantIva - desconto;
+    
+    total.setText("" + totalAPagar);
+    
+   
+            
     }//GEN-LAST:event_calcularActionPerformed
 
-    private void unidadesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadesActionPerformed
+    private void unidadesClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadesClienteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_unidadesActionPerformed
+    }//GEN-LAST:event_unidadesClienteActionPerformed
 
     private void configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracionActionPerformed
         Configuracion Configuracion = new Configuracion(this, true);
@@ -241,8 +253,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField prezo;
+    private javax.swing.JTextField prezoCliente;
     private javax.swing.JLabel total;
-    private javax.swing.JTextField unidades;
+    private javax.swing.JTextField unidadesCliente;
     // End of variables declaration//GEN-END:variables
 }
