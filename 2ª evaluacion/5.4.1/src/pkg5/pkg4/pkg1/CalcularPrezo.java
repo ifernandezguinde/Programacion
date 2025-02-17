@@ -12,8 +12,25 @@ package pkg5.pkg4.pkg1;
  */
 public class CalcularPrezo extends javax.swing.JFrame {
     
-    private double iva = 21;
-    private double desconto = 0;
+    private double iva;
+    private double desconto;
+    boolean acepted = false;
+
+    /**
+     * devolve o valor de acepted
+     * @return 
+     */
+    public boolean isAcepted() {
+        return acepted;
+    }
+
+    /**
+     * modifica o valor de acepted
+     * @param acepted 
+     */
+    public void setAcepted(boolean acepted) {
+        this.acepted = acepted;
+    }
 
     /**
      * devolve o valor de iva
@@ -54,6 +71,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
      */
     public CalcularPrezo() {
         initComponents();
+        iva = 21;
+        desconto = 0;
     }
 
     /**
@@ -65,6 +84,14 @@ public class CalcularPrezo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        dialogConfiguracion = new javax.swing.JDialog();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        textoiva = new javax.swing.JTextField();
+        textodesconto = new javax.swing.JTextField();
+        aceptar = new javax.swing.JButton();
+        cancelar = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -75,29 +102,102 @@ public class CalcularPrezo extends javax.swing.JFrame {
         prezoCliente = new javax.swing.JTextField();
         unidadesCliente = new javax.swing.JTextField();
 
+        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
+
+        jLabel2.setText("IVA %: ");
+
+        jLabel4.setText("DESCONTO: ");
+
+        textoiva.setText(" ");
+
+        textodesconto.setText(" ");
+
+        aceptar.setBackground(new java.awt.Color(204, 204, 204));
+        aceptar.setText("Aceptar");
+        aceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                aceptarActionPerformed(evt);
+            }
+        });
+
+        cancelar.setBackground(new java.awt.Color(204, 204, 204));
+        cancelar.setText("Cancelar");
+        cancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cancelarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addGap(69, 69, 69)
+                        .addComponent(textoiva))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(34, 34, 34)
+                        .addComponent(textodesconto)))
+                .addGap(184, 184, 184))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(34, 34, 34)
+                .addComponent(aceptar)
+                .addGap(18, 18, 18)
+                .addComponent(cancelar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(192, 192, 192))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(63, 63, 63)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(textoiva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(46, 46, 46)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(textodesconto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(aceptar)
+                    .addComponent(cancelar))
+                .addGap(28, 28, 28))
+        );
+
+        javax.swing.GroupLayout dialogConfiguracionLayout = new javax.swing.GroupLayout(dialogConfiguracion.getContentPane());
+        dialogConfiguracion.getContentPane().setLayout(dialogConfiguracionLayout);
+        dialogConfiguracionLayout.setHorizontalGroup(
+            dialogConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        dialogConfiguracionLayout.setVerticalGroup(
+            dialogConfiguracionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Unidades: ");
 
         jLabel3.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("Prezo: ");
 
         jLabel5.setBackground(new java.awt.Color(153, 153, 153));
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("TOTAL: ");
 
         total.setBackground(new java.awt.Color(153, 153, 153));
-        total.setForeground(new java.awt.Color(0, 0, 0));
         total.setText(" ");
         total.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         calcular.setBackground(new java.awt.Color(204, 204, 204));
-        calcular.setForeground(new java.awt.Color(0, 0, 0));
         calcular.setText("Calcular");
         calcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -106,7 +206,6 @@ public class CalcularPrezo extends javax.swing.JFrame {
         });
 
         configuracion.setBackground(new java.awt.Color(204, 204, 204));
-        configuracion.setForeground(new java.awt.Color(0, 0, 0));
         configuracion.setText("Configuración...");
         configuracion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,12 +213,8 @@ public class CalcularPrezo extends javax.swing.JFrame {
             }
         });
 
-        prezoCliente.setBackground(new java.awt.Color(255, 255, 255));
-        prezoCliente.setForeground(new java.awt.Color(0, 0, 0));
         prezoCliente.setText(" ");
 
-        unidadesCliente.setBackground(new java.awt.Color(255, 255, 255));
-        unidadesCliente.setForeground(new java.awt.Color(0, 0, 0));
         unidadesCliente.setText(" ");
         unidadesCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,14 +282,14 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void calcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_calcularActionPerformed
-    double unidades, prezo, totalSinIva, cantIva, totalAPagar;
+    double unidades, prezo, totalSinIva, cantDesconto, cantIva, totalAPagar;
     
     unidades = Double.parseDouble(unidadesCliente.getText());
     prezo = Double.parseDouble(prezoCliente.getText());
     totalSinIva = prezo * unidades;
     cantIva = totalSinIva * iva/100;
-    desconto = totalSinIva * desconto/100;
-    totalAPagar = totalSinIva + cantIva - desconto;
+    cantDesconto = totalSinIva * desconto/100;
+    totalAPagar = totalSinIva + cantIva - cantDesconto;
     
     total.setText("" + totalAPagar);
     
@@ -203,13 +298,32 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }//GEN-LAST:event_calcularActionPerformed
 
     private void unidadesClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_unidadesClienteActionPerformed
-        // TODO add your handling code here:
+
     }//GEN-LAST:event_unidadesClienteActionPerformed
 
     private void configuracionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_configuracionActionPerformed
-        Configuracion Configuracion = new Configuracion(this, true);
-        Configuracion.setVisible(true);
+        dialogConfiguracion.setSize(250,400);
+        dialogConfiguracion.setLocation(100,100);
+        dialogConfiguracion.setVisible(true);
+        textoiva.setText(String.valueOf(iva));
+        textodesconto.setText(String.valueOf(desconto));
+        
     }//GEN-LAST:event_configuracionActionPerformed
+
+    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
+
+        acepted = true;
+        if (acepted) {
+            iva = Double.parseDouble(textoiva.getText());
+            desconto = Double.parseDouble(textodesconto.getText());
+        }
+        dialogConfiguracion.dispose();
+    }//GEN-LAST:event_aceptarActionPerformed
+
+    private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
+        acepted = false;
+        dialogConfiguracion.dispose();
+    }//GEN-LAST:event_cancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -247,13 +361,21 @@ public class CalcularPrezo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton aceptar;
     private javax.swing.JButton calcular;
+    private javax.swing.JButton cancelar;
     private javax.swing.JButton configuracion;
+    private javax.swing.JDialog dialogConfiguracion;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField prezoCliente;
+    private javax.swing.JTextField textodesconto;
+    private javax.swing.JTextField textoiva;
     private javax.swing.JLabel total;
     private javax.swing.JTextField unidadesCliente;
     // End of variables declaration//GEN-END:variables
