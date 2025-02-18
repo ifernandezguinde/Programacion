@@ -31,8 +31,13 @@ public class KeyListener extends javax.swing.JFrame {
         text = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
-        text.setForeground(new java.awt.Color(255, 255, 255));
+        text.setForeground(new java.awt.Color(0, 0, 0));
         text.setText(" ");
         text.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -61,6 +66,10 @@ public class KeyListener extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void textKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_textKeyPressed
+        
+    }//GEN-LAST:event_textKeyPressed
+
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
         char keycode = evt.getKeyChar();
         switch (keycode) {
             case KeyEvent.VK_A:
@@ -75,10 +84,8 @@ public class KeyListener extends javax.swing.JFrame {
             case KeyEvent.VK_D:
                 text.setText("Letra pulsada d: Rotar");
                 break;
-            default:
-                text.setText("pulsa a, b, c ou d");
         }
-    }//GEN-LAST:event_textKeyPressed
+    }//GEN-LAST:event_formKeyPressed
 
     /**
      * @param args the command line arguments
