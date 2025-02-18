@@ -169,7 +169,7 @@ public class Game {
      */
     private void createNewPiece() {
         Piece piece = new Piece(this);
-        
+        currentPiece = piece;
     }
 
     public Game(Piece currentPiece) {

@@ -70,19 +70,22 @@ public class KeyListener extends javax.swing.JFrame {
     }//GEN-LAST:event_textKeyPressed
 
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        char keycode = evt.getKeyChar();
+        char keycode = Character.toLowerCase(evt.getKeyChar());
         switch (keycode) {
-            case KeyEvent.VK_A:
+            case 'a':
                 text.setText("Letra pulsada a: Baixar");
                 break;
-            case KeyEvent.VK_B:
+            case 'b':
                 text.setText("Letra pulsada b: Ir á esquerda");
                 break;
-            case KeyEvent.VK_C:
+            case 'c':
                 text.setText("Letra pulsada c: Ir á dereita");
                 break;
-            case KeyEvent.VK_D:
+            case 'd':
                 text.setText("Letra pulsada d: Rotar");
+                break;
+            default:
+                text.setText("proba con a, b, c ou d");
                 break;
         }
     }//GEN-LAST:event_formKeyPressed
