@@ -36,6 +36,7 @@ public class Game {
     public final static int MAX_Y = 200;
     
     
+    
 
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
@@ -56,6 +57,9 @@ public class Game {
      * Número de liñas feitas no xogo
      */
     private int numberOfLines = 0;
+    
+    
+    
 
     /**
      * @return Referenza á ventá principal do xogo

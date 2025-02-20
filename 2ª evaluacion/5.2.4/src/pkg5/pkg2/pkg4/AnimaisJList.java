@@ -114,20 +114,25 @@ public class AnimaisJList extends javax.swing.JFrame {
 
        String resposta;
 
-        switch (lista.getSelectedValue()) {
-            case "CAN":
-                resposta = "GUAU!! ";
-                JOptionPane.showMessageDialog(this, resposta);
-                break;
-            case "GATO":
-                resposta = "MIAU!! ";
-                JOptionPane.showMessageDialog(this, resposta);
-                break;
-            case "GALO":
-                resposta = "KIKIRIKI!! ";
-                JOptionPane.showMessageDialog(this, resposta);
-                break;
-        }
+       if(lista.getSelectedValue()== null) {
+        JOptionPane.showMessageDialog(this, "Debes seleccionar un anumal!",
+                "Erro", JOptionPane.ERROR_MESSAGE);
+       } else {
+            switch (lista.getSelectedValue()) {
+                case "CAN":
+                    resposta = "GUAU!! ";
+                    JOptionPane.showMessageDialog(this, resposta);
+                    break;
+                case "GATO":
+                    resposta = "MIAU!! ";
+                    JOptionPane.showMessageDialog(this, resposta);
+                    break;
+                case "GALO":
+                    resposta = "KIKIRIKI!! ";
+                    JOptionPane.showMessageDialog(this, resposta);
+                    break;
+            }
+       }
         
     }//GEN-LAST:event_talkButtonActionPerformed
 

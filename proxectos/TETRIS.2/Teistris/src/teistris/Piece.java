@@ -29,7 +29,7 @@ public class Piece {
      * Referenza ao obxecto xogo
      */
     private Game game;
-    
+
     /**
      * Referenzas aos catro cadrados que forman a peza
      */
@@ -37,7 +37,8 @@ public class Piece {
 
     /**
      * devolve o valor de game
-     * @return 
+     *
+     * @return
      */
     public Game getGame() {
         return game;
@@ -45,37 +46,37 @@ public class Piece {
 
     /**
      * modifica o valor de game
-     * @param game 
+     *
+     * @param game
      */
     public void setGame(Game game) {
         this.game = game;
     }
-    
-    
-    private Square [] squares = new Square [4];
 
-    --//añadir o array no método right, left, down
+    private Square[] squares = new Square[4];
+
     /**
      * Construtor da clase, que crea os catro cadrados que forman a peza
-     * @param game 
+     *
+     * @param game
      */
     public Piece(Game game) {
         this.game = game;
         squares[0] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
         squares[1] = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
         squares[2] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-            Color.BLUE, game);
+                Color.BLUE, game);
         squares[3] = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
     }
 
     /**
      * devolve o valor do Array
-     * @return 
+     *
+     * @return
      */
     public Square[] getSquares() {
         return squares;
     }
- 
 
     /**
      * Move a ficha a dereita se é posible
@@ -83,21 +84,24 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveRight() {
-        
+        boolean isValidMovement = true;
+
         // condicións para que a peza se poida mover a dereita
-        if ( game.isValidPosition(squares[1].getX() + Game.SQUARE_SIDE, squares[1].getY())) {
-            
-            if ( game.isValidPosition(d.getX() + Game.SQUARE_SIDE, d.getY())) {
-            
-                a.setX(a.getX() + Game.SQUARE_SIDE);
-                b.setX(b.getX() + Game.SQUARE_SIDE);
-                c.setX(c.getX() + Game.SQUARE_SIDE);
-                d.setX(d.getX() + Game.SQUARE_SIDE);
-                
-                return true;
+        for (Square sq : squares) {
+            if (!game.isValidPosition(sq.getX() + Game.SQUARE_SIDE, sq.getY())) {
+                isValidMovement = false;
             }
         }
-       return false;
+
+        // movemos a peza cara a dereita se é posible
+        if (isValidMovement) {
+            for (int i = 0; i < 4; i++) {
+                squares[i].setX(squares[i].getX() + Game.SQUARE_SIDE);
+            }
+            return true;
+        }
+        return false;
+
     }
 
     /**
@@ -106,22 +110,23 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveLeft() {
-        
-        // condicións para que a peza se poida mover a esquerda
-        if ( game.isValidPosition(c.getX() - Game.SQUARE_SIDE, c.getY())) {
-            
-            if ( game.isValidPosition(d.getX() - Game.SQUARE_SIDE, d.getY())) {
-            
-                // facemos que a peza se mova toda a esquerda
-                a.setX(a.getX() - Game.SQUARE_SIDE);
-                b.setX(b.getX() - Game.SQUARE_SIDE);
-                c.setX(c.getX() - Game.SQUARE_SIDE);
-                d.setX(d.getX() - Game.SQUARE_SIDE);
-                
-                return true;
+        boolean isValidMovement = true;
+
+        // condicións para que a peza se poida mover a dereita
+        for (Square sq : squares) {
+            if (!game.isValidPosition(sq.getX() - Game.SQUARE_SIDE, sq.getY())) {
+                isValidMovement = false;
             }
         }
-       return false;
+
+        // movemos a peza cara a dereita se é posible
+        if (isValidMovement) {
+            for (int i = 0; i < 4; i++) {
+                squares[i].setX(squares[i].getX() - Game.SQUARE_SIDE);
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -130,21 +135,23 @@ public class Piece {
      * @return true se o movemento da ficha é posible, se non false
      */
     public boolean moveDown() {
+        boolean isValidMovement = true;
         
-        // condicións para que a peza se poida mover para abaixo
-        if ( game.isValidPosition(c.getX(), c.getY() + Game.SQUARE_SIDE)) {
-            
-            if ( game.isValidPosition(d.getX(), d.getY() + Game.SQUARE_SIDE)) {
-            
-                a.setY(a.getY() + Game.SQUARE_SIDE);
-                b.setY(b.getY() + Game.SQUARE_SIDE);
-                c.setY(c.getY() + Game.SQUARE_SIDE);
-                d.setY(d.getY() + Game.SQUARE_SIDE);
-                
-                return true;
+        // condicións para que a peza se poida mover a dereita
+        for (Square sq : squares) {
+            if (!game.isValidPosition(sq.getX(), sq.getY() + Game.SQUARE_SIDE)) {
+                isValidMovement = false;
             }
         }
-       return false;
+
+        // movemos a peza cara a dereita se é posible
+        if (isValidMovement) {
+            for (int i = 0; i < 4; i++) {
+                squares[i].setY(squares[i].getY() + Game.SQUARE_SIDE);
+            }
+            return true;
+        }
+        return false;
     }
 
     /**
