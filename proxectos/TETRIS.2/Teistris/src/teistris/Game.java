@@ -210,7 +210,9 @@ public class Game {
      * cadrados do chan e súmase unha nova liña no número de liñas realizadas
      */
     private void deleteCompletedLines() {
-
+        if() {
+            this.deleteLine(y);
+        }
     }
 
     /**
