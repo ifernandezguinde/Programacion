@@ -171,7 +171,9 @@ public class Game {
         if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || (y < 0)){
             return false;
         } else {
-            for ()
+            if (groundSquares.containsKey(Piece.squares.getCoordinates)) {
+                return false;
+            }
         }
         return true;
     }
