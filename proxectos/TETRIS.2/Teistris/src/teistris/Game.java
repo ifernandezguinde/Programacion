@@ -168,13 +168,12 @@ public class Game {
      * @return true se esa posición é válida, se non false
      */
     public boolean isValidPosition(int x, int y) {
+        String position = x + "," + y;
         if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || (y < 0)){
             return false;
-        } else {
-            if (groundSquares.containsKey(Piece.squares.getCoordinates)) {
+        } else if (groundSquares.containsKey(position)) {
                 return false;
             }
-        }
         return true;
     }
 
@@ -195,6 +194,12 @@ public class Game {
      */
     private void addPieceToGround() {
         // Engadimos os cadrados da peza ao chan
+        for (Square sq : currentPiece.getSquares()) {
+            // guarda las coordenadas del cuadrado
+            String positionkey = sq.getCoordinates();
+            //añade el cuadrado al hashmap
+            groundSquares.put(positionkey, sq);
+        }
 
         // Chamamos ao método que borra as liñas do chan que estean completas
         this.deleteCompletedLines();
