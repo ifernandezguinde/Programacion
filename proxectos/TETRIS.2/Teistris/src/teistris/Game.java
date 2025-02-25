@@ -16,6 +16,7 @@
  */
 package teistris;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
@@ -66,6 +67,11 @@ public class Game {
      * Hash map para as pezas que están no chan
      */
     private HashMap<String, Square> groundSquares;
+    
+    /**
+     * arraylist que garda as liñas completas
+     */
+    private ArrayList<Square> line = new ArrayList<>();
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -218,6 +224,8 @@ public class Game {
         // Se non existe un cuadrado nesta posición, a liña non está completa
         if (!groundSquares.containsKey(x + "," + y)) {
             return false;
+        } else {
+            line.add(e)
         }
     }
     return true;
