@@ -23,6 +23,7 @@ import java.util.Map;
 
 /**
  * Clase que implementa o comportamento do xogo do Tetris
+ *
  * @author Profe de Programación
  */
 public class Game {
@@ -39,9 +40,6 @@ public class Game {
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
     public final static int MAX_Y = 200;
-    
-    
-    
 
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
@@ -62,12 +60,12 @@ public class Game {
      * Número de liñas feitas no xogo
      */
     private int numberOfLines = 0;
-    
+
     /**
      * Hash map para as pezas que están no chan
      */
     private HashMap<String, Square> groundSquares;
-    
+
     /**
      * arraylist que garda as liñas completas
      */
@@ -117,6 +115,7 @@ public class Game {
 
     /**
      * Construtor da clase, que crea unha primeira peza
+     *
      * @param mainWindow Referenza á ventá principal do xogo
      */
     public Game(MainWindow mainWindow) {
@@ -154,9 +153,9 @@ public class Game {
     }
 
     /**
-     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca
-     * con algo e xa non pode baixar, pasa a formar parte do chan e créase unha
-     * nova peza
+     * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con
+     * algo e xa non pode baixar, pasa a formar parte do chan e créase unha nova
+     * peza
      */
     public void movePieceDown() {
         if ((!paused) && (!currentPiece.moveDown())) {
@@ -177,11 +176,11 @@ public class Game {
      */
     public boolean isValidPosition(int x, int y) {
         String position = x + "," + y;
-        if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || (y < 0)){
+        if ((x == MAX_X) || (x < 0) || (y == MAX_Y) || (y < 0)) {
             return false;
         } else if (groundSquares.containsKey(position)) {
-                return false;
-            }
+            return false;
+        }
         return true;
     }
 
@@ -212,44 +211,31 @@ public class Game {
         // Chamamos ao método que borra as liñas do chan que estean completas
         this.deleteCompletedLines();
     }
-    
+
     /**
      * comproba se unha liña está chea de cadrados
+     *
      * @param y
-     * @return 
+     * @return
      */
     private boolean isLineComplete(int y) {
-    // Recorremos todas as posicions x na altura y
-    for (int x = 0; x < MAX_X; x += SQUARE_SIDE) {
-        // Se non existe un cuadrado nesta posición, a liña non está completa
-        if (!groundSquares.containsKey(x + "," + y)) {
-            return false;
-        } else {
-            line.add(e)
-        }
-    }
-    return true;
-    }
-    
-    /**
-     * este método move as liñas cara abaixo cando eliminamos unha
-     * @param y 
-     */
-    private void moveLinesDown(int y) {
-        // Recorremos as liñas por enrriba da liña eliminada
-        for (int i = y - 1; i >= 0; i--) {
-            // Recorremos todos os cadrados nesta liña
-            for (Map.Entry<String, Square> entry : groundSquares.entrySet()) {
-                Square sq = entry.getValue();
-                // Se o cadrado está nunha liña por enrriba da liña eliminada, 
-                // movémolo cara abaixo
-                if (sq.getY() == i) {
-                    sq.setY(sq.getY() + SQUARE_SIDE);
-                    // Actualizamos a clave do HashMap para a nova posición
-                    groundSquares.put(sq.getCoordinates(), sq);
-                }
+        // Recorremos todas as posicions x na altura y
+        for (int x = 0; x < MAX_X; x += SQUARE_SIDE) {
+            // Se non existe un cuadrado nesta posición, a liña non está completa
+            if (!groundSquares.containsKey(x + "," + y)) {
+                return false;
             }
         }
+        return true;
+    }
+
+    /**
+     * este método move as liñas cara abaixo cando eliminamos unha
+     *
+     * @param y
+     */
+    private void moveLinesDown(int y) {
+
     }
 
     /**
@@ -258,14 +244,10 @@ public class Game {
      */
     private void deleteCompletedLines() {
         // Recorremos todas as liñas do tableiro de abaixo para arriba
-        for (int y = MAX_Y - 1; y >= 0; y--) {
+        for (int y = 0; y < MAX_Y; y += SQUARE_SIDE) {
             // Verificamos si a liña está completa e eliminámola
             if (isLineComplete(y)) {
-                deleteLine(y);
-                // Despois de eliminala, movemos as liñas de enrriba cara abaixo
-                moveLinesDown(y);
-                // Volvemos a comprobar esta liña
-                y++;
+                this.deleteLine(y);
             }
         }
     }
@@ -278,22 +260,18 @@ public class Game {
      * @param y Coordenada y da liña a borrar
      */
     private void deleteLine(int y) {
-        //creamos un iterador que recorre el hashmap
-        Iterator<Map.Entry<String, Square>> iterator = groundSquares.entrySet().iterator();
-        
-        //recorremos o hashmap
-        while(iterator.hasNext()) {
-            Map.Entry<String, Square> entry = iterator.next();
-            
-            // obtenemos o cadrado
-            Square sq = entry.getValue();
-            
-            //eliminamos o cadrado si a posicion y coincide
-            if(sq.getY() == y) {
-                iterator.remove();
-            }
-        }
+        //recorremos o hashmap na posicion y que está completa
+        for (int x = 0; x < MAX_X; x += SQUARE_SIDE) {
 
+            // obtenemos o cadrado
+            String position = x + "," + y;
+            // recuperamos o cadrado de hashmap e chamamos a venta principal
+            // para que borre ese cadrado
+            Square sq = groundSquares.get(position);
+            mainWindow.deleteSquare(sq.getLblSquare());
+            // eliminamos ese cadrado do hashmap
+            groundSquares.remove(position);
+        }
     }
 
     /**
