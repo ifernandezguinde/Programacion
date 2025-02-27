@@ -16,10 +16,7 @@
  */
 package teistris;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Clase que implementa o comportamento do xogo do Tetris
@@ -66,10 +63,6 @@ public class Game {
      */
     private HashMap<String, Square> groundSquares;
 
-    /**
-     * arraylist que garda as liñas completas
-     */
-    private ArrayList<Square> line = new ArrayList<>();
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -280,7 +273,7 @@ public class Game {
      * @return true se a peza actual choca cos cadrados do chan; se non false
      */
     private boolean hitPieceTheGround() {
-        // Polo momento, non facemos nada
+
         return false;
     }
 }
