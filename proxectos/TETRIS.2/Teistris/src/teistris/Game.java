@@ -63,7 +63,6 @@ public class Game {
      */
     private HashMap<String, Square> groundSquares;
 
-
     /**
      * @return Referenza á ventá principal do xogo
      */
@@ -273,7 +272,18 @@ public class Game {
      * @return true se a peza actual choca cos cadrados do chan; se non false
      */
     private boolean hitPieceTheGround() {
+        // Recorremos os cadrados da peza actual
+        for (Square sq : currentPiece.getSquares()) {
+            int x = sq.getX();
+            int y = sq.getY();
 
+            // Comprobar se choca co chan
+            if (y >= MAX_Y - SQUARE_SIDE) {
+                return true;
+            }
+        }
         return false;
     }
+    
+    
 }
