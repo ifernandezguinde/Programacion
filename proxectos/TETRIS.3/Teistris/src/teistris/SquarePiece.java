@@ -160,6 +160,10 @@ public class SquarePiece extends Piece {
         lblSquare.repaint();
     }
 
+    /**
+     * rota a peza
+     * @return 
+     */
     @Override
     public boolean rotate() {
         // A rotación da ficha cadrada non supón ningunha variación na ficha,
