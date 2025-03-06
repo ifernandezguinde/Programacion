@@ -61,7 +61,7 @@ public class Game {
     /**
      * Hash map para as pezas que están no chan
      */
-    private HashMap<String, Square> groundSquares;
+    private HashMap<String, SquarePiece> groundSquares;
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -193,7 +193,7 @@ public class Game {
      */
     private void addPieceToGround() {
         // Engadimos os cadrados da peza ao chan
-        for (Square sq : currentPiece.getSquares()) {
+        for (SquarePiece sq : currentPiece.getSquares()) {
             // garda as coordenadas do cadrado
             String positionkey = sq.getCoordinates();
             //añade o cadrado ao hashmap
@@ -259,7 +259,7 @@ public class Game {
             String position = x + "," + y;
             // recuperamos o cadrado de hashmap e chamamos a venta principal
             // para que borre ese cadrado
-            Square sq = groundSquares.get(position);
+            SquarePiece sq = groundSquares.get(position);
             mainWindow.deleteSquare(sq.getLblSquare());
             // eliminamos ese cadrado do hashmap
             groundSquares.remove(position);
@@ -273,7 +273,7 @@ public class Game {
      */
     private boolean hitPieceTheGround() {
         // Recorremos os cadrados da peza actual
-        for (Square sq : currentPiece.getSquares()) {
+        for (SquarePiece sq : currentPiece.getSquares()) {
             int x = sq.getX();
             int y = sq.getY();
 
