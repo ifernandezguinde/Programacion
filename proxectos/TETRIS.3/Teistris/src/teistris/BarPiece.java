@@ -43,8 +43,11 @@ public class BarPiece extends Piece {
     }
 
     @Override
+    /**
+     * reota a peza
+     */
     public boolean rotate() {
-        
+        if (!game.isValidPosition(0, 0))
         return true;
     }
     
