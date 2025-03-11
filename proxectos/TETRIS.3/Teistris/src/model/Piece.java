@@ -14,7 +14,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package teistris;
+package model;
+
 
 
 /**
@@ -32,24 +33,7 @@ public abstract class Piece {
     /**
      * Referenzas aos catro cadrados que forman a peza
      */
-    protected SquarePiece a, b, c, d;
-    
-    /**
-     * Array de cadrados
-     */
-    protected SquarePiece[] squares = new SquarePiece[4];
-    
-    
-    /**
-     * Construtor da clase, que crea os catro cadrados que forman a peza
-     *
-     * @param game
-     */
-    public Piece(Game game) {
-        this.game = game;
-
-    }
-    
+    protected Square a, b, c, d;
 
     /**
      * devolve o valor de game
@@ -68,17 +52,19 @@ public abstract class Piece {
     public void setGame(Game game) {
         this.game = game;
     }
+
+    protected Square[] squares = new Square[4];
+
     
+
     /**
      * devolve o valor do Array
      *
      * @return
      */
-    public SquarePiece[] getSquares() {
+    public Square[] getSquares() {
         return squares;
     }
-
-
 
     /**
      * Move a ficha a dereita se é posible
@@ -89,7 +75,7 @@ public abstract class Piece {
         boolean isValidMovement = true;
 
         // condicións para que a peza se poida mover a dereita
-        for (SquarePiece sq : squares) {
+        for (Square sq : squares) {
             if (!game.isValidPosition(sq.getX() + Game.SQUARE_SIDE, sq.getY())) {
                 isValidMovement = false;
             }
@@ -115,7 +101,7 @@ public abstract class Piece {
         boolean isValidMovement = true;
 
         // condicións para que a peza se poida mover a dereita
-        for (SquarePiece sq : squares) {
+        for (Square sq : squares) {
             if (!game.isValidPosition(sq.getX() - Game.SQUARE_SIDE, sq.getY())) {
                 isValidMovement = false;
             }
@@ -138,9 +124,9 @@ public abstract class Piece {
      */
     public boolean moveDown() {
         boolean isValidMovement = true;
-        
+
         // condicións para que a peza se poida mover a dereita
-        for (SquarePiece sq : squares) {
+        for (Square sq : squares) {
             if (!game.isValidPosition(sq.getX(), sq.getY() + Game.SQUARE_SIDE)) {
                 isValidMovement = false;
             }

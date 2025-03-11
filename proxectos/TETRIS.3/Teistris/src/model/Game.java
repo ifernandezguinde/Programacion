@@ -14,8 +14,9 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package teistris;
+package model;
 
+import view.MainWindow;
 import java.util.HashMap;
 
 /**
@@ -61,7 +62,7 @@ public class Game {
     /**
      * Hash map para as pezas que están no chan
      */
-    private HashMap<String, SquarePiece> groundSquares;
+    private HashMap<String, Square> groundSquares;
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -180,6 +181,7 @@ public class Game {
      * Crea unha nova peza e a establece como peza actual do xogo
      */
     private void createNewPiece() {
+        int pieceType = new java.util.Random().nextInt(2);
         Piece piece = new Piece(this);
         currentPiece = piece;
     }
@@ -193,7 +195,7 @@ public class Game {
      */
     private void addPieceToGround() {
         // Engadimos os cadrados da peza ao chan
-        for (SquarePiece sq : currentPiece.getSquares()) {
+        for (Square sq : currentPiece.getSquares()) {
             // garda as coordenadas do cadrado
             String positionkey = sq.getCoordinates();
             //añade o cadrado ao hashmap
@@ -259,7 +261,7 @@ public class Game {
             String position = x + "," + y;
             // recuperamos o cadrado de hashmap e chamamos a venta principal
             // para que borre ese cadrado
-            SquarePiece sq = groundSquares.get(position);
+            Square sq = groundSquares.get(position);
             mainWindow.deleteSquare(sq.getLblSquare());
             // eliminamos ese cadrado do hashmap
             groundSquares.remove(position);
@@ -273,7 +275,7 @@ public class Game {
      */
     private boolean hitPieceTheGround() {
         // Recorremos os cadrados da peza actual
-        for (SquarePiece sq : currentPiece.getSquares()) {
+        for (Square sq : currentPiece.getSquares()) {
             int x = sq.getX();
             int y = sq.getY();
 

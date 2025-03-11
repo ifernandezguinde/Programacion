@@ -14,7 +14,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package teistris;
+package model;
 
 import java.awt.Color;
 import javax.swing.JLabel;
@@ -26,65 +26,21 @@ import javax.swing.border.BevelBorder;
  *
  * @author Profe de Programación
  */
-public class SquarePiece extends Piece {
+public class Square {
 
     /**
      * Coordenadas do cadrado no panel do xogo
      */
     private int x, y;
-    
-    
     /**
      * Etiqueta que mostra o cadrado no panel
      */
     private JLabel lblSquare;
-    
-    
     /**
      * Referenza á cor do cadrado
      */
     private Color fillColor;
-    
-    
-    
-    
-    
-    /**
-     * Construtor da clase que crea un cadrado establecendo as súas coordenadas,
-     * cor e referenza ao xogo
-     *
-     * @param x Coordenada x
-     * @param y Coordenada y
-     * @param fillColor Referenza á cor do cadrado
-     * @param game Referenza ao obxecto xogo
-     */
-    public SquarePiece(int x, int y, Color fillColor, Game game) {
-        super(game);
-        this.x = x;
-        this.y = y;
-        this.fillColor = fillColor;
-        // añadimos o constructor do array e quitámolo da clase Piece para facela abstracta
-        squares[0] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, 0, Color.BLUE, game);
-        squares[1] = new Square(Game.MAX_X / 2, 0, Color.BLUE, game);
-        squares[2] = new Square(Game.MAX_X / 2 - Game.SQUARE_SIDE, Game.SQUARE_SIDE,
-                Color.BLUE, game);
-        squares[3] = new Square(Game.MAX_X / 2, Game.SQUARE_SIDE, Color.BLUE, game);
 
-        // Creamos a etiqueta e establecemos a cor de fondo, coordenadas, 
-        // e atributos para que se vexa no panel do xogo
-        lblSquare = new JLabel();
-        lblSquare.setBackground(fillColor);
-        lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
-        lblSquare.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
-        lblSquare.setVisible(true);
-        lblSquare.setOpaque(true);
-
-        // Chamamos á ventá principal do xogo para pintar o cadrado no panel
-        game.getMainWindow().drawSquare(this.lblSquare);
-    }   
-    
-    
-    
     /**
      * @return Coordenada x do cadrado
      */
@@ -161,18 +117,29 @@ public class SquarePiece extends Piece {
     }
 
     /**
-     * rota a peza
-     * @return 
+     * Construtor da clase que crea un cadrado establecendo as súas coordenadas,
+     * cor e referenza ao xogo
+     *
+     * @param x Coordenada x
+     * @param y Coordenada y
+     * @param fillColor Referenza á cor do cadrado
+     * @param game Referenza ao obxecto xogo
      */
-    @Override
-    public boolean rotate() {
-        // A rotación da ficha cadrada non supón ningunha variación na ficha,
-        // por iso simplemente devolvemos true
-        return true;
-    }
-    
-    
-    
+    public Square(int x, int y, Color fillColor, Game game) {
+        this.x = x;
+        this.y = y;
+        this.fillColor = fillColor;
 
-    
+        // Creamos a etiqueta e establecemos a cor de fondo, coordenadas, 
+        // e atributos para que se vexa no panel do xogo
+        lblSquare = new JLabel();
+        lblSquare.setBackground(fillColor);
+        lblSquare.setBounds(x, y, Game.SQUARE_SIDE, Game.SQUARE_SIDE);
+        lblSquare.setBorder(BorderFactory.createBevelBorder(BevelBorder.RAISED));
+        lblSquare.setVisible(true);
+        lblSquare.setOpaque(true);
+
+        // Chamamos á ventá principal do xogo para pintar o cadrado no panel
+        game.getMainWindow().drawSquare(this.lblSquare);
+    }
 }
