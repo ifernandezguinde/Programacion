@@ -8,6 +8,12 @@ package memorygame;
  *
  * @author ivan.fernandezguinde
  */
-public class GenerateCardsException {
-    
+public class GenerateCardsException extends Exception {
+    /**
+     * Construtor que recibe unha mensaxe de erro
+     * @param message 
+     */
+    public GenerateCardsException(String message) {
+        super(message);
+    }
 }

@@ -10,9 +10,11 @@ package memorygame;
  */
 public class MathCard extends Card{
     
+    // constantes para as operacións
     public static String SUM = "+";
     public static String SUB = "-";
     public static String MULT = "*";
+    // constantes para o tipo de carta
     public static int OPERATIONTYPE = 0;
     public static int RESULTYPE = 1;
     
@@ -37,6 +39,13 @@ public class MathCard extends Card{
         operation = symbol;
         cardType = type;
         
+        if (cardType == RESULTYPE) {
+            setText(Integer.toString(getValue()));
+        } else {
+            // Se é unha carta de operación, gardamos a operación como texto
+            setText(operator1 + operation + operator2);
+        }
+        
     }
     
     
@@ -54,9 +63,8 @@ public class MathCard extends Card{
      * comproba se as cartas fan match
      */
     public boolean isEquals(String card) {
-       return false; 
+    return false;
     }
-    
     
     
 }

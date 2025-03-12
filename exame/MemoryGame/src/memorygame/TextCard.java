@@ -24,10 +24,7 @@ public class TextCard extends Card{
      * comproba se o texto das cartas é igual
      */
     public boolean isEquals(String card) {
-        if(card == text) {
-            return true;
-        }
-        return false;       
+        return this.getText().equals(card);      
     }
     
 }
