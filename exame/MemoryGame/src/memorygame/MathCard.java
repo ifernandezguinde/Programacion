@@ -11,15 +11,15 @@ package memorygame;
 public class MathCard extends Card{
     
     // constantes para as operacións
-    public static String SUM = "+";
-    public static String SUB = "-";
-    public static String MULT = "*";
+    public static char SUM = '+';
+    public static char SUB = '-';
+    public static char MULT = '*';
     // constantes para o tipo de carta
     public static int OPERATIONTYPE = 0;
     public static int RESULTYPE = 1;
     
     private int operator1, operator2;
-    private String operation;
+    private char operation;
     private int cardType;
     
     
@@ -32,8 +32,8 @@ public class MathCard extends Card{
      * @param symbol
      * @param type 
      */
-    public MathCard(int firstNumber, int secondNumber, String symbol, int type) {
-        super("");
+    public MathCard(int firstNumber, int secondNumber, char symbol, int type) {
+        super(" ");
         operator1 = firstNumber;
         operator2 = secondNumber;
         operation = symbol;
@@ -43,7 +43,7 @@ public class MathCard extends Card{
             setText(Integer.toString(getValue()));
         } else {
             // Se é unha carta de operación, gardamos a operación como texto
-            setText(operator1 + operation + operator2);
+            setText(operator1 + String.valueOf(operation) + operator2);
         }
         
     }
@@ -54,7 +54,7 @@ public class MathCard extends Card{
      * @return 
      */
     public int getValue() {
-        return (operator1 + Integer.parseInt(operation) + operator2);
+        return (operator1 + operation + operator2);
         
     }
 

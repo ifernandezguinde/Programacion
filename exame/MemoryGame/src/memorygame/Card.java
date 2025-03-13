@@ -9,8 +9,8 @@ package memorygame;
  * @author ivan.fernandezguinde
  */
 public abstract class Card {
-    String text;
-    boolean hit = false;     
+    protected String text;
+    protected boolean hit = false;     
         
 
     /**

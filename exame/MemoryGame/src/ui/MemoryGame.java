@@ -4,17 +4,34 @@
  */
 package ui;
 
+import javax.swing.JToggleButton;
+import memorygame.Card;
+
 /**
  *
  * @author ivan.fernandezguinde
  */
 public class MemoryGame extends javax.swing.JFrame {
+    
+    public static int ROWS = 3;
+    public static int COLUMNS = 4;
+    
+    private Card cards[][];
+    private JToggleButton[]][] buttons;
 
     /**
      * Creates new form MemoryGame
      */
     public MemoryGame() {
         initComponents();
+        buttons = new JToggleButtons[ROWS][COLUMNS];
+        
+        for(int i=0; i>buttons.lenght; i++) {
+            for(int j=0; j>buttons[i].lenght; j++) {
+                buttons[i][j] = ;
+            }
+        }
+        
     }
 
     /**
@@ -35,12 +52,18 @@ public class MemoryGame extends javax.swing.JFrame {
         NovaPartidaButton = new javax.swing.JButton();
         SairButton = new javax.swing.JButton();
         centerpanel = new javax.swing.JPanel();
-        jToggleButton14 = new javax.swing.JToggleButton();
-        jToggleButton15 = new javax.swing.JToggleButton();
-        jToggleButton16 = new javax.swing.JToggleButton();
-        jToggleButton17 = new javax.swing.JToggleButton();
-        jToggleButton1 = new javax.swing.JToggleButton();
-        jToggleButton2 = new javax.swing.JToggleButton();
+        card1 = new javax.swing.JToggleButton();
+        card2 = new javax.swing.JToggleButton();
+        card3 = new javax.swing.JToggleButton();
+        card4 = new javax.swing.JToggleButton();
+        card5 = new javax.swing.JToggleButton();
+        card6 = new javax.swing.JToggleButton();
+        card7 = new javax.swing.JToggleButton();
+        card8 = new javax.swing.JToggleButton();
+        card9 = new javax.swing.JToggleButton();
+        card10 = new javax.swing.JToggleButton();
+        card11 = new javax.swing.JToggleButton();
+        card12 = new javax.swing.JToggleButton();
 
         jToggleButton7.setText("jToggleButton7");
 
@@ -49,7 +72,7 @@ public class MemoryGame extends javax.swing.JFrame {
         uptext.setText("puntos");
         uppanel.add(uptext);
 
-        getContentPane().add(uppanel, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(uppanel, java.awt.BorderLayout.NORTH);
 
         jLabel1.setText("Nivel:");
         downpanel.add(jLabel1);
@@ -63,21 +86,10 @@ public class MemoryGame extends javax.swing.JFrame {
         SairButton.setText("Sair");
         downpanel.add(SairButton);
 
-        getContentPane().add(downpanel, java.awt.BorderLayout.PAGE_END);
+        getContentPane().add(downpanel, java.awt.BorderLayout.SOUTH);
 
-        jToggleButton14.setText("jToggleButton14");
-        jToggleButton14.setMaximumSize(new java.awt.Dimension(200, 200));
-        jToggleButton14.setMinimumSize(new java.awt.Dimension(200, 200));
-
-        jToggleButton15.setText("jToggleButton15");
-
-        jToggleButton16.setText("jToggleButton16");
-
-        jToggleButton17.setText("jToggleButton17");
-
-        jToggleButton1.setText("jToggleButton1");
-
-        jToggleButton2.setText("jToggleButton2");
+        card1.setMaximumSize(new java.awt.Dimension(200, 200));
+        card1.setMinimumSize(new java.awt.Dimension(200, 200));
 
         javax.swing.GroupLayout centerpanelLayout = new javax.swing.GroupLayout(centerpanel);
         centerpanel.setLayout(centerpanelLayout);
@@ -85,31 +97,56 @@ public class MemoryGame extends javax.swing.JFrame {
             centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centerpanelLayout.createSequentialGroup()
                 .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(centerpanelLayout.createSequentialGroup()
-                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(centerpanelLayout.createSequentialGroup()
-                        .addComponent(jToggleButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, 0)
-                        .addComponent(jToggleButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jToggleButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerpanelLayout.createSequentialGroup()
+                        .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(card8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(centerpanelLayout.createSequentialGroup()
+                .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(card11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(card12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         centerpanelLayout.setVerticalGroup(
             centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(centerpanelLayout.createSequentialGroup()
                 .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jToggleButton14, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton15, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton16, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton17, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(card8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(72, Short.MAX_VALUE))
+                    .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(centerpanel, java.awt.BorderLayout.CENTER);
@@ -155,16 +192,22 @@ public class MemoryGame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton NovaPartidaButton;
     private javax.swing.JButton SairButton;
+    private javax.swing.JToggleButton card1;
+    private javax.swing.JToggleButton card10;
+    private javax.swing.JToggleButton card11;
+    private javax.swing.JToggleButton card12;
+    private javax.swing.JToggleButton card2;
+    private javax.swing.JToggleButton card3;
+    private javax.swing.JToggleButton card4;
+    private javax.swing.JToggleButton card5;
+    private javax.swing.JToggleButton card6;
+    private javax.swing.JToggleButton card7;
+    private javax.swing.JToggleButton card8;
+    private javax.swing.JToggleButton card9;
     private javax.swing.JPanel centerpanel;
     private javax.swing.JComboBox<String> dificultade;
     private javax.swing.JPanel downpanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JToggleButton jToggleButton1;
-    private javax.swing.JToggleButton jToggleButton14;
-    private javax.swing.JToggleButton jToggleButton15;
-    private javax.swing.JToggleButton jToggleButton16;
-    private javax.swing.JToggleButton jToggleButton17;
-    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JToggleButton jToggleButton7;
     private javax.swing.JPanel uppanel;
     private javax.swing.JLabel uptext;
