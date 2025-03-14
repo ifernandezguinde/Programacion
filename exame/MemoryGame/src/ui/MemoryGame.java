@@ -16,21 +16,32 @@ public class MemoryGame extends javax.swing.JFrame {
     public static int ROWS = 3;
     public static int COLUMNS = 4;
     
-    private Card cards[][];
+    private Card[][] cards;
     private JToggleButton[]][] buttons;
+    private Card lastCardSelected;
+    private JToggleButton lastButtonSelected;
+    private int score;
 
     /**
      * Creates new form MemoryGame
      */
     public MemoryGame() {
         initComponents();
+        
         buttons = new JToggleButtons[ROWS][COLUMNS];
         
-        for(int i=0; i>buttons.lenght; i++) {
-            for(int j=0; j>buttons[i].lenght; j++) {
-                buttons[i][j] = ;
-            }
-        }
+        buttons[0][0] = card1;
+        buttons[0][1] = card2;
+        buttons[0][2] = card3;
+        buttons[0][3] = card4;
+        buttons[1][0] = card5;
+        buttons[1][1] = card6;
+        buttons[1][2] = card7;
+        buttons[1][3] = card8;
+        buttons[2][0] = card9;
+        buttons[2][1] = card10;
+        buttons[2][2] = card11;
+        buttons[2][3] = card12;
         
     }
 
@@ -137,15 +148,15 @@ public class MemoryGame extends javax.swing.JFrame {
                     .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(card5, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(card6, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(card8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(card8, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(card7, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(card12, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(card11, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(centerpanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(card9, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(card10, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
