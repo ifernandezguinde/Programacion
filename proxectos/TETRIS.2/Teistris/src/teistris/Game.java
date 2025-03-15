@@ -227,6 +227,26 @@ public class Game {
      * @param y
      */
     private void moveLinesDown(int y) {
+        
+        // Recorremos todas las filas por encima de la línea eliminada
+        for (int currentY = y - SQUARE_SIDE; currentY >= 0; currentY -= SQUARE_SIDE) {
+            for (int x = 0; x < MAX_X; x += SQUARE_SIDE) {
+                String currentPosition = x + "," + currentY;
+                String newPosition = x + "," + (currentY + SQUARE_SIDE);
+
+                // Si hay un cuadrado en la posición actual, lo movemos hacia abajo
+                if (groundSquares.containsKey(currentPosition)) {
+                    Square sq = groundSquares.get(currentPosition);
+
+                    // Actualizamos la posición en el objeto Square
+                    sq.setY(currentY + SQUARE_SIDE);
+
+                    // Actualizamos la posición en el HashMap
+                    groundSquares.remove(currentPosition);
+                    groundSquares.put(newPosition, sq);
+                }
+            }
+        }
 
     }
 
@@ -264,6 +284,7 @@ public class Game {
             // eliminamos ese cadrado do hashmap
             groundSquares.remove(position);
         }
+        this.moveLinesDown(y);
     }
 
     /**
@@ -274,7 +295,6 @@ public class Game {
     private boolean hitPieceTheGround() {
         // Recorremos os cadrados da peza actual
         for (Square sq : currentPiece.getSquares()) {
-            int x = sq.getX();
             int y = sq.getY();
 
             // Comprobamos se choca co chan
