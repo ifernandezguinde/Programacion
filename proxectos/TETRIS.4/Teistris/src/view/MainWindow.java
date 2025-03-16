@@ -1,23 +1,17 @@
 /*
- * Copyright (C) 2019 Antonio de Andrés Lema
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package view;
 
+import java.awt.KeyEventDispatcher;
+import java.awt.KeyboardFocusManager;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.Timer;
 import model.Game;
 
 /**
@@ -25,6 +19,15 @@ import model.Game;
  * @author Profe de Programación
  */
 public class MainWindow extends javax.swing.JFrame {
+    
+    private Timer timer;
+    //variable booleana para saber se o xogo rematou
+    private boolean isGameOver = false;
+    // intervalo inicial de 1 segundo(1000 milisegundos)
+    private int currentInterval = 1000;
+    // numero de liñas para reducir o intervalo
+    private int lines = 4;
+
 
     /**
      * Creates new form MainWindow
@@ -34,6 +37,8 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
+    
+    
 
     /**
      * Pinta un cadrado no panel de cadrados
@@ -62,6 +67,30 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public void showNumberOfLines(int numberOfLines) {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
+        
+        // Comproba se o número de liñas alcanzou o limte
+        if (numberOfLines > 0 && numberOfLines % lines == 0) {
+            // Reducirmos o intervalo a metade
+            currentInterval = currentInterval / 2;
+
+            // Detenemos o timer actual
+            timer.stop();
+
+            // Creación dun novo timer co novo intervalo
+            timer = new Timer(currentInterval, new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    if (isGameOver) {
+                        timer.stop();
+                    } else {
+                        btnDownActionPerformed(null);
+                    }
+                }
+            });
+
+            // Iniciar o timer co novo intervalo
+            timer.start();
+        }
     }
 
     /**
@@ -70,10 +99,11 @@ public class MainWindow extends javax.swing.JFrame {
     public void showGameOver() {
         game = null;
         JOptionPane.showMessageDialog(this, "Fin do xogo");
+        isGameOver = true;
     }
 
     /**
-     * Inicia un novo xogo
+     * Inicia un novo xogo e crea un timer que baixa a peza cada segundo que pasa
      */
     private void startGame() {
         // Limpamos todo o que puidese haber pintado no panel do xogo
@@ -84,7 +114,24 @@ public class MainWindow extends javax.swing.JFrame {
         tglbtnPause.setSelected(false);
         // Establecemos o número de liñas que se mostran na ventá a cero
         lblNumberOfLines.setText("0");
+        
+        // Creamos o Timer que executa o método cada 1000 milisegundos
+        timer = new Timer(currentInterval, (ActionEvent e) -> {
+            // comproba se a partida rematou, de ser así finaliza o timer
+            if (isGameOver) {  
+                timer.stop();
+            } else {
+                // en caso de que a partida non rematase activa o boton de 
+                // baixar a peza
+                btnDownActionPerformed(null); 
+            }
+        });
+
+        // inicia o Timer
+        timer.start();
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -104,11 +151,17 @@ public class MainWindow extends javax.swing.JFrame {
         tglbtnPause = new javax.swing.JToggleButton();
         lblLines = new javax.swing.JLabel();
         lblNumberOfLines = new javax.swing.JLabel();
+        name = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Teistris");
         setLocation(new java.awt.Point(150, 300));
         setResizable(false);
+        addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                formKeyPressed(evt);
+            }
+        });
 
         btnNewGame.setText("Nova partida");
         btnNewGame.addActionListener(new java.awt.event.ActionListener() {
@@ -118,17 +171,17 @@ public class MainWindow extends javax.swing.JFrame {
         });
 
         pnlGame.setBackground(java.awt.Color.white);
-        pnlGame.setPreferredSize(new java.awt.Dimension(160, 200));
+        pnlGame.setPreferredSize(new java.awt.Dimension(200, 240));
 
         javax.swing.GroupLayout pnlGameLayout = new javax.swing.GroupLayout(pnlGame);
         pnlGame.setLayout(pnlGameLayout);
         pnlGameLayout.setHorizontalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 160, Short.MAX_VALUE)
+            .addGap(0, 200, Short.MAX_VALUE)
         );
         pnlGameLayout.setVerticalGroup(
             pnlGameLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
 
         btnRotate.setText("Rotar");
@@ -171,46 +224,61 @@ public class MainWindow extends javax.swing.JFrame {
 
         lblNumberOfLines.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
+        name.setText("Iván e Omar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(btnNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(tglbtnPause, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(lblLines, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(60, 60, 60)
-                .addComponent(lblNumberOfLines, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(10, 10, 10)
-                .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(90, 90, 90)
-                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(btnRotate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblLines, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(60, 60, 60)
+                                .addComponent(lblNumberOfLines, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(6, 6, 6)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(btnNewGame, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(tglbtnPause, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(21, 21, 21)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(btnDown, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(90, 90, 90)
+                                .addComponent(btnRight, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(50, 50, 50)
+                                .addComponent(btnRotate, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap()
+                .addComponent(name)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnNewGame)
                     .addComponent(tglbtnPause))
-                .addGap(9, 9, 9)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblLines)
                     .addComponent(lblNumberOfLines, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(2, 2, 2)
                 .addComponent(pnlGame, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
@@ -221,7 +289,8 @@ public class MainWindow extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(30, 30, 30)
                         .addComponent(btnRight))
-                    .addComponent(btnRotate)))
+                    .addComponent(btnRotate))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         pack();
@@ -273,6 +342,45 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDownActionPerformed
 
+    class KeyDispatcher implements KeyEventDispatcher {
+  public boolean dispatchKeyEvent(KeyEvent e) {
+    if(e.getID() == KeyEvent.KEY_TYPED) {
+      System.out.println( "typed" + e.getKeyCode() );
+    }
+
+    // allow the event to be redispatched
+    return false;
+  }
+}
+
+    // now we hijack the keyboard manager
+    KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
+    manager.addKeyEventDispatcher( new KeyDispatcher() );
+    
+    
+    private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
+        // capturamos a tecla presionada
+        int keycode = evt.getKeyCode();
+        switch (keycode) {
+            // se puslamos a tecla espacio rota a peza
+            case KeyEvent.VK_SEPARATOR:
+                game.rotatePiece();
+                break;
+            // se pulsamos a flecha abaixo move a peza para abaixo
+            case KeyEvent.VK_DOWN:
+                game.movePieceDown();
+                break;
+            // se pulsamos a flecha esquerda move a peza para a esquerda
+            case KeyEvent.VK_LEFT:
+                game.movePieceLeft();
+                break;
+            // se pulsamos a flecha dereita move a peza para a dereita
+            case KeyEvent.VK_RIGHT:
+                game.movePieceRight();
+                break;
+        }
+    }//GEN-LAST:event_formKeyPressed
+
     /**
      * @param args the command line arguments
      */
@@ -300,6 +408,12 @@ public class MainWindow extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -317,6 +431,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JButton btnRotate;
     private javax.swing.JLabel lblLines;
     private javax.swing.JLabel lblNumberOfLines;
+    private javax.swing.JLabel name;
     private javax.swing.JPanel pnlGame;
     private javax.swing.JToggleButton tglbtnPause;
     // End of variables declaration//GEN-END:variables

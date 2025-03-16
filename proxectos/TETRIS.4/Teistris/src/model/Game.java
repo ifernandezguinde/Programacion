@@ -30,15 +30,22 @@ public class Game {
      * Constante que define o tamaño en pixels do lado dun cadrado
      */
     public final static int SQUARE_SIDE = 20;
+    
+    
     /**
      * Constante que define o valor máximo da coordenada x no panel de cadrados
      */
-    public final static int MAX_X = 160;
+    public final static int MAX_X = 200;
+    // original 160 // modificado 200
+    
+    
     /**
      * Constante que define o valor máximo da coordenada y no panel de cadrados
      */
-    public final static int MAX_Y = 200;
+    public final static int MAX_Y = 240;
+    // original 200 // modificado 240
 
+    
     /**
      * Referenza á peza actual do xogo, que é a única que se pode mover
      */
@@ -293,6 +300,11 @@ public class Game {
             groundSquares.remove(position);
         }
         this.moveLinesDown(y);
+        
+        // Incrementamos o número de liñas eliminadas
+        numberOfLines++;
+        // Mostrar o número de liñaas na interfaz gráfica
+        mainWindow.showNumberOfLines(numberOfLines);
     }
 
     /**
