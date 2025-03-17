@@ -10,5 +10,5 @@ package memorygame;
  */
 public interface CardGenerator {
     
-    Card[][] generateCards(int rows, int columns) throws GenerateCardsException;
+    public Card[][] generateCards(int rows, int columns) throws GenerateCardsException;
 }
