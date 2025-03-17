@@ -70,6 +70,11 @@ public class Game {
      * Hash map para as pezas que están no chan
      */
     private HashMap<String, Square> groundSquares;
+    
+    /**
+     * di se o xogo acabou
+     */
+    private boolean isGameOver = false;
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -151,6 +156,14 @@ public class Game {
             currentPiece.rotate();
         }
     }
+    
+    private void endGame() {
+        // Detener el juego
+        isGameOver = true;
+
+        // Mostrar el mensaje de fin de partida
+        mainWindow.showGameOver();
+    }
 
     /**
      * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con
@@ -158,6 +171,19 @@ public class Game {
      * peza
      */
     public void movePieceDown() {
+        // Non facemos nada si o xogo terminou
+    aaa if (isGameOver) {
+        return; 
+    }
+
+    for (Square square : currentPiece.getSquares()) {
+        if (square.getY() + Game.SQUARE_SIDE >= Game.MAX_Y) {
+            // Si alguna pieza toca el fondo, termina el juego
+            endGame();
+            return;
+        }
+    }
+        
         if ((!paused) && (!currentPiece.moveDown())) {
             this.addPieceToGround();
             this.createNewPiece();

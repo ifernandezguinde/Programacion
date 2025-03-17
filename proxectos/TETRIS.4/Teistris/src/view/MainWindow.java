@@ -4,7 +4,7 @@
  */
 package view;
 
-import java.awt.KeyEventDispatcher;
+
 import java.awt.KeyboardFocusManager;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,6 +34,37 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        
+        // facemos que o JFrame teña o foco
+        this.setFocusable(true);
+        this.requestFocusInWindow();
+
+        // Agregar KeyEventDispatcher para capturar as teclas globalmente
+        KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(evt -> {
+            if (evt.getID() == KeyEvent.KEY_PRESSED) {
+                
+                // indicamos que fai cada tecla
+                switch (evt.getKeyCode()) {
+                    // Rotar peza con econtrol
+                    case KeyEvent.VK_CONTROL:
+                        if (game != null) game.rotatePiece();
+                        break;
+                    // Mover para abaixo
+                    case KeyEvent.VK_DOWN:
+                        if (game != null) game.movePieceDown();
+                        break;
+                    // Mover para a esquerda
+                    case KeyEvent.VK_LEFT:
+                        if (game != null) game.movePieceLeft();
+                        break;
+                    // Mover para a dereita
+                    case KeyEvent.VK_RIGHT:
+                        if (game != null) game.movePieceRight();
+                        break;
+                }
+            }
+            return false; // Para que otros componentes también reciban eventos de teclado
+        });
     }
 
     private Game game = null; // Referenza ao obxecto do xogo actual
@@ -342,43 +373,12 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnDownActionPerformed
 
-    class KeyDispatcher implements KeyEventDispatcher {
-  public boolean dispatchKeyEvent(KeyEvent e) {
-    if(e.getID() == KeyEvent.KEY_TYPED) {
-      System.out.println( "typed" + e.getKeyCode() );
-    }
 
-    // allow the event to be redispatched
-    return false;
-  }
-}
-
-    // now we hijack the keyboard manager
-    KeyboardFocusManager manager = KeyboardFocusManager.getCurrentKeyboardFocusManager();
-    manager.addKeyEventDispatcher( new KeyDispatcher() );
+    
     
     
     private void formKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_formKeyPressed
-        // capturamos a tecla presionada
-        int keycode = evt.getKeyCode();
-        switch (keycode) {
-            // se puslamos a tecla espacio rota a peza
-            case KeyEvent.VK_SEPARATOR:
-                game.rotatePiece();
-                break;
-            // se pulsamos a flecha abaixo move a peza para abaixo
-            case KeyEvent.VK_DOWN:
-                game.movePieceDown();
-                break;
-            // se pulsamos a flecha esquerda move a peza para a esquerda
-            case KeyEvent.VK_LEFT:
-                game.movePieceLeft();
-                break;
-            // se pulsamos a flecha dereita move a peza para a dereita
-            case KeyEvent.VK_RIGHT:
-                game.movePieceRight();
-                break;
-        }
+
     }//GEN-LAST:event_formKeyPressed
 
     /**
