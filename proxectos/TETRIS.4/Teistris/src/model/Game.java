@@ -72,9 +72,9 @@ public class Game {
     private HashMap<String, Square> groundSquares;
     
     /**
-     * di se o xogo acabou
+     * variable que di se rematou a partida
      */
-    private boolean isGameOver = false;
+    private boolean gameOver = false;
 
     /**
      * @return Referenza á ventá principal do xogo
@@ -125,8 +125,8 @@ public class Game {
      */
     public Game(MainWindow mainWindow) {
         this.mainWindow = mainWindow;
-        this.createNewPiece();
         this.groundSquares = new HashMap<>();
+        this.createNewPiece();
 
     }
 
@@ -156,14 +156,6 @@ public class Game {
             currentPiece.rotate();
         }
     }
-    
-    private void endGame() {
-        // Detener el juego
-        isGameOver = true;
-
-        // Mostrar el mensaje de fin de partida
-        mainWindow.showGameOver();
-    }
 
     /**
      * Move a peza actual abaixo, se o xogo non está pausado Se a peza choca con
@@ -171,19 +163,6 @@ public class Game {
      * peza
      */
     public void movePieceDown() {
-        // Non facemos nada si o xogo terminou
-    aaa if (isGameOver) {
-        return; 
-    }
-
-    for (Square square : currentPiece.getSquares()) {
-        if (square.getY() + Game.SQUARE_SIDE >= Game.MAX_Y) {
-            // Si alguna pieza toca el fondo, termina el juego
-            endGame();
-            return;
-        }
-    }
-        
         if ((!paused) && (!currentPiece.moveDown())) {
             this.addPieceToGround();
             this.createNewPiece();
@@ -209,6 +188,21 @@ public class Game {
         }
         return true;
     }
+    
+    /**
+     * Método para verificar se unha posición está ocupada por cadrados do chan
+     * @param x
+     * @param y
+     * @return 
+     */
+    public boolean isPositionOccupied(int x, int y) {
+        // Método para verificar se unha posición está ocupada 
+        // por cadrados do chan
+        if (groundSquares.containsKey(x + "," +y)) {
+            return true; 
+        }
+        return false; 
+    }
 
     /**
      * Crea unha nova peza e a establece como peza actual do xogo
@@ -219,17 +213,35 @@ public class Game {
         int pieceType = new java.util.Random().nextInt(2); 
         
         switch (pieceType) {
-        case 0:
-            currentPiece = new SquarePiece(this); // crea unha peza cadrada se o 
-                                              // número aleatorio é o 0
-            break;
-        case 1:
-            currentPiece = new BarPiece(this); // crea unha peza tipo barra se o 
-                                         // número aleatorio é o 1
-            break;
+            // crea unha peza cadrada se o número aleatorio é o 0
+            case 0:
+                currentPiece = new SquarePiece(this); 
+                break;
+            // crea unha peza tipo barra se o número aleatorio é o 1
+            case 1:
+                currentPiece = new BarPiece(this); 
+                break;
+        }
+        
+        // Comprobamos si algunha das posicións da nova peza está ocupada
+        for (Square sq : currentPiece.getSquares()) {
+            int x = sq.getX();
+            int y = sq.getY();
+
+            // Se a posición xa está ocupada, remata o xogo
+            if (isPositionOccupied(x, y)) {
+                gameOver = true;
+                break;
+            }
+        }
+
+        // Se a posición está ocupada, mostramos a mensaxe
+        if (gameOver) {
+            this.mainWindow.showGameOver();  // Muestra el mensaje de Game Over
         }
 
     }
+    
 
     /**
      * Engade unha peza ao chan
