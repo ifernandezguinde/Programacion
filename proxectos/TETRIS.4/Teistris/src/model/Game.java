@@ -223,7 +223,7 @@ public class Game {
                 break;
         }
         
-        // Comprobamos si algunha das posicións da nova peza está ocupada
+        // obtemos a posición de cada cadrado creado
         for (Square sq : currentPiece.getSquares()) {
             int x = sq.getX();
             int y = sq.getY();
@@ -235,9 +235,9 @@ public class Game {
             }
         }
 
-        // Se a posición está ocupada, mostramos a mensaxe
+        // Se rematou o xogo, mostramos a mensaxe
         if (gameOver) {
-            this.mainWindow.showGameOver();  // Muestra el mensaje de Game Over
+            this.mainWindow.showGameOver();
         }
 
     }
