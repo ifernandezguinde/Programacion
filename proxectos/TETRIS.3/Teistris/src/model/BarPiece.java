@@ -59,7 +59,7 @@ public class BarPiece extends Piece {
         else { 
             // se sae dos límites devolveos false
             if (pivotY - Game.SQUARE_SIDE < 0 || pivotY + 2 * Game.SQUARE_SIDE 
-                    >= Game.MAX_Y) {
+                    > Game.MAX_Y) {
                 return false; 
             }
 

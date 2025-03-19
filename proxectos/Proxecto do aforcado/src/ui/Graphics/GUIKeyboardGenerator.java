@@ -8,14 +8,28 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Usuario
+ * Clase que define unha ventá JDialog, a cal permite ao usuario introducir unha
+ * palabra secreta. A palabra é validada para asegurarse de que só contén letras
+ * minúsculas (a-z). Se a entrada é incorrecta, móstrase unha mensaxe de erro.
+ *
+ * @author omar.gilgonzalez
  */
 public class GUIKeyboardGenerator extends javax.swing.JDialog {
 
-     private String secretWord = null;
+    private String secretWord = null; //Atributo que almacena a palabra secreta. Se se preme "Cancelar", mantense en null.
 
     /**
-     * Creates new form GUIKeyboardGenerator
+     * Construtor que recibe como parámetros:
+     *
+     * parent: A ventá principal desde a que se chama ao diálogo.
+     *
+     * modal: Indica se o diálogo bloquea a xanela principal (valor true).
+     *
+     * Chama ao constructor de JDialog co parent e modal. Invoca
+     * initComponents() para inicializar a interface gráfica. Usa
+     * setLocationRelativeTo(parent) para centrar o diálogo respecto á ventá
+     * principal.
+     *
      */
     public GUIKeyboardGenerator(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -91,39 +105,73 @@ public class GUIKeyboardGenerator extends javax.swing.JDialog {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+/**
+     * Método que obtén o texto do JPasswordField usando getPassword(). Chama a
+     * isValidWord(word) para verificar se a palabra contén só letras
+     * minúsculas:
+     *
+     * Se é válida, gárdaa en secretWord e pecha o diálogo con dispose(). Se non
+     * é válida, mostra unha mensaxe de erro con JOptionPane.showMessageDialog()
+     * e borra o campo.
+     *
+     * @param evt
+     */
     private void inputSecretWordsAcceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSecretWordsAcceptActionPerformed
         String word = new String(inputSecretWordsPasswordField.getPassword());
         if (isValidWord(word)) {
             secretWord = word;
             dispose(); // Pecha a ventá
         } else {
-            JOptionPane.showMessageDialog(this,
-                    "A palabra debe conter só letras minúsculas (a-z) e non pode estar baleira.",
-                    "Erro de entrada",
-                    JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "A palabra debe conter só letras minúsculas (a-z) e non pode estar baleira.", "Erro de entrada", JOptionPane.ERROR_MESSAGE);
             inputSecretWordsPasswordField.setText(""); // Borra o campo para intentar de novo
         }
 
     }//GEN-LAST:event_inputSecretWordsAcceptActionPerformed
-
+    /**
+     * Método que pecha o JDialog cando se preme "Cancelar", e a palabra
+     * mantense en null.
+     *
+     * @param evt
+     */
     private void inputSecretWordsCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputSecretWordsCancelActionPerformed
         secretWord = null;
         dispose();
     }//GEN-LAST:event_inputSecretWordsCancelActionPerformed
 
+    /**
+     * Método que usa a expresión .matches para asegurarse de que a palabra só
+     * contén letras minúsculas. Devolve true ou false dependendo de se é válida
+     * ou non.
+     *
+     * @param word
+     * @return
+     */
     private boolean isValidWord(String word) {
         return word.matches("[a-z]+");
     }
-    
-    public String getSecretWord(){
+
+    /**
+     * Método que devolve a palabra secreta introducida, ou null se o usuario
+     * cancela.
+     *
+     * @return
+     */
+    public String getSecretWord() {
         return secretWord;
     }
-    
+
+    /**
+     * Método que crea unha instancia de GUIKeyboardGenerator e móstraa ao
+     * usuario. Devolve a palabra secreta, ou null se o usuario cancelou
+     *
+     * @param parent
+     * @return
+     */
     public static String askForWord(java.awt.Frame parent) {
         GUIKeyboardGenerator dialog = new GUIKeyboardGenerator(parent, true);
         return dialog.getSecretWord();
     }
+
     /**
      * @param args the command line arguments
      */

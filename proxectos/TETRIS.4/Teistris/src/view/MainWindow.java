@@ -45,7 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
                 
                 // indicamos que fai cada tecla
                 switch (evt.getKeyCode()) {
-                    // Rotar peza con econtrol
+                    // Rotar peza con control
                     case KeyEvent.VK_CONTROL:
                         if (game != null) game.rotatePiece();
                         break;
@@ -100,7 +100,7 @@ public class MainWindow extends javax.swing.JFrame {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
         
         // Comproba se o número de liñas alcanzou o limte
-        if (numberOfLines > 0 && numberOfLines % lines == 0) {
+        if (numberOfLines > 1 && numberOfLines % lines == 0) {
             // Reducirmos o intervalo a metade
             currentInterval = currentInterval / 2;
 
@@ -146,6 +146,11 @@ public class MainWindow extends javax.swing.JFrame {
         // Establecemos o número de liñas que se mostran na ventá a cero
         lblNumberOfLines.setText("0");
         
+        // comprobamos que non esté un timer xa en funcionamento
+        if(timer != null) {
+            timer.stop();
+        }
+        
         // Creamos o Timer que executa o método cada 1000 milisegundos
         timer = new Timer(currentInterval, (ActionEvent e) -> {
             // comproba se a partida rematou, de ser así finaliza o timer
@@ -158,6 +163,7 @@ public class MainWindow extends javax.swing.JFrame {
             }
         });
 
+        
         // inicia o Timer
         timer.start();
         

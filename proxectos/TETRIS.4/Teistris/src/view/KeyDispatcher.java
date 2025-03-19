@@ -17,7 +17,6 @@ public class KeyDispatcher implements KeyEventDispatcher {
             System.out.println( "typed" + e.getKeyCode() );
           }
 
-          // allow the event to be redispatched
           return false;
         }
 }

@@ -14,15 +14,44 @@ import ui.WordGenerator;
  */
 /**
  *
- * @author Usuario
+ * A clase MainWindow ten os seguintes compoñentes principais:
+ *
+ * Atributos: HangMan hangMan: Representa a partida actual do xogo. JLabel[]
+ * hangManLabels: Contén as imaxes que representan as distintas fases do
+ * aforcado.
+ *
+ * Métodos principais: MainWindow(): Constructor que inicializa a interface e
+ * inicia unha nova partida. startNewGame(): Comeza unha nova partida, pedindo
+ * unha palabra e creando un obxecto HangMan. showGameStatus(): Actualiza a
+ * interface cos progresos do xogo. tryChar(): Captura a entrada do usuario e
+ * procesa o intento de adiviñar unha letra. updateHangmanImage(): Actualiza a
+ * imaxe do aforcado segundo os erros cometidos.
+ *
+ *
+ * Eventos e interacción: newGameButtonActionPerformed(evt): Inicia unha nova
+ * partida cando se preme o botón. tryButtonActionPerformed(evt): Procesa a
+ * entrada de letra cando se preme o botón "Probar".
+ * letterInputActionPerformed(evt): Procesa a entrada de letra cando o usuario
+ * preme Enter. exitButtonActionPerformed(evt): Pecha a aplicación.
+ *
+ *
+ * MainWindow é a ventá principal do xogo do aforcado, encargada de xestionar a interface gráfica e interactuar co usuario.
+ * Controla o inicio de partida, a entrada de letras, a actualización da interface e o final do xogo.
+ * Usa clases como HangMan, WordGenerator e GenerateWordException para modularizar a lóxica.
+ * @author omar.gilgonzalez
  */
 public class MainWindow extends javax.swing.JFrame {
 
-    private HangMan hangMan;
-    private JLabel[] hangManLabels;
+    private HangMan hangMan; //atributo obxecto que xestiona a lóxica do xogo
+    private JLabel[] hangManLabels; //Array de JLabel que contén as imaxes do aforcado en diferentes estados.
 
     /**
-     * Creates new form MainWindow
+     * Construtor que chama initComponents(), o cal configura a interface
+     * gráfica.
+     *
+     * Inicializa hangManLabels coas diferentes imaxes do aforcado.
+     *
+     * Chama startNewGame() para comezar unha nova partida automaticamente.
      */
     public MainWindow() {
         initComponents();
@@ -30,6 +59,24 @@ public class MainWindow extends javax.swing.JFrame {
         startNewGame();
     }
 
+    /**
+     * Método que mostra unha ventá para seleccionar o modo de xogo usando
+     * ModeSelectionWindow.showDialog(this).
+     *
+     * Se o usuario cancela, non se fai nada.
+     *
+     * Crea un xerador de palabras (WordGenerator) segundo o modo de xogo:
+     *
+     * Se o usuario escolle "Un xogador, xerando a palabra ao azar", usa
+     * ArrayWordGenerator. Se escolle "Introduce a palabra", pídella cun
+     * JOptionPane.showInputDialog().
+     *
+     * Crea unha nova partida con hangMan = new
+     * HangMan(generator.generateWord());. Reinicia a interface gráfica:
+     *
+     * Mostra a palabra agochada (hiddenWordLabel). Borra as letras falladas.
+     * Habilita os campos de entrada. Actualiza a imaxe do aforcado.
+     */
     private void startNewGame() {
         try {
             // Chamamos á ventá de selección de modo de xogo
@@ -70,6 +117,17 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que:
+     *
+     * Actualiza a interface:
+     *
+     * Mostra a palabra agochada coas letras descubertas. Mostra as letras
+     * falladas. Actualiza a imaxe do aforcado.
+     *
+     * Se o xogo remata, mostra unha ventá co resultado e desactiva os campos de
+     * entrada.
+     */
     private void showGameStatus() {
         hiddenWordLabel.setText(hangMan.showHiddenWord());
         failedLettersDisplayLabel.setText(hangMan.getStringFails());
@@ -82,6 +140,18 @@ public class MainWindow extends javax.swing.JFrame {
         }
     }
 
+    /**
+     * Método que:
+     *
+     * Valida a entrada do usuario:
+     *
+     * Verifica que o usuario introduciu unha única letra minúscula. Se non é
+     * válida, mostra unha mensaxe de erro.
+     *
+     * Chama tryChar(letter) en hangMan para procesar a letra. Actualiza a
+     * interface co novo estado do xogo. Balea o campo de entrada e volve poñer
+     * o foco nel.
+     */
     private void tryChar() {
         String input = letterInput.getText().trim();
         if (input.isEmpty() || !Character.isLowerCase(input.charAt(0))) {
@@ -96,6 +166,10 @@ public class MainWindow extends javax.swing.JFrame {
         letterInput.requestFocus();
     }
 
+    /**
+     * Método que conta o número de erros cometidos e mostra a imaxe do aforcado
+     * correspondente ao número de erros.
+     */
     private void updateHangmanImage() {
         int failures = hangMan.getFails().size();
         for (int i = 0; i < hangManLabels.length; i++) {
@@ -168,17 +242,17 @@ public class MainWindow extends javax.swing.JFrame {
 
         infoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        wordLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        wordLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         wordLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         wordLabel.setText("Palabra a adiviñar:");
         infoPanel.add(wordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, 170, 30));
 
-        failedLettersLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        failedLettersLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         failedLettersLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         failedLettersLabel.setText("Letras falladas:");
         infoPanel.add(failedLettersLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, 140, 30));
 
-        inputLabel.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        inputLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         inputLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         inputLabel.setText("Introduce unha letra:");
         infoPanel.add(inputLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 190, 30));

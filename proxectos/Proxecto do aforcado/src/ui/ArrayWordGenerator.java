@@ -59,6 +59,21 @@ public class ArrayWordGenerator implements WordGenerator {
      */
     @Override
     public String generateWord() throws GenerateWordException {
+        // creamos un número aleatorio segundo as pezas que temos, neste caso dúas
+        int pieceType = new java.util.Random().nextInt(3); 
+        
+        switch (pieceType) {
+            // crea unha peza cadrada se o número aleatorio é o 0
+            case 0:
+                return WORDLIST[0]; 
+            // crea unha peza tipo barra se o número aleatorio é o 1
+            case 1:
+                return WORDLIST[1]; 
+            case 2:
+                return WORDLIST[2];
+        }
+        
+        
         Random random = new Random();
         return WORDLIST[random.nextInt(WORDLIST.length)];
     }

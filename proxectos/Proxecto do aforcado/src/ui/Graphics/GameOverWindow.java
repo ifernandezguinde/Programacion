@@ -5,13 +5,39 @@
 package ui.Graphics;
 
 /**
+ * A clase GameOverWindow é unha ventá de diálogo modal que se usa para mostrar
+ * unha mensaxe de "Fin do xogo" ao usuario. Impleméntase usando a biblioteca
+ * Swing e herda de javax.swing.JDialog (modal).
+ *
+ * Contén:
+ *
+ * gameoverLabel: Un JLabel que mostrará unha mensaxe personalizada cando o xogo
+ * remate.
+ *
+ * gameoverOKButton: Un botón que permite pechar a ventá cando se preme.
+ *
+ * gameoverWindowPanel: Un panel (JPanel) que se usa para organizar o contido da
+ * xanela.
  *
  * @author omar.gilgonzalez
  */
 public class GameOverWindow extends javax.swing.JDialog {
 
     /**
-     * Creates new form GameOver
+     * O constructor recibe como parámetros:
+     *
+     * parent: A referencia á ventá principal (para establecer a ventá como
+     * modal).
+     *
+     * message: Unha cadea de texto que se mostrará na interface.
+     *
+     * Usa super(parent, "Fin do xogo", true) para inicializar JDialog,
+     * establecendo o título "Fin do xogo" e configurándoa como modal (bloquea a
+     * ventá principal ata que se peche). Chama a initComponents() para
+     * inicializar os compoñentes da interface gráfica. Configura o texto de
+     * gameoverLabel coa mensaxe recibida como parámetro. Usa
+     * setLocationRelativeTo(parent) para centrar a ventá respecto á ventá
+     * principal.
      */
     public GameOverWindow(java.awt.Frame parent, String message) {
         super(parent, "Fin do xogo", true);
@@ -77,8 +103,12 @@ public class GameOverWindow extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     *
+     * @param evt
+     */
     private void gameoverOKButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_gameoverOKButtonActionPerformed
-        dispose();
+        dispose(); //Pecha a ventá cando se preme en OK.
     }//GEN-LAST:event_gameoverOKButtonActionPerformed
 
     /**
@@ -112,7 +142,7 @@ public class GameOverWindow extends javax.swing.JDialog {
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                GameOverWindow dialog = new GameOverWindow(new javax.swing.JFrame(),"Fin do xogo");
+                GameOverWindow dialog = new GameOverWindow(new javax.swing.JFrame(), "Fin do xogo");
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {

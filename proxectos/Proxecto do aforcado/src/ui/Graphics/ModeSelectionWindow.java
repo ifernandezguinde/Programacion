@@ -7,15 +7,25 @@ package ui.Graphics;
 import javax.swing.JFrame;
 
 /**
+ * A clase ModeSelectionWindow é unha ventá de diálogo (JDialog) que permite ao
+ * usuario seleccionar un modo de xogo entre varias opcións dispoñibles. Mostra
+ * unha ventá emerxente onde o usuario pode escoller entre "Un xogador" e "Dous
+ * xogadores" e devolver a opción seleccionada.
  *
  * @author omar.gilgonzalez
  */
 public class ModeSelectionWindow extends javax.swing.JDialog {
 
-    private String selectedMode = null;
+    private String selectedMode = null; //Variable de instancia que almacena a opción seleccionada polo usuario.
 
     /**
-     * Creates new form ModeSelectionWindow
+     * Construtor que recibe como parámetros:
+     *
+     * parent: a ventá pai (JFrame) desde onde se invoca este diálogo.
+     *
+     * modal:indica se o diálogo é modal (true) ou non (false).
+     *
+     * (initComponents() inicializa os compoñentes gráficos da interface)
      */
     public ModeSelectionWindow(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -23,7 +33,8 @@ public class ModeSelectionWindow extends javax.swing.JDialog {
     }
 
     /**
-     * Método para recuperar a selección
+     * Método que devolve a opción seleccionada polo usuario. Se o usuario pecha
+     * a ventá sen escoller, o valor seguirá sendo null
      *
      * @return
      */
@@ -31,6 +42,22 @@ public class ModeSelectionWindow extends javax.swing.JDialog {
         return selectedMode;
     }
 
+    /**
+     * Método estático para amosar o diálogo e recuperar o resultado.
+     *
+     * Crea unha nova instancia da ventá de selección (ModeSelectionWindow).
+     *
+     * Centra a ventá respecto á ventá principal
+     * (setLocationRelativeTo(parent)).
+     *
+     * Fai que a ventá sexa visible (dialog.setVisible(true)) e espera ata que o
+     * usuario seleccione unha opción ou peche a ventá.
+     *
+     * Retorna o modo de xogo seleccionado (dialog.getSelectedMode()).
+     *
+     * @param parent
+     * @return
+     */
     public static String showDialog(JFrame parent) {
         ModeSelectionWindow dialog = new ModeSelectionWindow(parent, true);
         dialog.setLocationRelativeTo(parent);
@@ -121,14 +148,14 @@ public class ModeSelectionWindow extends javax.swing.JDialog {
 
     private void okButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okButtonActionPerformed
 
-        selectedMode = (String) gamemode.getSelectedItem();
+        selectedMode = (String) gamemode.getSelectedItem(); //Obtén a opción seleccionada da JComboBox e gárdaa en selectedMode.
         dispose(); // Pecha a ventá
 
 
     }//GEN-LAST:event_okButtonActionPerformed
 
     private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelButtonActionPerformed
-        dispose();
+        dispose(); //Pecha a ventá
     }//GEN-LAST:event_cancelButtonActionPerformed
 
     /**

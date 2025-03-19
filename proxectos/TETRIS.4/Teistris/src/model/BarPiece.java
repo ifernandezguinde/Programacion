@@ -43,7 +43,7 @@ public class BarPiece extends Piece {
         if (squares[0].getX() == squares[1].getX()) { 
             // se sae dos límites devolveos false
             if (pivotX - Game.SQUARE_SIDE < 0 || pivotX + 2 * Game.SQUARE_SIDE 
-                    >= Game.MAX_X) {
+                    > Game.MAX_X) {
                 return false; 
             }
             
