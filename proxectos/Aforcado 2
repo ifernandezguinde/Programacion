@@ -1,0 +1,206 @@
+package ui;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author omar.gilgonzalez
+ */
+public class KeyboardWordGenerator implements WordGenerator {
+
+    @Override
+    public String generateWord() throws GenerateWordException {
+        System.out.print("Introduce a palabra a adiviñar: ");
+        String word;
+
+        if (System.console() != null) {
+            word = new String(System.console().readPassword());
+        } else {
+            Scanner scanner = new Scanner(System.in);
+            word = scanner.next();
+        }
+
+        return word;
+    }
+}
+
+
+
+
+package ui;
+
+/**
+ *
+ * @author omar.gilgonzalez
+ */
+public interface WordGenerator {
+    
+    String generateWord() throws GenerateWordException;
+    
+}
+
+
+
+package ui;
+
+import java.util.Random;
+
+/**
+ * Esta clase encárgase de xerar a palabra a adiviñar. Polo momento, simplemente
+ * mantén unha lista de palabras nun array e escolle unha aleatoriamente. Máis
+ * adiante estenderemos esta clase para permitir distintos modos de xogo, que
+ * xerarán a palabra de diferentes maneiras.
+ *
+ * Almacenaremos nunha constante "WORDLIST" que será un array de Strings, a
+ * lista de palabras posibles entre as que escoller a palabra oculta.
+ *
+ * Só incluirá o seguinte método:
+ *
+ * public String generateWord(): Devolve a palabra a adiviñar. Neste caso, o que
+ * fará xerar un número aleatorio entre 0 e menor que a lonxitude do array, e
+ * devolver o elemento do array que estea nesa posición.
+ *
+ * @author omar.gilgonzalez
+ */
+public class ArrayWordGenerator implements WordGenerator {
+
+    /**
+     * WORDLIST:
+     *
+     * * É unha constante (static final) que contén un array de palabras de
+     * tipo String. Representa a lista de palabras posibles entre as cales se
+     * seleccionará aleatoriamente a palabra para adiviñar.
+     *
+     * Ao ser static, o array está asociado á clase e non ás instancias
+     * individuais. Ao ser final, non se pode reasignar a outro array, aínda que
+     * os elementos dentro do array poden modificarse (aínda que isto non se fai
+     * aquí). *
+     */
+    private static final String[] WORDLIST = {"videojuego", "manga", "smartphone"
+    };
+
+    /**
+     * Descrición: Selecciona unha palabra de WORDLIST de forma aleatoria e a
+     * devolve.
+     *
+     * Detalles:
+     *
+     * - Xerar un número aleatorio: Créase un obxecto da clase `Random`, que se
+     * usa para xerar números pseudoaleatorios. O método
+     * `random.nextInt(WORDLIST.length)` xera un número enteiro aleatorio entre
+     * 0 (inclusive) e o tamaño do array `WORDLIST` (exclusivo).
+     *
+     * - Seleccionar unha palabra: Utilízase este número aleatorio como índice
+     * para acceder a un elemento do array `WORDLIST`. Devolve a palabra naquela
+     * posición. *
+     *
+     * @return
+     */
+    @Override
+    public String generateWord() throws GenerateWordException {
+        Random random = new Random();
+        return WORDLIST[random.nextInt(WORDLIST.length)];
+    }
+}
+
+
+
+
+
+package ui;
+
+import java.util.Scanner;
+
+/**
+ *
+ * @author omar.gilgonzalez
+ */
+public class KeyboardWordGenerator implements WordGenerator {
+
+    @Override
+    public String generateWord() throws GenerateWordException {
+        System.out.print("Introduce a palabra a adiviñar: ");
+        String word;
+
+        if (System.console() != null) {
+            word = new String(System.console().readPassword());
+        } else {
+            Scanner scanner = new Scanner(System.in);
+            word = scanner.next();
+        }
+
+        return word;
+    }
+}
+
+
+
+
+
+
+/**
+     * Este método mostra o menú inicial e xera a palabra que o xogador terá
+     * que adiviñar.
+     *
+     * Operación: imprímese unha mensaxe de benvida co nome do xogo: "MOSTRAR".
+     * A continuación, imprímese a mensaxe "Cargando palabra...". para simular o
+     * proceso de selección de palabras. Créase unha instancia da clase
+     * WordGenerator e chámase ao seu método generateWord(), * devolve unha
+     * palabra aleatoria. Finalmente, imprime "¡Listo!" e devolve a palabra
+     * xerada para ser usada no xogo.
+     *
+     * Devolve: a palabra xerada como un String.
+     *
+     * @return
+     */
+    private String showInitMenu() throws GenerateWordException {
+        System.out.println("AFORCADO");
+        System.out.println("Escolla o modo de xogo:");
+        System.out.println("1. Xogador vs Computador");
+        System.out.println("2. Xogador vs Xogador");
+
+        int option;
+        while (true) {
+            try {
+                System.out.print("Opción: ");
+                option = Integer.parseInt(scan.nextLine());
+                if (option == 1 || option == 2) {
+                    break;
+                }
+                System.out.println("Entrada non válida. Escolle 1 ou 2.");
+            } catch (NumberFormatException e) {
+                System.out.println("Entrada non válida. Introduce un número.");
+            }
+        }
+
+        WordGenerator wordGenerator = (option == 1) ? new ArrayWordGenerator() : new KeyboardWordGenerator();
+        System.out.println("Cargando palabra...");
+        String wordGenerated = wordGenerator.generateWord();
+        System.out.println("Listo!");
+        return wordGenerated;
+    }
+
+
+
+
+
+public static void main(String[] args) {
+        MenuGenerator menuGenerator = new MenuGenerator();
+
+        do {
+            try {
+                String word = menuGenerator.showInitMenu();
+                menuGenerator.hangMan = new HangMan(word);
+                menuGenerator.showGameMenu();
+            } catch (GenerateWordException e) {
+                if (e.isVisible()) {
+                    System.out.println("Erro: " + e.getMessage());
+                } else {
+                    System.out.println("Produciuse un erro ao xerar a palabra.");
+                }
+            }
+        } while (!menuGenerator.showExitMenu());
+
+        menuGenerator.scan.close();
+    }
+}
