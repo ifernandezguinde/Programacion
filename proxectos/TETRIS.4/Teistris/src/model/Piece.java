@@ -19,7 +19,7 @@ package model;
 
 
 /**
- * Clase que implementa a peza cadrada do xogo do Tetris
+ * Clase contén os movementos que pode facer
  *
  * @author Profe de Programación
  */

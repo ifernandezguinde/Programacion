@@ -20,6 +20,6 @@ package ui;
  */
 public interface WordGenerator {
 
-    String generateWord() throws GenerateWordException;
+    public String generateWord() throws GenerateWordException;
 
 }

@@ -24,7 +24,8 @@ public class MainWindow extends javax.swing.JFrame {
     //variable booleana para saber se o xogo rematou
     private boolean isGameOver = false;
     // intervalo inicial de 1 segundo(1000 milisegundos)
-    private int currentInterval = 1000;
+    private int currentInterval;
+    private final static int INITIAL_INTERVAL = 1000;
     // numero de liñas para reducir o intervalo
     private int lines = 4;
 
@@ -36,10 +37,10 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         
         // facemos que o JFrame teña o foco
-        this.setFocusable(true);
-        this.requestFocusInWindow();
+        //this.setFocusable(true);
+        //this.requestFocusInWindow();
 
-        // Agregar KeyEventDispatcher para capturar as teclas globalmente
+        // Agregar KeyEventDispatcher para capturar as teclas pulsadas
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(evt -> {
             if (evt.getID() == KeyEvent.KEY_PRESSED) {
                 
@@ -100,27 +101,10 @@ public class MainWindow extends javax.swing.JFrame {
         lblNumberOfLines.setText(String.valueOf(numberOfLines));
         
         // Comproba se o número de liñas alcanzou o limte
-        if (numberOfLines > 1 && numberOfLines % lines == 0) {
+        if (numberOfLines > 0 && numberOfLines % lines == 0) {
             // Reducirmos o intervalo a metade
             currentInterval = currentInterval / 2;
-
-            // Detenemos o timer actual
-            timer.stop();
-
-            // Creación dun novo timer co novo intervalo
-            timer = new Timer(currentInterval, new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent e) {
-                    if (isGameOver) {
-                        timer.stop();
-                    } else {
-                        btnDownActionPerformed(null);
-                    }
-                }
-            });
-
-            // Iniciar o timer co novo intervalo
-            timer.start();
+            timer.setDelay(currentInterval);
         }
     }
 
@@ -146,10 +130,13 @@ public class MainWindow extends javax.swing.JFrame {
         // Establecemos o número de liñas que se mostran na ventá a cero
         lblNumberOfLines.setText("0");
         
+        
         // comprobamos que non esté un timer xa en funcionamento
         if(timer != null) {
             timer.stop();
         }
+        
+        currentInterval = INITIAL_INTERVAL;
         
         // Creamos o Timer que executa o método cada 1000 milisegundos
         timer = new Timer(currentInterval, (ActionEvent e) -> {

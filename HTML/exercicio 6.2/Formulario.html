@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+    <head>
+        <title>Formulario</title>
+    </head>
+
+    <body>
+        <form method="post"> 
+            Nombre*:
+            <input name="nombre" type="text" id="nombre" size="20" pattern="[a-zA-Z]{}" tabindex="1" required accesskey="I" title="Solo se permite la introducción de letras"/><br><br>
+            Correo electrónico*:
+            <input name="correo" type="text" id=”correo” size="50" placeholder="ejemplo@dominio.com" tabindex="2" required autofocus accesskey="O" /><br><br>
+            URL:
+            <input name="URL" type="text" id=”URL” size="50" placeholder="Escribe la URL de tu página" tabindex="3" /><br><br>
+            Fecha:
+            <input name="fecha" type="date" disabled/><br><br>
+            Número(min -10, max 10):
+            <input name="numero" type="text" min="-10" max="10" size="2" tabindex="4" /><br><br>
+            Teléfono*:            
+            <input name="telefono" type="text" id=”telefono” size="10" pattern="[0-9]{9}" tabindex="5" required accesskey="p" /><br><br>
+            Color favorito:
+            <input name="color" type="color" /><br><br>
+                
+            <!--botones del formulario-->
+            <input type="submit" value="enviar">
+        </form>
+    </body>
+</html>

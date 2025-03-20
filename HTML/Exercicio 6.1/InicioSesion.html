@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+    <head>
+        <title>Inicio de Sesión</title>
+        <script>
+            function hacer(){
+            if (document.getElementById('user').value=="pepe"
+             && document.getElementById('laPass').value=="tururu"){
+             window.open("EnvioCamiseta.html");
+            }
+            }
+            </script>
+    </head>
+
+    <body>
+        <h1><b>Inicio de Sesión</b></h1>
+        <form method="post"> 
+            <fieldset>
+                <legend>Datos de Usuario</legend>
+                Nombre de usuario:
+                <input type="text" name="nombre" id="user" size="20"><br><br>
+                Contraseña:
+                <input type="password" name="clave" id="laPass" size="12"><br><br>
+                
+                <!--botones del formulario-->
+                <input type="button" value="Aceptar" onclick="hacer();">
+            </fieldset>
+        </form>
+    </body>
+</html>
