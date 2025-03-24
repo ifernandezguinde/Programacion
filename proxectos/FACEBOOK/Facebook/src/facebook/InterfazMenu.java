@@ -7,7 +7,7 @@ package facebook;
 import java.util.Scanner;
 
 /**
- *
+ * menú inicial no que podes iniciar sesión, crear un novo perfil ou sair
  * @author ivan.fernandezguinde
  */
 public class InterfazMenu {
@@ -18,36 +18,56 @@ public class InterfazMenu {
 
         do {
             // Mostrar el menú
-            System.out.println("\n*** MENÚ PRINCIPAL ***");
-            System.out.println("1. Opción 1: Saludar");
-            System.out.println("2. Opción 2: Mostrar fecha");
-            System.out.println("3. Opción 3: Mostrar número al azar");
-            System.out.println("4. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.println("escolle unha opción:");
+            System.out.println("0: Iniciar sesión");
+            System.out.println("1: Crear un novo perfil");
+            System.out.println("2: Sair da aplicación");
 
             // Leer la opción del usuario
             option = scan.nextInt();
 
             // Evaluar la opción usando switch
             switch (option) {
+                case 0:
+                    this.IniciarSesion();
+                    break;
                 case 1:
-                    System.out.println("¡Hola! Espero que estés teniendo un buen día.");
+                    
                     break;
-                case 2:
-                    System.out.println("La fecha de hoy es: " + java.time.LocalDate.now());
-                    break;
-                case 3:
-                    System.out.println("Número aleatorio: " + (int)(Math.random() * 100));
-                    break;
-                case 4:
-                    System.out.println("Saliendo del programa... ¡Hasta luego!");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Inténtelo de nuevo.");
+                    
             }
-        } while (option != 4);
+        } while (option != 2);
 
         scan.close();
+    }
+    
+    
+    /**
+     * Inicia sesión nunha conta existente
+     */
+    public void IniciarSesion() {
+        
+    }
+    
+    /**
+     * crea un novo perfil e almacénao 
+     */
+    public void CrearPerfil() {
+        Scanner scan = new Scanner(System.in);
+        int option;
+
+
+            // Mostrar el menú
+            System.out.println("escolle un nome de usuario:");
+            String nome = scan.nextLine();
+            System.out.println("pon un contrasinal:");
+            String contrasinal = scan.nextLine();
+            System.out.println("repite o contrasinal:");
+            String contrasinal2 = scan.nextLine();
+
+            if (contrasinal.equals(contrasinal2)) {
+                
+            }
     }
     
 
@@ -55,7 +75,8 @@ public class InterfazMenu {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        
+        InterfazMenu inte = new InterfazMenu();
+        inte.mostrarMenu();
     }
     
 }
