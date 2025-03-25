@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
  */
-package facebook;
+package controller;
 
 import java.util.Scanner;
 
@@ -10,9 +10,9 @@ import java.util.Scanner;
  * menú inicial no que podes iniciar sesión, crear un novo perfil ou sair
  * @author ivan.fernandezguinde
  */
-public class InterfazMenu {
+public class InitMenuController {
     
-    public static void mostrarMenu() {
+    public void mostrarMenu() {
         Scanner scan = new Scanner(System.in);
         int option;
 
@@ -32,7 +32,7 @@ public class InterfazMenu {
                     this.IniciarSesion();
                     break;
                 case 1:
-                    
+                    this.CrearPerfil();
                     break;
                     
             }
@@ -54,8 +54,6 @@ public class InterfazMenu {
      */
     public void CrearPerfil() {
         Scanner scan = new Scanner(System.in);
-        int option;
-
 
             // Mostrar el menú
             System.out.println("escolle un nome de usuario:");
@@ -65,7 +63,7 @@ public class InterfazMenu {
             System.out.println("repite o contrasinal:");
             String contrasinal2 = scan.nextLine();
 
-            if (contrasinal.equals(contrasinal2)) {
+            if (!contrasinal.equals(contrasinal2)) {
                 
             }
     }
@@ -75,7 +73,7 @@ public class InterfazMenu {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        InterfazMenu inte = new InterfazMenu();
+        InitMenuController inte = new InitMenuController();
         inte.mostrarMenu();
     }
     

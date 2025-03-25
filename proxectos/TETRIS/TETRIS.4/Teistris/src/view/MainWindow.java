@@ -37,9 +37,6 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         
         // facemos que o JFrame teña o foco
-        //this.setFocusable(true);
-        //this.requestFocusInWindow();
-
         // Agregar KeyEventDispatcher para capturar as teclas pulsadas
         KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(evt -> {
             if (evt.getID() == KeyEvent.KEY_PRESSED) {
