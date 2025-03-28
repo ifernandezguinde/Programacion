@@ -11,10 +11,10 @@ import controller.InitMenuController;
  * @author ivan.fernandezguinde
  */
 public class InitMenuView {
-    private InitMenuController initMenuController;
+    private InitMenuController controller;
 
-    public InitMenuView(InitMenuController initMenuController) {
-        this.initMenuController = initMenuController;
+    public InitMenuView(InitMenuController controller) {
+        this.controller = controller;
     }
 
     
