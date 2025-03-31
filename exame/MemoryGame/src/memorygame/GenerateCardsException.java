@@ -1,19 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package memorygame;
 
 /**
+ * Excepción para erros que se poden producir cando se xeran as cartas do xogo
  *
- * @author ivan.fernandezguinde
+ * @author Profe de programación
  */
 public class GenerateCardsException extends Exception {
+
     /**
-     * Construtor que recibe unha mensaxe de erro
-     * @param message 
+     * Construtor que crea unha excepción cunha mensaxe
+     *
+     * @param message Mensaxe da excepción
      */
     public GenerateCardsException(String message) {
         super(message);
     }
+
 }

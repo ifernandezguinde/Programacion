@@ -1,72 +1,69 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package memorygame;
 
 /**
+ * Clase abstracta que implementa unha carta xenérica do xogo
  *
- * @author ivan.fernandezguinde
+ * @author Profe de programación
  */
 public abstract class Card {
+
+    // Atributos protexidos, omítese o Javadoc
     protected String text;
-    protected boolean hit = false;     
-        
+    protected boolean hit;
 
     /**
-     * constructor da clase que inicializa o valor text
-     * @param word
-     */
-    public Card(String word) {
-        text = word;
-    }
-
-    /**
-     * devolve o valor de text
-     * @return 
+     * Obtén o texto da carta
+     *
+     * @return Texto da carta
      */
     public String getText() {
         return text;
     }
 
     /**
-     * modifica o valor de text
-     * @param text 
+     * Establece o texto da carta
+     *
+     * @param text Texto para a carta
      */
     public void setText(String text) {
         this.text = text;
     }
 
     /**
-     * devolve o valor de hit
-     * @return 
+     * Obtén se a carta está acertada
+     *
+     * @return True se a carta está acertada, false se non
      */
     public boolean isHit() {
         return hit;
     }
 
     /**
-     * modifica o valor de hit
-     * @param hit 
+     * Establecer se a carta está acertada
+     *
+     * @param hit True se a carta está acertada, false se non
      */
     public void setHit(boolean hit) {
         this.hit = hit;
     }
 
     /**
-     * comproba se as cartas fan match
-     * @param card
-     * @return 
+     * Crea unha nova carta
+     *
+     * @param text Texto da carta
      */
-    public abstract boolean isEquals(String card);
-    
-    
+    public Card(String text) {
+        this.text = text;
+        // Por defecto, a carta non está acertada
+        this.hit = false;
+    }
 
     /**
-     * @param args the command line arguments
+     * Indica se a carta recibida como parámetro é a parella desta carta
+     *
+     * @param c Carta da que se quere saber se é parella a carta actual
+     * @return true se as dúas cartas son parella, false se non o son
      */
-    public static void main(String[] args) {
-        
-    
-    }
+    public abstract boolean isEquals(Card c);
+
 }

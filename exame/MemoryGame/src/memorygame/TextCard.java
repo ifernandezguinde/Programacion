@@ -1,30 +1,31 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package memorygame;
 
 /**
+ * Clase que implementa unha carta de texto
  *
- * @author ivan.fernandezguinde
+ * @author Profe de programación
  */
-public class TextCard extends Card{
+public class TextCard extends Card {
 
     /**
-     * constructor da clase que recibe o valor do texto da carta
-     * e invoca o constructor da superclase
-     * @param word 
+     * Crea unha carta de texto
+     *
+     * @param text Texto da carta
      */
-    public TextCard(String word) {
-        super(word);
+    public TextCard(String text) {
+        super(text);
     }
 
+    /**
+     * Indica se a carta recibida como parámetro é a parella desta carta
+     *
+     * @param c Carta da que se quere saber se é parella a carta actual
+     * @return true se o texto da carta recibido coincide co texto da carta,
+     * false se non
+     */
     @Override
-    /**
-     * comproba se o texto das cartas é igual
-     */
-    public boolean isEquals(String card) {
-        return this.getText().equals(card);      
+    public boolean isEquals(Card c) {
+        return c.getText().equals(text);
     }
-    
+
 }
