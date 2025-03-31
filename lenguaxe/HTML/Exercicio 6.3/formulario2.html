@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario</title>
+</head>
+
+<body>
+    <table border="1">
+        <form method="post">
+            <tr>
+                <td>Nombre*:
+                    <input name="nombre" type="text" id="nombre" size="20" pattern="[a-zA-Z\s]+" tabindex="1" required accesskey="I" title="Solo se permite la introducción de letras y espacios">
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>Correo electrónico*:
+                    <input name="correo" type="email" id="correo" size="50" placeholder="ejemplo@dominio.com" tabindex="2" required autofocus accesskey="O">
+                </td>
+            </tr>
+            <tr>
+                <td>URL:</td>
+                <td>
+                    <input name="URL" type="url" id="URL" size="50" placeholder="Escribe la URL de tu página" tabindex="3">
+                </td>
+            </tr>
+            <tr>
+                <td>Fecha:</td>
+                <td>
+                    <input name="fecha" type="date" disabled>
+                </td>
+            </tr>
+            <tr>
+                <td>Número (min -10, max 10):</td>
+                <td>
+                    <input name="numero" type="number" min="-10" max="10" size="2" tabindex="4">
+                </td>
+            </tr>
+            <tr>
+                <td>Teléfono*:</td>
+                <td>
+                    <input name="telefono" type="tel" id="telefono" size="10" pattern="[0-9]{9}" tabindex="5" required accesskey="P" title="Debe tener 9 dígitos numéricos">
+                </td>
+            </tr>
+            <tr>
+                <td>Color favorito:</td>
+                <td>
+                    <input name="color" type="color">
+                </td>
+            </tr>
+            <tr>
+                 <!--botones del formulario-->
+                 <input type="submit" value="enviar">
+            </tr>
+        </form>
+    </table>
+</body>
+
+</html>

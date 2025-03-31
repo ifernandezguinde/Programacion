@@ -1,0 +1,264 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+    <head>
+        <title>Prueba de formulario</title>
+    </head>
+
+    <body>
+        1
+        <form method="post"> Introduzca su nombre:
+            <input type="text" name="nombre" id=”nombre” size="20"><br />
+            Introduzca su clave:
+            <input type="password" name="clave" id=”clave” size="12"><br />
+            <!--botones del formulario-->
+            <input type="submit" value="enviar">
+            <input type="reset" value="borrar">
+        </form><br><br><br>
+
+        2
+        <form> Marque las tecnologías Web que conoce:<br />
+            <input type="checkbox" name="len-html" value="html" checked>
+            HTML<br />
+            <input type="checkbox" name="len-javas" value="javascript">
+            Javascript<br />
+            <input type="checkbox" name="len-css" value="css">
+            CSS<br />
+            <input type="checkbox" name="len-xml" value="xml">
+            XML<br /><br />
+            <input type="reset" value="Limpiar"><br /><br />
+            <input type="submit" value="Enviar">
+        </form><br><br><br>
+
+        3
+        <form>Indique sus nivel de estudios: <br />
+            <input type="radio" name="estudios" value="1">Sin estudios<br />
+            <input type="radio" name="estudios" value="2">Primario<br />
+            <input type="radio" name="estudios" value="3">Secundario<br />
+            <input type="radio" name="estudios" value="4">Universitario<br />
+        </form><br><br><br>
+
+        4
+        <form action="registrardatos.php" method="post">
+            Nombre:
+            <input type="text" name="nombre" id="nombre" size="20">
+            <br /> <br /><br />
+            <input type="button" onclick="javascript:alert('hola '+document.getElementById('nombre').value);"
+                value="Mostrar Saludo">
+        </form><br><br><br>
+
+        5
+        <form action="../../form-result.php" method="post" enctype="multipart/form-data">
+            Sube un archivo:
+            <input type="file" name="archivosubido">
+            <br />
+            <input type="submit" value="Enviar datos">
+        </form><br><br><br>
+
+        6
+        <form>
+            <label for="titulo">Blog de HTML</label>
+            <input type="text" id="titulo" name="titulo" size="30" value="Cómo utilizar el control hidden"><br /> <br />
+            <label for="contenido">Contenido del artículo:</label><br />
+            <textarea id="contenido" name="contenido" cols="60" rows="5">
+                    El control input hidden permite tener contenidos ocultos al usuario pero accesibles a JavaScript
+                    </textarea><br /><br />
+            <button type="submit">Actualizar artículo</button>
+            <input type="hidden" id="actId" name="artId" value="5643">
+        </form><br><br><br>
+
+        7
+        <h2>Formulario</h2>
+        <form action="../../form-result.php" method="get" target="_blank">
+            <p>Usuario: <input type="text" name="usuario"></p>
+            <p>Contraseña: <input type="password" name="pass"></p>
+            <p><input type="image" name="botondeenvio" src="images/imagenEnviar.png" alt="Enviar formulario"></p>
+        </form><br><br><br>
+
+        8
+        <form action="scripts/registrardatos.php" method="post">
+            Nombre:
+            <input type="text" name="nombre" size="30"><br />
+            Correo electrónico:
+            <input type="text" name="mail" size="50"><br />
+            Comentarios:<br />
+            <textarea name="comentarios" rows="5" cols="60">Sin comentarios</textarea>
+            <br /><input type="submit" value="Enviar">
+        </form><br><br><br>
+
+        9
+        <form action="/registrardatos.php" method="post">Introduzca su nombre:
+            <input type="text" name="nombre" size="30"><br />Seleccione su pais:
+            <select name="pais">
+                <option value="1">Argentina</option>
+                <option value="2" selected>España</option>
+                <option value="3">México</option>
+                <option value="4">Guatemala</option>
+                <option value="5">Honduras</option>
+                <option value="7">El Salvador</option>
+                <option value="8">Venezuela</option>
+                <option value="9">Colombia</option>
+                <option value="10">Cuba</option>
+                <option value="11">Bolivia</option>
+                <option value="13">Perú</option>
+            </select><br />
+            <input type="submit" value="Enviar">
+        </form><br><br><br>
+
+        10
+        <form action="/registrardatos.php" method="post"> Seleccione uno o varios colores (Presione Ctrl para seleccionar
+            varios colores)<br />
+            <select name="colores[]" size="4" multiple>
+                <option value="1">Rojo</option>
+                <option value="2">Verde</option>
+                <option value="3">Azul</option>
+                <option value="4">Amarillo</option>
+                <option value="5">Blanco</option>
+            </select><br />
+            <input type="submit" value="Enviar">
+        </form><br><br><br>
+
+        11
+        <form method="post" action="ruta/recurso.php">
+            Introduce tu serie favorita:
+            <input type="text" name="miSerie" list="listaSeries"/>
+             <datalist id="listaSeries">
+             <option label="Buena" value="Homecoming">
+             <option label="Regular" value="Home Ground">
+             <option label="Mala" value="Utopía"/>
+             <option label="Buena" value="Urgencias">
+             <option label="Regular" value="Life">
+            HTML- Formularios 25
+             <option label="Buena" value="La Tira">
+             <option label="Buena" value="La Tribu">
+             </datalist>
+            </form>
+
+        12
+        <form action="registrardatos.php" method="post"> Nombre:
+            <input type="text" name="nombre" size="20"><br /><br /><br />
+            <button type="submit">Enviar<img src="images/imagenPeqEnviar.png"></button>
+            <button type="reset">Borrar<img src="images/eraserPeq.jpg"></button>
+        </form><br><br><br>
+
+        13
+        <form action="mailto:reclamacion@gmail.com" method="post" enctype="text/plain">
+            Introduzca su nombre:
+            <input type="text" name="nombre" size="20"><br />
+            Introduzca su dirección:
+            <input type="text" name="dirección" size="30"><br />
+            Informe del problema:<br />
+            <textarea rows="5" cols="40" name="problema"></textarea> <br />
+            <input type="submit" value="enviar">
+        </form><br><br><br>
+
+        14
+        <form action="/registrardatos.php" method="post">
+            <fieldset>
+                <legend>Datos personales</legend>
+                Apellido y nombre:
+                <input type="text" name="nombre" size="30"><br />
+                Documento de identidad:
+                <input type="text" name="dni" size="8"><br />
+                Fecha de nacimiento:
+                <input type="text" name="fechanacimiento" size="12"><br />
+                Dirección:
+                <input type="text" name="direccionpersona" size="30"><br />
+            </fieldset>
+
+            
+            <fieldset>
+                <legend>Datos Laborales</legend>
+                Nombre de la empresa:
+                <input type="text" name="nombreempresa" size="30"><br />
+                Actividad:
+                <input type="text" name="actividad" size="50"><br />
+                Dirección:
+                <input type="text" name="direccionempresa" size="30"><br />
+            </fieldset>
+            <input type="submit" value="Enviar">
+        </form><br><br><br>
+
+        15
+        <form method="post" action="scripts/webforms.php">
+            <!--cuando se envía se ejecuta la pag php-->
+            <table border="1" cellpadding="5">
+                <tr>
+                    <td>Defecto</td>
+                    <td><!--Tipo TextBox --><input name="nombre"></td>
+                </tr>
+                <tr><!--Tipo Url, incluye http://-->
+                    <td>URL</td>
+                    <td>
+                        <input type="url" name="miurl" list="urls">
+                        <datalist id="urls">
+                            <option label="El pais" value="http://www.elpais.es">
+                            <option label="El mundo" value="http://www.elmundo.es">
+                            <option label="La voz de galicia" value="http://www.lavo
+                zdegalicia.es">
+                        </datalist>
+                    </td>
+                </tr>
+                HTML- Formularios 29
+                <tr>
+                    <!--Tipo email, devuelve un error si dirección no válida -->
+                    <td>Email</td>
+                    <td><label>Para<input type="email" name="cc" list="contacts"> </label>
+                        <datalist id="contacts">
+                            <option value="amigo1@miDominio.es">
+                            <option value="amigo2@miDominio.es">
+                            <option value="amigo3@miDominio.es">
+                            <option value="amigo4@miDominio.es">
+                        </datalist>
+                    </td>
+                </tr>
+                <tr>
+                    <!--Tipo range, rango de valores a intervalos regulares-->
+                    <td>Rango</td>
+                    <td><input name="rango" type="range" min="0" max="100" step="5" value="40"></td>
+                </tr>
+                <!—Tipo number…permite introducir un rango de valores-->
+                    <td>Número</td>
+                    <td><input name="numero" type="number" min="0" max="100" step="5" value="40"></td>
+                    </tr>
+                    <tr><!--Tipo date,-->
+                        <td>Fecha</td>
+                        <td><input name="fecha" type="date"></td>
+                    </tr>
+                    <tr><!--Tipo week,-->
+                        <td>Semana</td>
+                        <td><input name="semana" type="week"></td>
+                    </tr>
+                    <tr> <!--Tipo month,-->
+                        <td>Mes</td>
+                        <td><input name="mes" type="month"></td>
+                    </tr>
+                    <tr><!--Tipo time,-->
+                        <td>Hora</td>
+                        <td><input name="hora" type="time"></td>
+                    </tr>
+                    <tr><!--Tipo color-->
+                        <td>Color</td>
+                        <td><input name="color" type="color"></td>
+                    </tr>
+                    <tr><!--Tipo para llevar a cabo búsquedas-->
+                        <td>Consulta Busqueda</td>
+                        <td><input name="consulta" type="search"></td>
+                    </tr>
+            </table><!--Botón de envío-->
+            <input type="submit" value="Enviar"><br><br>
+        </form>
+
+        16
+        <form>
+            Introduce un valor par entre 10 y 18 <br>
+            <input name="rango" id="rango" min="10" max="18" step="2"
+            value="10" type="range"
+            onchange="document.getElementById('salida').value=this.value;">
+            HTML- Formularios 20
+            <output id="salida">10</output>
+        </form>
+
+    </body>
+
+</html>

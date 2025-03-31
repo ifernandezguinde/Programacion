@@ -1,0 +1,15 @@
+h1{
+    color: red;
+    font-family: Arial;
+    font-size: large;
+}
+
+p{
+    color: gray;
+    font-family: Verdana;
+    font-size: medium;
+    width: 160px;
+    margin: 30px;
+    border: 10px groove #00c;
+    padding: 40px;
+}

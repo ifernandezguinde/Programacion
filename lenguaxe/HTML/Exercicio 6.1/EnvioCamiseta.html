@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+<head>
+    <title>Envio Camiseta</title>
+</head>
+
+<body>
+    <h1><b>Indica los datos de la camiseta que te enviaremos</b></h1>
+    <form method="post">
+        <fieldset>
+            <legend>Datos la camiseta</legend>
+            Introduce la talla:
+            <input name="talla" type="text" min="36" max="50" size="2"><br><br>
+            Introduce los cm. de largo que deseas:
+            <input name="rango" type="range" id="range" min="30" max="100" step="2" value="50"
+                onchange="document.getElementById('salida').value=this.value;">
+            <output id="salida">50 cm de largo</output><br><br>
+            Selecciona un color:
+            <input name="color" type="color"><br><br>
+            Indica la fecha de nacimiento para un sorteo:
+            <input name="fecha" type="date"><br><br>
+        </fieldset>
+        <fieldset>
+            <legend>Datos de envío a Galicia</legend>
+            <select name="provincia">
+                <option value="1">A coruña</option>
+                <option value="2">Lugo</option>
+                <option value="3">Ourense</option>
+                <option value="4">Pontevedra</option>
+                <option value="5" selected>Selecciona la provicia gallega</option>
+            </select><br><br>
+            <label for="contenido">Introduzca la dirección completa:</label><br />
+            <textarea id="contenido" name="contenido" cols="60" rows="5"></textarea><br><br>
+            Teléfono:
+            <input type="number" id="telefono" name="telefono" size="20"><br> <br>
+            Blog/Web:
+            <input type="text" id="web" name="web" size="500"><br> <br>
+            Dirección de correo electrónico:
+            <input type="text" id="corrreo" name="correo" size="100"><br> <br>
+            Introduce la semana que quiere recibir la camiseta:
+            <input type="week" name="semana" id="semana" value="--, ---"><br><br>
+            Introduzca una hora que esté en casa para recibir el envío:
+            <input type="time" name="hora" id="hora" value="00:00"><br><br>
+        </fieldset><br><br>
+        <input type="submit" value="Enviar/Validar">
+    </form>
+</body>
+
+</html>

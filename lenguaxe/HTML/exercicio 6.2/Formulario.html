@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html lang="es">
+
+    <head>
+        <title>Formulario</title>
+    </head>
+
+    <table>
+        <table border="1">
+            <form method="post">
+                <tr>
+                    <td>Nombre*:</td>
+                    <td><input name="nombre" type="text" id="nombre" size="20" pattern="[a-zA-Z]{}" tabindex="1" required accesskey="I" title="Solo se permite la introducción de letras"/><br><br></td>
+                </tr>
+                <tr>
+                    <td>Correo electrónico*:</td>
+                    <td><input name="correo" type="text" id=”correo” size="50" placeholder="ejemplo@dominio.com" tabindex="2" required autofocus accesskey="O" /><br><br></td>
+                </tr>
+                <tr>
+                    <td>URL:</td>
+                    <td><input name="URL" type="text" id=”URL” size="50" placeholder="Escribe la URL de tu página" tabindex="3" /><br><br></td>
+                </tr>
+                <tr>
+                    <td>Fecha:</td>
+                    <td><input name="fecha" type="date" disabled/><br><br></td>
+                </tr>
+                <tr>
+                    <td>Número(min -10, max 10):</td>
+                    <td><input name="numero" type="text" min="-10" max="10" size="2" tabindex="4" /><br><br></td>
+                </tr>
+                <tr>
+                    <td>Teléfono*:</td>
+                    <td><input name="telefono" type="text" id=”telefono” size="10" pattern="[0-9]{9}" tabindex="5" required accesskey="p" /><br><br></td>
+                </tr>
+                <tr>
+                    <td>Color favorito:</td>
+                    <td><input name="color" type="color" /><br><br></td>
+                </tr>
+                    
+                <!--botones del formulario-->
+                <input type="submit" value="enviar">
+            </form>
+        </table>
+    </body>
+</html>
