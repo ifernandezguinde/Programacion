@@ -4,12 +4,18 @@
  */
 package model;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ivan.fernandezguinde
  */
 public class Profile {
     public String name, pasword, status;
+    private ArrayList<Post> posts;
+    private ArrayList<Message> receivedMessages;
+    private ArrayList<Message> sentMessages;
+    private ArrayList<Profile> friends;
 /**
  * constructor da clase que recibe parámetros e llos asigna as variables
  * @param name
@@ -20,6 +26,10 @@ public class Profile {
         this.name = name;
         this.pasword = pasword;
         this.status = status;
+        this.posts = new ArrayList<>();
+        this.receivedMessages = new ArrayList<>();
+        this.sentMessages = new ArrayList<>();
+        this.friends = new ArrayList<>();
     }
 
     /**
@@ -69,8 +79,83 @@ public class Profile {
     public void setStatus(String status) {
         this.status = status;
     }
+
+    /**
+     * devolve o valor do array posts
+     * @return 
+     */
+    public ArrayList<Post> getPosts() {
+        return posts;
+    }
+
+    /**
+     * modifica o valor do array posts
+     * @param posts 
+     */
+    public void setPosts(ArrayList<Post> posts) {
+        this.posts = posts;
+    }
+
+    /**
+     * devolve o valor do array recivedMessages
+     * @return 
+     */
+    public ArrayList<Message> getReceivedMessages() {
+        return receivedMessages;
+    }
+
+    /**
+     * modifica o valor do array recivedMessages
+     * @param receivedMessages 
+     */
+    public void setReceivedMessages(ArrayList<Message> receivedMessages) {
+        this.receivedMessages = receivedMessages;
+    }
+
+    /**
+     * devolve o valor do array sentMessages
+     * @return 
+     */
+    public ArrayList<Message> getSentMessages() {
+        return sentMessages;
+    }
+
+    /**
+     * modifica o valor do array sentMessages
+     * @param sentMessages 
+     */
+    public void setSentMessages(ArrayList<Message> sentMessages) {
+        this.sentMessages = sentMessages;
+    }
+
+    /**
+     * devolve o valor do array friends
+     * @return 
+     */
+    public ArrayList<Profile> getFriends() {
+        return friends;
+    }
+
+    /**
+     *  modifica o valor do array friends
+     * @param friends 
+     */
+    public void setFriends(ArrayList<Profile> friends) {
+        this.friends = friends;
+    }
     
     
+    
+    
+    /**
+     * añade un post ao array posts
+     * @param post 
+     */
+    public void addPost(Post post) {
+        posts.add(post);
+    }
+    
+   
     
     
 }

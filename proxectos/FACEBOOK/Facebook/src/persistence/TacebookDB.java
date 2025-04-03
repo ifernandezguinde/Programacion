@@ -9,5 +9,6 @@ package persistence;
  * @author ivan.fernandezguinde
  */
 public class TacebookDB {
+    public ArrayList 
     
 }

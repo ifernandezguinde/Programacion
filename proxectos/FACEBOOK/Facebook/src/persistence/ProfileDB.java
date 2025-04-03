@@ -13,8 +13,11 @@ import model.Profile;
 public class ProfileDB {
     
     public static Profile findByName(String name, int numberOfPosts) {
-        
-        
+        for (Profile profile : profiles) {
+            if(profile.getName().equals(name) && profile.getNumberOfPosts().equals(numberOfPosts))
+                return profile;
+                }
+        return null;
     }
     
     

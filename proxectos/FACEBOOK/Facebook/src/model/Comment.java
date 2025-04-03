@@ -14,17 +14,25 @@ public class Comment {
     private int id;
     private Date date;
     private String text;
+    private Profile author;
+    private Post post;
+
 
     /**
      * constructor da clase que recibe parámetros e llos asigna as variables
      * @param id
      * @param date
      * @param text 
+     * @param author 
+     * @param post 
      */
-    public Comment(int id, Date date, String text) {
+    public Comment(int id, Date date, String text, Profile author, Post post, String text) {
         this.id = id;
         this.date = date;
         this.text = text;
+        this.author = author;
+        this.post = post;
+        post.addComment(this);
     }
 
     /**

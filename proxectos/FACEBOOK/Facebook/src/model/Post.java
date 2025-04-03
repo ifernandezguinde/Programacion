@@ -4,6 +4,7 @@
  */
 package model;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -11,9 +12,11 @@ import java.util.Date;
  * @author ivan.fernandezguinde
  */
 public class Post {
-    public int id;
-    public Date date;
-    public String text;
+    private int id;
+    private Date date;
+    private String text;
+    private Profile author;
+    private ArrayList<Comment> comments;
 
     /**
      * constructor da clase que recibe parámetros e llos asigna as variables
@@ -25,6 +28,8 @@ public class Post {
         this.id = id;
         this.date = date;
         this.text = text;
+        this.comments = new ArrayList<>();
+        author.addPost(this);
     }
     
     
@@ -66,6 +71,49 @@ public class Post {
      */
     public String getText() {
         return text;
+    }
+
+    /**
+     * devolve o valor de author
+     * @return 
+     */
+    public Profile getAuthor() {
+        return author;
+    }
+
+    /**
+     * modifica o valor de author
+     * @param author 
+     */
+    public void setAuthor(Profile author) {
+        this.author = author;
+    }
+
+    /**
+     * devolve o valor do array comments
+     * @return 
+     */
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
+    /**
+     * modifica o valor do array comments
+     * @param comments 
+     */
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
+    }
+    
+    
+    
+    
+    /**
+     * añade o comentario ao array comments
+     * @param comment 
+     */
+    public void addComment(Comment comment) {
+        comments.add(comment);
     }
     
 }
