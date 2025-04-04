@@ -7,6 +7,7 @@ package controller;
 import modelo.Pet;
 import modelo.Student;
 import modelo.Subject;
+import modelo.Teacher;
 import persistence.HogwartsCharacterDB;
 import persistence.SubjectDB;
 import view.HogwartsView;
