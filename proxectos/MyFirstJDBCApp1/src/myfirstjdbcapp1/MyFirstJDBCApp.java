@@ -25,7 +25,7 @@ public class MyFirstJDBCApp {
                        
 //        try (Connection c = DriverManager.getConnection(
 //                "jdbc:sqlite:/home/ivan.fernandezguinde/a_IVAN/a_Programacion/Programacion/sql-java/Myfirstdb.db")) {
-//            System.out.println("Conexion realizada con exito");
+//                  System.out.println("Conexion realizada con exito");
 //            System.out.println("introduza o nome do usuario: ");
 //            
 //            String name = scan.nextLine();
