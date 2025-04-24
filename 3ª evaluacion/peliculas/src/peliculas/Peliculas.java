@@ -26,8 +26,17 @@ public class Peliculas {
         String title;
 
         try (Connection c = DriverManager.getConnection(
-                "jdbc:mariadb://localhost:33006/peliculas", "admin", "daw2pass")) {
+                "jdbc:SQLite://localhost:33006/peliculas.db", "admin", "daw2pass")) {
             System.out.println("Conexion realizada con exito");
+
+            // exercicio 6.1.3, conectar con base de datos SQLite
+            CREATE TABLE IF NOT EXISTS films (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            title TEXT NOT NULL,
+            year INTEGER NOT NULL
+            );
+            
+            
 
             do {
                 // Mostrar o menú
