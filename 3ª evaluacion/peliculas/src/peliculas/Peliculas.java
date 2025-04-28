@@ -30,11 +30,11 @@ public class Peliculas {
             System.out.println("Conexion realizada con exito");
 
             // exercicio 6.1.3, conectar con base de datos SQLite
-            CREATE TABLE IF NOT EXISTS films (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT NOT NULL,
-            year INTEGER NOT NULL
-            );
+//            CREATE TABLE IF NOT EXISTS films (
+//            id INTEGER PRIMARY KEY AUTOINCREMENT,
+//            title TEXT NOT NULL,
+//            year INTEGER NOT NULL
+//            );
             
             
 
@@ -117,7 +117,7 @@ public class Peliculas {
 
         } catch (SQLException e) {
             System.out.println("A conexión co servidor de bases de datos non se puido establecer");
-//          System.out.println(e.getMessage());
+            System.out.println(e.getMessage());
         }
     }
 
