@@ -27,6 +27,7 @@ public class InitMenuView {
     
     public boolean showLoginMenu() {
         
+        return false;
     }
     
     
