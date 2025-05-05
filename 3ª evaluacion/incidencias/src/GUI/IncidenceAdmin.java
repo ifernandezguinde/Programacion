@@ -27,7 +27,6 @@ public class IncidenceAdmin extends javax.swing.JFrame {
     private void initComponents() {
 
         topPanel = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         incidenceStatus = new javax.swing.JComboBox<>();
         centerPanel = new javax.swing.JPanel();
@@ -35,14 +34,10 @@ public class IncidenceAdmin extends javax.swing.JFrame {
         jList1 = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Administración de incidencias");
 
         topPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         topPanel.setLayout(new java.awt.BorderLayout());
-
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Administración de incidencias");
-        jLabel3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        topPanel.add(jLabel3, java.awt.BorderLayout.NORTH);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel4.setText("Listado de incidencias:");
@@ -106,7 +101,6 @@ public class IncidenceAdmin extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel centerPanel;
     private javax.swing.JComboBox<String> incidenceStatus;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
