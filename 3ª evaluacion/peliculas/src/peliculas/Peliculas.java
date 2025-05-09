@@ -6,6 +6,7 @@ package peliculas;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -30,13 +31,22 @@ public class Peliculas {
             System.out.println("Conexion realizada con exito");
 
             // exercicio 6.1.3, conectar con base de datos SQLite
-//            CREATE TABLE IF NOT EXISTS films (
-//            id INTEGER PRIMARY KEY AUTOINCREMENT,
-//            title TEXT NOT NULL,
-//            year INTEGER NOT NULL
-//            );
-            
-            
+            try (Connection co = DriverManager.getConnection(
+                    "jdbc:sqlite:/home/ivan.fernandezguinde/a_IVAN/a_Programacion/Programacion/sql-java/Myfirstdb.db")) {
+                System.out.println("Conexion realizada con exito");
+
+                String sql = "CREATE TABLE IF NOT EXISTS films (\n"
+                        + "            id INTEGER PRIMARY KEY AUTOINCREMENT,\n"
+                        + "            title TEXT NOT NULL,\n"
+                        + "            year INTEGER NOT NULL\n"
+                        + "            );";
+                try (Statement st = co.createStatement()) {
+                    st.executeUpdate(sql);
+                }
+
+            } catch (SQLException e) {
+                System.out.println("Erro: " + e.getMessage());
+            }
 
             do {
                 // Mostrar o menú
