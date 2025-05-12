@@ -12,17 +12,17 @@ import model.Incidence;
  * @author ivan.fernandezguinde
  */
 public class IncidenceDB {
-    public final static ArrayList<Incidence> incidences = new ArrayList<>();
+    public final static ArrayList<Incidence> incidences = new ArrayList();
     
     
 
     
     public static ArrayList<Incidence> findByUser(String username) {
-        ArrayList<Incidence> matches = new ArrayList<>();
+        ArrayList<Incidence> matches = new ArrayList();
         
         for (Incidence incidence : incidences) {
             if (username.equals(incidence.getSender().getName())) {
-                matches.add(incidence);
+                matches.add(incidences);
             }
         }
         return matches;

@@ -5,7 +5,7 @@
 package persistence;
 
 import model.User;
-import java.sql.Connection;
+
 
 
 /**
@@ -13,16 +13,6 @@ import java.sql.Connection;
  * @author ivan.fernandezguinde
  */
 public class UserDB {
-    public static Connection c = null;
-    
-    public static Connection getConnection() {
-        if (c == null) {
-            
-        }
-        return c;
-    }
-    
-    
     private static User[] users = new User[] {
         new User("antonio", "abc123.", "Antonio", "de Andres", User.ADMIN),
         new User("susana", "abc123.", "Susana", "Alvarez", User.ADMIN),
@@ -33,7 +23,7 @@ public class UserDB {
     
     public static User findByName(String userName) {
         for (User user : users) {
-            if (userName.equals(user.getUsername())) {
+            if (userName.equals(user.getName())) {
                 return user;
             }
         }

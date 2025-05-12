@@ -4,6 +4,7 @@
  */
 package persistence;
 
+import java.util.ArrayList;
 import model.Profile;
 
 /**
@@ -11,6 +12,7 @@ import model.Profile;
  * @author ivan.fernandezguinde
  */
 public class ProfileDB {
+    ArrayList<Profile> profiles = new ArrayList<>();
     
     public static Profile findByName(String name, int numberOfPosts) {
         for (Profile profile : profiles) {

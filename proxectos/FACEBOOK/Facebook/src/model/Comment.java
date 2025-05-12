@@ -26,7 +26,7 @@ public class Comment {
      * @param author 
      * @param post 
      */
-    public Comment(int id, Date date, String text, Profile author, Post post, String text) {
+    public Comment(int id, Date date, String text, Profile author, Post post) {
         this.id = id;
         this.date = date;
         this.text = text;
