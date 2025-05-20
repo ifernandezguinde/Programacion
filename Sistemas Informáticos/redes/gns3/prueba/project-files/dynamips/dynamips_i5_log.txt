@@ -1,0 +1,22 @@
+Dec 05 11:20:40.700 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Dec 05 11:20:40.700 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 58607.
+Dec 05 11:20:40.709 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 05 11:20:40.709 HYPERVISOR: exec_cmd: hypervisor working_dir /home/ivan.fernandezguinde/a_IVAN/Sistemas Informáticos/redes/gns3/prueba/project-files/dynamips 
+Dec 05 11:20:40.709 GENERAL: working_dir=/home/ivan.fernandezguinde/a_IVAN/Sistemas Informáticos/redes/gns3/prueba/project-files/dynamips
+Dec 05 11:20:40.709 HYPERVISOR: exec_cmd: ethsw create Switch2 
+Dec 05 11:20:40.840 HYPERVISOR: exec_cmd: nio create_udp udp-5c483dc6-f422-46ef-baea-074e95876635 10025 127.0.0.1 10024 
+Dec 05 11:20:40.840 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-5c483dc6-f422-46ef-baea-074e95876635 
+Dec 05 11:20:40.860 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-5c483dc6-f422-46ef-baea-074e95876635 1 
+Dec 05 11:20:40.891 HYPERVISOR: exec_cmd: nio create_udp udp-291b2fa2-82b8-43ad-9b29-ccca65e425d7 10027 127.0.0.1 10026 
+Dec 05 11:20:40.891 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-291b2fa2-82b8-43ad-9b29-ccca65e425d7 
+Dec 05 11:20:40.900 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-291b2fa2-82b8-43ad-9b29-ccca65e425d7 1 
+Dec 05 11:20:40.946 HYPERVISOR: exec_cmd: nio create_udp udp-d6aaf63f-0b84-43d9-9c63-b77348f52747 10029 127.0.0.1 10028 
+Dec 05 11:20:40.946 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-d6aaf63f-0b84-43d9-9c63-b77348f52747 
+Dec 05 11:20:40.961 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-d6aaf63f-0b84-43d9-9c63-b77348f52747 1 
+Dec 05 11:21:45.126 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-5c483dc6-f422-46ef-baea-074e95876635 1 
+Dec 05 11:21:45.127 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-291b2fa2-82b8-43ad-9b29-ccca65e425d7 1 
+Dec 05 11:21:45.127 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-d6aaf63f-0b84-43d9-9c63-b77348f52747 1 
+Dec 05 11:23:41.952 HYPERVISOR: exec_cmd: ethsw delete Switch2 
+Dec 05 11:23:42.013 HYPERVISOR: exec_cmd: hypervisor stop 
+Dec 05 11:23:42.436 HYPERVISOR: Stopped.
+Dec 05 11:23:42.436 GENERAL: reset done.

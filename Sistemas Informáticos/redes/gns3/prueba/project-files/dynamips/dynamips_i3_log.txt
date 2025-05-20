@@ -1,0 +1,20 @@
+Dec 05 10:20:20.649 HYPERVISOR: Release 0.2.23-amd64/Linux (tag 2023010200)
+Dec 05 10:20:20.649 HYPERVISOR: Started on IP = 127.0.0.1, TCP port = 36781.
+Dec 05 10:20:20.654 HYPERVISOR: exec_cmd: hypervisor version 
+Dec 05 10:20:20.655 HYPERVISOR: exec_cmd: hypervisor working_dir /home/ivan.fernandezguinde/GNS3/projects/untitled/project-files/dynamips 
+Dec 05 10:20:20.655 GENERAL: working_dir=/home/ivan.fernandezguinde/GNS3/projects/untitled/project-files/dynamips
+Dec 05 10:20:20.655 HYPERVISOR: exec_cmd: ethsw create Switch2 
+Dec 05 10:20:26.743 HYPERVISOR: exec_cmd: nio create_udp udp-a3d316e7-1964-4e70-a3a5-a1c3584af78c 10009 127.0.0.1 10008 
+Dec 05 10:20:26.743 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-a3d316e7-1964-4e70-a3a5-a1c3584af78c 
+Dec 05 10:20:26.759 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-a3d316e7-1964-4e70-a3a5-a1c3584af78c 1 
+Dec 05 10:20:29.942 HYPERVISOR: exec_cmd: nio create_udp udp-36f156a3-2387-4000-8003-e063515a174a 10011 127.0.0.1 10010 
+Dec 05 10:20:29.942 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-36f156a3-2387-4000-8003-e063515a174a 
+Dec 05 10:20:29.958 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-36f156a3-2387-4000-8003-e063515a174a 1 
+Dec 05 10:20:36.406 HYPERVISOR: exec_cmd: nio create_udp udp-54a70dd0-73c3-4ce5-9ac4-ac7b241258e7 10013 127.0.0.1 10012 
+Dec 05 10:20:36.406 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-54a70dd0-73c3-4ce5-9ac4-ac7b241258e7 
+Dec 05 10:20:36.416 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-54a70dd0-73c3-4ce5-9ac4-ac7b241258e7 1 
+Dec 05 11:08:57.045 HYPERVISOR: exec_cmd: nio create_udp udp-3223bd56-555f-48f6-87ae-c4ebf652b309 10021 127.0.0.1 10020 
+Dec 05 11:08:57.045 HYPERVISOR: exec_cmd: ethsw add_nio Switch2 udp-3223bd56-555f-48f6-87ae-c4ebf652b309 
+Dec 05 11:08:57.054 HYPERVISOR: exec_cmd: ethsw set_access_port Switch2 udp-3223bd56-555f-48f6-87ae-c4ebf652b309 1 
+Dec 05 11:09:10.015 HYPERVISOR: exec_cmd: ethsw remove_nio Switch2 udp-3223bd56-555f-48f6-87ae-c4ebf652b309 
+Dec 05 11:09:10.025 HYPERVISOR: exec_cmd: nio delete udp-3223bd56-555f-48f6-87ae-c4ebf652b309 
